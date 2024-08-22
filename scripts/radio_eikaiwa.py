@@ -8,7 +8,7 @@ JST = pytz.timezone('Asia/Tokyo')
 now = datetime.now(JST)
 
 # らじるらじるの放送日取得
-def get_last_week(now_date):
+def get_last_weekdays(now_date):
     last_week = now_date - timedelta(days=7)
     if last_week.weekday() > 4:
         last_week -= timedelta(days=(last_week.weekday() - 4))
@@ -23,5 +23,5 @@ def get_last_week(now_date):
             weekdays.append(last_week + timedelta(days=1))
     return weekdays
 
-for date in weekdays:
+for date in get_last_weekdays(now):
     print(f"放送日は{date}")
