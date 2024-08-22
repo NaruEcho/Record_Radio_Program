@@ -13,15 +13,15 @@ def get_last_weekdays(now_date):
     if last_week.weekday() > 4:
         last_week -= timedelta(days=(last_week.weekday() - 4))
     weekdays = []
-    weekdays.append(last_week)
-    for i in range(4):
+    for _ in range(5):
+        weekdays.append([last_week.year, last_week.month, last_week.day])
         # もし一週間前の最終平日が金曜日なら次の月曜日の日付を取得する
         if last_week.weekday() == 4:
-            weekdays.append(last_week + timedelta(days=3))
+            last_week += timedelta(days=3)
         # 一週間前の最終平日が金曜日以外ならその翌日の日付を取得する
         else:
-            weekdays.append(last_week + timedelta(days=1))
+            last_week += timedelta(days=1)
     return weekdays
 
 for date in get_last_weekdays(now):
-    print(f"放送日は{date}")
+    print(f"放送日は{date[0]}-{date[1]}-{date[2]}")
