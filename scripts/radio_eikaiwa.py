@@ -16,4 +16,12 @@ def get_last_week(now_date):
     if( now_date.weekday > 4 ):
         time_delta = now_date.weekday - 4
     last_week_weekday = now - timedelta(days=7) - timedelta(days=time_delta)
-    return last_week_weekday
+    weekdays = []
+    weekdays.append(last_week_weekday)
+    for i in range(3):
+        if( last_week_weekday.weekday == 4 ):
+            next_weekday = last_week_day + timedelta(days=3)
+        else:
+            next_weekday = last_week_day + timedelta(days=1)
+        weekdays.append(next_weekday)
+    return weekdays
