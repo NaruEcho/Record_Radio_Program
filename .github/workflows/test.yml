@@ -22,9 +22,19 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install portaudio dependencies
-        run:  |
+      - name: Update apt-get
+        run: |
           sudo apt-get update
+
+      - name: Install ALSA and PulseAudio
+        run: |
+          sudo apt-get install -y alsa-utils pulseaudio
+          pulseaudio --start
+          pacmd load-module module-null-sink sink_name=VirtualSink
+          pacmd set-default-sink VirtualSink
+
+      - name: Install portaudio dependencies
+        run: |
           sudo apt-get install -y portaudio19-dev
 
       - name: Install dependencies
