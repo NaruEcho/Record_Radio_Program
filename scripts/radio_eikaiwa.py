@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
-import pytz
+import pytz 
+import os
 
 # 日本時間のタイムゾーンを設定
 JST = pytz.timezone('Asia/Tokyo')
@@ -23,5 +24,12 @@ def get_last_weekdays(now_date):
             last_week += timedelta(days=1)
     return weekdays
 
+
 for date in get_last_weekdays(now):
+    tar_path = f"content/radio_eikaiwa/date[0]/date[1]/date[2].mp3"
+    if os.path.exists(tar_path):
+        date.append(False)
+    else:
+        date.append(True)
     print(f"放送日は{date[0]}-{date[1]}-{date[2]}")
+
