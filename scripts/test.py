@@ -22,6 +22,7 @@ def record_audio(duration, output_file):
                     channels=1,
                     rate=44100,
                     input=True,
+                    input_device_index=0, # 仮想デバイスのID
                     frames_per_buffer=1024)
 
     frames = []
