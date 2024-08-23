@@ -1,10 +1,19 @@
 from selenium import webdriver
+from get_chrome_driver import GetChromeDriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 import pyaudio
 import wave
 import os
+
+get_driver = GetChromeDriver()
+get_driver.install()
+
+def driver_init():
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    return webdriver.Chrome(options=options)
 
 def record_audio(duration, output_file):
     # PyAudio初期化
@@ -40,10 +49,7 @@ def record_audio(duration, output_file):
 
 def main(url, duration, output_file):
     # ChromeDriverのセットアップ
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
-    service = Service(executable_path="chromedriver")
-    driver = webdriver.Chrome(service=service, options=options)
+    driver = driver_init()
 
     try:
         # サイトへアクセス
