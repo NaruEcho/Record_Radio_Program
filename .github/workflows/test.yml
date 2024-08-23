@@ -31,3 +31,13 @@ jobs:
       - name: Record audio
         run: |
           python scripts/test.py
+
+      - name: Pull Requests
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Record Test"
+          title: "Record Radio from Streaming"
+          body: "This is PR adds or updates"
+          branch: record_streaming
+          base: main
