@@ -1,7 +1,5 @@
 from selenium import webdriver
 from get_chrome_driver import GetChromeDriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
 import time
 import pyaudio
 import wave
