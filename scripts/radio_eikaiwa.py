@@ -25,11 +25,12 @@ def get_last_weekdays(now_date):
     return weekdays
 
 
-for date in get_last_weekdays(now):
+for index, date in enumerate(get_last_weekdays(now)):
     tar_path = f"content/radio_eikaiwa/date[0]/date[1]/date[2].mp3"
     if os.path.exists(tar_path):
         date.append(False)
     else:
         date.append(True)
+    # ここでボタンのidタグ検索で取得した配列でTrueの場合のみ、index番目のボタンを押して再生する処理
     print(f"放送日は{date[0]}-{date[1]}-{date[2]}")
 
