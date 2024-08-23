@@ -29,9 +29,12 @@ jobs:
       - name: Set up virtual audio device
         run: |
           sudo apt-get install -y alsa-utils alsa-oss sox
-          sudo modprobe snd-dummy
+          sudo modprobe snd-aloop
           cat /proc/asound/cards
           cat /proc/asound/devices
+        #  sudo modprobe snd-dummy
+        #  cat /proc/asound/cards
+        #  cat /proc/asound/devices
         #  pacmd load-module module-null-sink sink_name=VirtualSink
         #  pacmd set-default-sink VirtualSink
 
