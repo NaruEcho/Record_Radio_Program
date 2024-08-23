@@ -1,2 +1,4 @@
-#chromedriver-binary
 selenium
+get-chrome-driver
+pyaudio
+wave
