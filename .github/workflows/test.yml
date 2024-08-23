@@ -26,12 +26,14 @@ jobs:
         run: |
           sudo apt-get update
 
-      - name: Install ALSA and PulseAudio
+      - name: Set up virtual audio device
         run: |
-          sudo apt-get install -y alsa-utils pulseaudio
-          pulseaudio --start
-          pacmd load-module module-null-sink sink_name=VirtualSink
-          pacmd set-default-sink VirtualSink
+          sudo apt-get install -y alsa-utils alsa-oss sox
+          sudo modprobe snd-dummy
+          cat /proc/asound/cards
+          cat /proc/asound/devices
+        #  pacmd load-module module-null-sink sink_name=VirtualSink
+        #  pacmd set-default-sink VirtualSink
 
       - name: Install portaudio dependencies
         run: |
@@ -39,12 +41,15 @@ jobs:
 
       - name: Install dependencies
         run: |
+          python -m venv venv
+          . venv/bin/activate
           python -m pip install --upgrade pip
           pip install get-chrome-driver --upgrade
           pip install -r scripts/requirement.txt
 
       - name: Record audio
         run: |
+          . venv/bin/activate
           python scripts/test.py
 
       - name: Pull Requests
