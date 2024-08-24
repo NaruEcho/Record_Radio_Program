@@ -46,6 +46,11 @@ jobs:
             echo "Root Kconfig not found, checking subdirectories"
             find . -name Kconfig
           fi
+          if [ -f sound/drivers/dummy/Makefile ]; then
+            echo "sound/drivers/dummy/Makefile found"
+          else
+            echo "sound/drivers/dummy/Makefile not found"
+          fi
           
       - name: Copy custom config
         run: |
@@ -54,13 +59,12 @@ jobs:
           make olddefconfig
       # 事前に作成したconfigを使用して確認
       
-      #- name: List directory structure
-      #  run: |
-      #    cd kernel
-      #    cd linux-6.10.6
-      #    find . -type d -print > directory_structure.log
-      #    find . -type f -print >> directory_structure.log
-      #    cat directory_structure.log
+      - name: List directory structure
+        run: |
+          cd kernel/linux-6.10.6
+          find . -type d -print > directory_structure.log
+          find . -type f -print >> directory_structure.log
+          cat directory_structure.log
 
       - name: Build snd-dummy module
         run: |
