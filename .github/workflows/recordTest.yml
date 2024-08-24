@@ -46,7 +46,14 @@ jobs:
             echo "Root Kconfig not found, checking subdirectories"
             find . -name Kconfig
           fi
-        
+          
+      - name: Copy custom config
+        run: |
+          cp .config kernel/linux-6.10.6/
+          cd kernel/linux-6.10.6
+          make oldconfig
+      # 事前に作成したconfigを使用して確認
+      
       #- name: List directory structure
       #  run: |
       #    cd kernel
@@ -57,10 +64,9 @@ jobs:
 
       - name: Build snd-dummy module
         run: |
-          make menuconfig
+          cd kernel/linux-6.10.6
           make prepare
           make modules_prepare
-          cd sound/core
           make M=sound/drivers/dummy
           sudo make M=sound/drivers/dummy modules_install
 
