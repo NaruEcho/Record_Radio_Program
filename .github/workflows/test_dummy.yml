@@ -16,21 +16,51 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Install Linux kernel and source
+      - name: Set up environment
         run: |
           sudo apt-get update
-          sudo apt-get install -y linux-headers-$(uname -r)
+          sudo apt-get install -y build-essential libncurses-dev bison flex libssl-dev
+
+      - name: Clone Linux kernel source
+        run: |
+          git clone https://github.com/torvalds/linux.git
+          cd linux
+          git checkout $(uname -r)
+      # Check out the kernel version matching the runner
+
+      - name: Prepare kernel source
+        run: |
+          cd linux
+          make oldconfig
+          make prepare
+          make modules_prepare
+
+      - name: Build snd-dummy module
+        run: |
+          cd linux
+          make M=sound/core
+
+      - name: Install snd-dummy module
+        run: |
+          sudo cp linux/sound/core/snd-dummy.ko /lib/modules/$(uname -r)/kernel/sound/core/
+          sudo depmod -a
+          sudo modprobe snd-dummy
+
+      - name: Verify dummy sound card
+        run: |
+          aplay -L
+
 
       #- name: Set up Python
       #  uses: actions/setup-python@v5
       #  with:
       #    python-version: '3.x'
         
-      - name: Set up the dummy sound card
-        run: |
-          sudo modprobe snd-dummy
-          echo "pcm.!default { type hw card 0 }" | sudo tee /etc/asound.conf
-          echo "ctl.!default { type hw card 0 }" | sudo tee -a /etc/asound.conf
+      #- name: Set up the dummy sound card
+      #  run: |
+      #    sudo modprobe snd-dummy
+      #    echo "pcm.!default { type hw card 0 }" | sudo tee /etc/asound.conf
+      #    echo "ctl.!default { type hw card 0 }" | sudo tee -a /etc/asound.conf
           
       - name: Install necessary packages
         run: |
