@@ -51,7 +51,7 @@ jobs:
         run: |
           cp .config kernel/linux-6.10.6/
           cd kernel/linux-6.10.6
-          make oldconfig
+          make olddefconfig
       # 事前に作成したconfigを使用して確認
       
       #- name: List directory structure
