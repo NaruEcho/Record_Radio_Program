@@ -11,6 +11,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: sound-ci-helper
+      - name: sound-ci-setup
         uses: LABSN/sound-ci-helpers@v1
           
