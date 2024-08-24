@@ -46,7 +46,7 @@ jobs:
             echo "Root Kconfig not found, checking subdirectories"
             find . -name Kconfig
           fi
-          if [ -f sound/drivers/dummy/Makefile ]; then
+          if [ -f sound/drivers/Makefile ]; then
             echo "sound/drivers/Makefile found"
           else
             echo "sound/drivers/Makefile not found"
