@@ -75,9 +75,9 @@ jobs:
           sudo make M=sound/drivers modules_install
 	  
       - name: List available sound devices
-      	run: |
-       	  arecord -L
-
+        run: |
+          arecord -L
+	  
       - name: Record audio
         run: |
           arecord -D dummy -f cd -t wav -d 10 -r 44100 Peak_test_A.wav
