@@ -47,9 +47,9 @@ jobs:
             find . -name Kconfig
           fi
           if [ -f sound/drivers/dummy/Makefile ]; then
-            echo "sound/drivers/dummy/Makefile found"
+            echo "sound/drivers/Makefile found"
           else
-            echo "sound/drivers/dummy/Makefile not found"
+            echo "sound/drivers/Makefile not found"
           fi
           
       - name: Copy custom config
@@ -71,8 +71,8 @@ jobs:
           cd kernel/linux-6.10.6
           make prepare
           make modules_prepare
-          make M=sound/drivers/dummy
-          sudo make M=sound/drivers/dummy modules_install
+          make M=sound/drivers
+          sudo make M=sound/drivers modules_install
 
       - name: Load snd-dummy module
         run: |
