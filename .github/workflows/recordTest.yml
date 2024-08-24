@@ -29,6 +29,16 @@ jobs:
           tar -xJf linux-6.10.6.tar.xz
           cd linux-6.10.6
 
+      - name: Verify Makefile existence in root
+        run: |
+          cd kernel/linux-6.10.6
+          if [ -f Makefile ]; then
+            echo "Root Makefile found"
+          else
+            echo "Root Makefile not found, checking subdirectories"
+            find . -name Makefile
+          fi
+        
       - name: List directory structure
         run: |
           cd kernel
