@@ -31,7 +31,7 @@ jobs:
 
       - name: Prepare kernel source
         run: |
-          make oldconfig
+          make defconfig
           make prepare
           make module_prepare
 
