@@ -40,13 +40,14 @@ jobs:
       - name: Record audio
         run: |
           # 録音するファイル名を指定してください
+          arecord -D hw:0,0 -f cd -t wav -d 10 Peak_test_A.wav
           
-      - name: Pull Requests
-        uses: peter-evans/create-pull-requests@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "This is dummy environment record test"
-          title: "Record test"
-          body: "this is PR adds"
-          branch: record_dummy
-          base: main
+      #- name: Pull Requests
+      #  uses: peter-evans/create-pull-requests@v6
+      #  with:
+      #    token: ${{ secrets.GITHUB_TOKEN }}
+      #    commit-message: "This is dummy environment record test"
+      #    title: "Record test"
+      #    body: "this is PR adds"
+      #    branch: record_dummy
+      #    base: main
