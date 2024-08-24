@@ -1,0 +1,52 @@
+name: Record Audio in dummy environment
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      #- name: Set up Python
+      #  uses: actions/setup-python@v5
+      #  with:
+      #    python-version: '3.x'
+        
+      - name: Set up the dummy sound card
+        run: |
+          sudo modprobe snd-dummy
+          echo "pcm.!default { type hw card 0 }" | sudo tee /etc/asound.conf
+          echo "ctl.!default { type hw card 0 }" | sudo tee -a /etc/asound.conf
+          
+      - name: Install necessary packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y alsa-utils
+
+      #- name: Install dependence
+      #  run: |
+      #    sudo apt-get install -y portaudio19-dev
+      #    python -m pip install 
+
+      - name: Record audio
+        run: |
+          # 録音するファイル名を指定してください
+          
+      - name: Pull Requests
+        uses: peter-evans/create-pull-requests@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "This is dummy environment record test"
+          title: "Record test"
+          body: "this is PR adds"
+          branch: record_dummy
+          base: main
