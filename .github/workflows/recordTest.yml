@@ -74,10 +74,6 @@ jobs:
           make M=sound/drivers
           sudo make M=sound/drivers modules_install
 
-      #- name: Load snd-dummy module
-      #  run: |
-      #    sudo modprobe snd-dummy
-
 			- name: List available sound devices
 				run: |
 					arecord -L
