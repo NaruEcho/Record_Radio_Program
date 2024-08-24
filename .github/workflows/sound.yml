@@ -1,4 +1,4 @@
-name: Sound CI helper
+name: Sound CI Test
 
 on:
   workflow_dispatch:
