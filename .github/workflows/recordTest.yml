@@ -1,0 +1,58 @@
+name: Record Audio in dummy enironment test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libncurses-dev bison flex libssl-dev
+
+      - name: Download kernel source
+        run: |
+          mkdir -p kernel
+          cd kernel
+          wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.10.6.tar.xz
+          tar -xJf linux-6.10.6.tar.xz
+          cd linux-6.10.6
+
+      - name: Prepare kernel source
+        run: |
+          make oldconfig
+          make prepare
+          make module_prepare
+
+      - name: Build snd-dummy module
+        run: |
+          make M=sound/core
+
+      - name: Install snd-dummy module
+        run: |
+          sudo cp sound/core/snd-dummy.ko /lib/modules/$(uname -r)/kernel/sound/core/
+          sudo depmod -a
+          sudo modprobe snd-dummy
+
+      - name: Verify dummy sound card
+        run: |
+          aplay -L
+
+      - name: Install necessary packages
+        run: |
+          sudo apt-get install -y alsa-utils
+
+      - name: Record audio
+        run: |
+          arecord -D hw:0,0 -f cd -t wav -d 10 Peak_test_A.wav
