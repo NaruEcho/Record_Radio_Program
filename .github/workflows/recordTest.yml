@@ -31,7 +31,8 @@ jobs:
 
       - name: Prepare kernel source
         run: |
-          make defconfig
+          make mrproper
+          cp /boot/config-$(uname -r) .config || true
           make prepare
           make module_prepare
 
