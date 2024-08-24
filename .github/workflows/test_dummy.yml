@@ -16,6 +16,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Install Linux kernel and source
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y linux-headers-$(uname -r)
+
       #- name: Set up Python
       #  uses: actions/setup-python@v5
       #  with:
@@ -29,7 +34,6 @@ jobs:
           
       - name: Install necessary packages
         run: |
-          sudo apt-get update
           sudo apt-get install -y alsa-utils
 
       #- name: Install dependence
