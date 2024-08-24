@@ -31,6 +31,7 @@ jobs:
 
       - name: List directory structure
         run: |
+          cd kernel
           cd linux-6.10.6
           find . -type d -print > directory_structure.log
           find . -type f -print >> directory_structure.log
