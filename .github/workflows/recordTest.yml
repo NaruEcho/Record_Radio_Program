@@ -59,12 +59,12 @@ jobs:
           make olddefconfig
       # 事前に作成したconfigを使用して確認
       
-      - name: List directory structure
-        run: |
-          cd kernel/linux-6.10.6
-          find . -type d -print > directory_structure.log
-          find . -type f -print >> directory_structure.log
-          cat directory_structure.log
+      #- name: List directory structure
+      #  run: |
+      #    cd kernel/linux-6.10.6
+      #    find . -type d -print > directory_structure.log
+      #    find . -type f -print >> directory_structure.log
+      #    cat directory_structure.log
 
       - name: Build snd-dummy module
         run: |
@@ -74,9 +74,9 @@ jobs:
           make M=sound/drivers
           sudo make M=sound/drivers modules_install
 
-      - name: Load snd-dummy module
-        run: |
-          sudo modprobe snd-dummy
+      #- name: Load snd-dummy module
+      #  run: |
+      #    sudo modprobe snd-dummy
 
       - name: Record audio
         run: |
