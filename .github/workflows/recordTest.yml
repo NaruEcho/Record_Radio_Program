@@ -70,8 +70,9 @@ jobs:
       - name: Build snd-dummy module
         run: |
           cd kernel/linux-6.10.6
+          make modules_prepare
           make M=sound/drivers
-          sudo make M=sound/drivers modules_install
+          sudo make modules_install
 
       - name: Check environment and display module information
         run: |
