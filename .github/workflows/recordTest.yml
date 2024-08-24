@@ -52,7 +52,7 @@ jobs:
             echo "sound/drivers/Makefile not found"
           fi
           
-      - name: Copy custom config
+      - name: Copy custom config and build linux kernel
         run: |
           cp .config kernel/linux-6.10.6/
           cd kernel/linux-6.10.6
@@ -67,18 +67,17 @@ jobs:
       #    find . -type f -print >> directory_structure.log
       #    cat directory_structure.log
 
-      - name: Build snd-dummy module
-        run: |
-          cd kernel/linux-6.10.6
-          make prepare
-          make modules_prepare
-          make M=sound/drivers
-          sudo make M=sound/drivers modules_install
+      #- name: Build snd-dummy module
+      #  run: |
+      #    cd kernel/linux-6.10.6
+      #    make prepare
+      #    make modules_prepare
+      #    make M=sound/drivers
+      #    sudo make M=sound/drivers modules_install
 
       - name: Check environment and display module information
         run: |
           cd kernel/linux-6.10.6
-          ls sound/drivers
           modinfo sound/drivers/snd-dummy.ko
           arecord -L
 
