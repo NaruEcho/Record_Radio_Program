@@ -74,8 +74,11 @@ jobs:
           make M=sound/drivers
           sudo make M=sound/drivers modules_install
 
-      - name: List available sound devices
+      - name: Check environment and display module information
         run: |
+          cd kernel/linux-6.10.6
+          ls -l sound/drivers/*.ko
+          modinfo sound/drivers/snd-dummy.ko
           arecord -L
 
       - name: Record audio
