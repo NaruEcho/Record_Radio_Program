@@ -1,13 +1,9 @@
 #!/usr/bin/env python
 import ffmpeg
-import sys
+import argparse
 import os
 
-def record_audio(
-  url='https://radio-stream.nhk.jp/hls/live/2023501/nhkradiruakr2/master.m3u8',
-  length=2,
-  save_file_path='test_weather',
-  record_type='mp3'):
+def record_audio(url, length, save_file_path, record_type):
     stream = ffmpeg.input(url, t=length*60)
     stream = ffmpeg.output(stream, save_file_path, format=record_type)
     ffmpeg.run(stream)
@@ -30,3 +26,38 @@ def rename_audio_filename(original_file_path, file_format):
   # 新しいファイル名を生成
   new_file_name = f"{base_name}{extension}"
   return new_file_name
+
+
+if __name__ == "__main__":
+  parser = argparse.ArgumentParser(description="Record audio from a stream URL.")
+  # コマンドライン引数の定義
+  parser.add_argument("-u", 
+                      "--url", 
+                      type=str, 
+                      default='https://radio-stream.nhk.jp/hls/live/2023501/nhkradiruakr2/master.m3u8', 
+                      help="Stream URL to record from (default: NHK stream)."
+                     )
+  parser.add_argument("-l",
+                      "--length",
+                      type=int,
+                      default=2,
+                      help="Length of the recording in minutes (default: 2)."
+                     )
+  parser.add_argument("-s",
+                      "--save_file_path",
+                      type=str,
+                      default='test_weather',
+                      help="File path (except extension) to save the recording (default: 'test_weather')."
+                     )
+  parser.add_argument("-rt",
+                      "--record_type",
+                      type=str,
+                      default='mp3',
+                      help="Select audio format."
+                     )
+
+# コマンドライン引数の解析
+args = parser.paese_args()
+
+# 録音を実行
+record_audio(args.url, args.length, args.save_file_path, args.record_type)
