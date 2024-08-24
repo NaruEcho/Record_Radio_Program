@@ -27,25 +27,25 @@ jobs:
           cd kernel
           wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.10.6.tar.xz
           tar -xJf linux-6.10.6.tar.xz
-          cd linux
+          cd linux-6.10.6
           git checkout $(uname -r)
       # Check out the kernel version matching the runner
 
       - name: Prepare kernel source
         run: |
-          cd linux
+          cd linux-6.10.6
           make oldconfig
           make prepare
           make modules_prepare
 
       - name: Build snd-dummy module
         run: |
-          cd linux
+          cd linux-6.10.6
           make M=sound/core
 
       - name: Install snd-dummy module
         run: |
-          sudo cp linux/sound/core/snd-dummy.ko /lib/modules/$(uname -r)/kernel/sound/core/
+          sudo cp linux-6.10.6/sound/core/snd-dummy.ko /lib/modules/$(uname -r)/kernel/sound/core/
           sudo depmod -a
           sudo modprobe snd-dummy
 
