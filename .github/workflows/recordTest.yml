@@ -29,6 +29,13 @@ jobs:
           tar -xJf linux-6.10.6.tar.xz
           cd linux-6.10.6
 
+      - name: List directory structure
+        run: |
+          cd linux-6.10.6
+          find . -type d -print > directory_structure.log
+          find . -type f -print >> directory_structure.log
+          cat directory_structure.log
+
       - name: Build snd-dummy module
         run: |
           make menuconfig
