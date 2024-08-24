@@ -19,7 +19,7 @@ jobs:
       - name: Set up environment
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential libncurses-dev bison flex libssl-dev
+          sudo apt-get install -y build-essential libncurses-dev bison flex libssl-dev linux-headers
 
       - name: Download kernel source
         run: |
@@ -29,31 +29,19 @@ jobs:
           tar -xJf linux-6.10.6.tar.xz
           cd linux-6.10.6
 
-      - name: Prepare kernel source
-        run: |
-          make mrproper
-          cp /boot/config-$(uname -r) .config || true
-          make prepare
-          make module_prepare
-
       - name: Build snd-dummy module
         run: |
-          make M=sound/core
+          make menuconfig
+          make prepare
+          make modules_prepare
+          cd sound/core
+          make M=sound/drivers/dummy
+          sudo make M=sound/drivers/dummy modules_install
 
-      - name: Install snd-dummy module
+      - name: Load snd-dummy module
         run: |
-          sudo cp sound/core/snd-dummy.ko /lib/modules/$(uname -r)/kernel/sound/core/
-          sudo depmod -a
           sudo modprobe snd-dummy
-
-      - name: Verify dummy sound card
-        run: |
-          aplay -L
-
-      - name: Install necessary packages
-        run: |
-          sudo apt-get install -y alsa-utils
 
       - name: Record audio
         run: |
-          arecord -D hw:0,0 -f cd -t wav -d 10 Peak_test_A.wav
+          arecord -D dummy -f cd -t wav -d 10 -r 44100 Peak_test_A.wav
