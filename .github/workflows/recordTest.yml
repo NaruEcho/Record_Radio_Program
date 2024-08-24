@@ -73,11 +73,10 @@ jobs:
           make modules_prepare
           make M=sound/drivers
           sudo make M=sound/drivers modules_install
-
-			- name: List available sound devices
-				run: |
-					arecord -L
-
+	  
+      - name: List available sound devices
+      	run: |
+       	  arecord -L
 
       - name: Record audio
         run: |
