@@ -77,7 +77,7 @@ jobs:
       - name: Check environment and display module information
         run: |
           cd kernel/linux-6.10.6
-          ls -l sound/drivers/*.ko
+          ls sound/drivers
           modinfo sound/drivers/snd-dummy.ko
           arecord -L
 
