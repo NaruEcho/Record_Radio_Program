@@ -38,14 +38,20 @@ jobs:
             echo "Root Makefile not found, checking subdirectories"
             find . -name Makefile
           fi
+          if [ -f Kconfig ]; then
+            echo "Root Kconfig found"
+          else
+            echo "Root Kconfig not found, checking subdirectories"
+            find . -name Kconfig
+          fi
         
-      - name: List directory structure
-        run: |
-          cd kernel
-          cd linux-6.10.6
-          find . -type d -print > directory_structure.log
-          find . -type f -print >> directory_structure.log
-          cat directory_structure.log
+      #- name: List directory structure
+      #  run: |
+      #    cd kernel
+      #    cd linux-6.10.6
+      #    find . -type d -print > directory_structure.log
+      #    find . -type f -print >> directory_structure.log
+      #    cat directory_structure.log
 
       - name: Build snd-dummy module
         run: |
