@@ -1,0 +1,30 @@
+name: Record Stream Radio Eikaiwa
+
+on:
+  workflow_dispatch:
+
+jobs:
+  record_stream:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up ChromeDriver
+      uses: nanasess/setup-chromedriver@v1
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libasound2-dev
+        sudo apt-get install -y chromium-browser
+        python -m pip install --upgrade pip
+        pip install selenium soundcard soundfile
+
+    - name: Run stream recording script
+      run: |
+        sudo modprobe snd-aloop
+        python your_script.py
