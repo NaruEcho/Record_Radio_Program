@@ -34,5 +34,4 @@ jobs:
 
     - name: Run stream recording script
       run: |
-        sudo modprobe snd-aloop
-        python your_script.py
+        python scripts/radio_eikaiwa.py -l 15
