@@ -79,7 +79,7 @@ if __name__ == "__main__":
                         "--length",
                         type=int,
                         nargs='?',
-                        default=2,
+                        default=1,
                         help="Length of the recording in minutes (default: 2)."
                         )
     
