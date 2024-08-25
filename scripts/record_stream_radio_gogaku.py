@@ -14,6 +14,8 @@ def driver_init():
 
 def record_audio(url, length, save_file_path, record_type):
     save_file_path = rename_audio_filename(save_file_path, record_type)
+    driver = driver_init()
+    driver.get(url)
     """
     try:
         # ヘッダーを設定
