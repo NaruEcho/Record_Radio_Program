@@ -38,12 +38,9 @@ def process_time(tar_time_str, nowTime):
             else:
                 # 時間差計算
                 time_diff = tar_time_str - nowTime
-                # 差を分単位に変換
+                # 差を秒単位に変換
                 total_seconds = time_diff.total_seconds()
-                total_minutes = total_seconds / 60
-                # 小数点以下を切り上げ
-                rounded_minutes = math.ceil(total_minutes)
-                return rounded_minutes
+                return total_seconds
         except Exception as e:
             print(f"Invalid time format: {time_str}, {e}.")
             return False
@@ -103,13 +100,13 @@ if __name__ == "__main__":
     
     # 日本時間のタイムゾーンを設定
     JST = pytz.timezone('Asia/Tokyo')
+    
     # 現在の日本時間の年、月、日、曜日を取得
     now = datetime.now(JST)
-
-
-# コマンドライン引数の解析
-args = parser.paese_args()
-
-# 録音を実行
-run_recording(args.url, args.length, args.save_file_path, args.record_type)
+    
+    # コマンドライン引数の解析
+    args = parser.paese_args()
+    
+    # 録音を実行
+    run_recording(args.url, args.length, args.save_file_path, args.record_type)
 
