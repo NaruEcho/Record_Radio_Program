@@ -1,5 +1,10 @@
 name: Record Stream Test
 
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
 on:
   workflow_dispatch:
 
