@@ -76,6 +76,7 @@ def rename_audio_filename(original_file_path, file_format):
 
 
 if __name__ == "__main__":
+    # selenium ChromeDriver設定
     get_driver = GetChromeDriver()
     get_driver.install()
     parser = argparse.ArgumentParser(description="Record audio from a stream URL.")
