@@ -19,7 +19,19 @@ def run_recording(url, length, save_file_path, record_type):
         '-rt',
         record_type
     ]
-    subprocess.run(command, check=True)
+    try:
+        result = subprocess.run(
+            command,
+            capture_output=True, 
+            text=True, 
+            check=True
+        )
+        print(f"Standard Output: {result.stdout}")
+        print(f"Standard Error: {result.stderr}")
+    except subprocess.CalledProcessError as e:
+        print(f"Command failed with exit code {e.returncode}")
+        print(f"Standard Output: {e.stdout}")
+        print(f"Standard Error: {e.stderr}")
 
 def process_time(tar_time_str, now_time):
     if tar_time_str == "now":
