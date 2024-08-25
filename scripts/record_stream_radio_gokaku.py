@@ -4,6 +4,7 @@ import argparse
 import os
 
 def record_audio(url, length, save_file_path, record_type):
+    save_file_path = rename_audio_filename(save_file_path, record_type)
     stream = ffmpeg.input(url, t=length*60)
     stream = ffmpeg.output(stream, save_file_path, format=record_type)
     ffmpeg.run(stream)
@@ -34,24 +35,28 @@ if __name__ == "__main__":
   parser.add_argument("-u", 
                       "--url", 
                       type=str, 
+                      nargs='?',
                       default='https://radio-stream.nhk.jp/hls/live/2023501/nhkradiruakr2/master.m3u8', 
                       help="Stream URL to record from (default: NHK stream)."
                      )
   parser.add_argument("-l",
                       "--length",
                       type=int,
+                      nargs='?',
                       default=2,
                       help="Length of the recording in minutes (default: 2)."
                      )
   parser.add_argument("-s",
                       "--save_file_path",
                       type=str,
-                      default='test_weather',
+                      nargs='?',
+                      default='test_record',
                       help="File path (except extension) to save the recording (default: 'test_weather')."
                      )
   parser.add_argument("-rt",
                       "--record_type",
                       type=str,
+                      nargs='?',
                       default='mp3',
                       help="Select audio format."
                      )
