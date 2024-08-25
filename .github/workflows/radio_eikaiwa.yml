@@ -34,4 +34,4 @@ jobs:
 
     - name: Run stream recording script
       run: |
-        python scripts/radio_eikaiwa.py -l 15
+        python scripts/radio_eikaiwa.py -l 15 -c
