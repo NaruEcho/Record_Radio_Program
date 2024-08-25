@@ -15,21 +15,40 @@ def driver_init():
     options.add_argument('--headless')
     return webdriver.Chrome(options=options)
 
-def record_audio(url, length, save_file_path, record_type):
+def record_audio(length, save_file_path):
     try:
-        #sample_rate = 44100  # サンプルレート
-        save_file_path = rename_audio_filename(save_file_path, record_type)
-        #driver = driver_init()
-        #driver.get(url)
-        #print("Recording...")
+        CHUNK = 1024
+        FORMAT = pyaudio.paInt16
+        CHANNELS = 2
+        RATE = 44100
         JST = pytz.timezone('Asia/Tokyo')
         nowRecord = datetime.now(JST)
         print(f"Start recording in {nowRecord}")
-        #recording = sd.rec(int(length * sample_rate), samplerate=sample_rate, channels=2, dtype='int16')
-        #sd.wait()  # 録音完了まで待機
-        #sf.write(save_file_path, recording, sample_rate)
+        p = pyaudio.PyAudio()
+        stream = p.open(format=FORMAT,
+                        channels=CHANNELS,
+                        rate=RATE,
+                        input=True,
+                        frames_per_buffer=CHUNK
+                       )
+        print("* recording")
+        frames = []
+        for _ in range(0, int(RATE / CHUNK * length)):
+            data = stream.read(CHUNK)
+            frames.append(data)
+        print("* done recording")
+        stream.stop_stream()
+        stream.close()
+        p.terminate()
+        wav_output = save_file_path + ".wav"
+        wf = wave.open(wav_output, 'wb')
+        wf.setnchannels(CHANNELS)
+        wf.setsampwidth(p.get_sample_size(FORMAT))
+        wf.setframerate(RATE)
+        wf.writeframes(b''.join(frames))
+        wf.close()
         print("Recording saved to", save_file_path)
-        #driver.quit()
+        return wav_output
     except Exception as e:
         print(f"Error: {e}")
         raise
@@ -53,6 +72,23 @@ def rename_audio_filename(original_file_path, file_format):
     new_file_name = f"{base_name}{extension}"
     return new_file_name
 
+def convert_audio_format(wav_file, format):
+    audio = AudioSegment.from_wav(wav_file)
+    output_file_with_ext = rename_audio_filename(wav_file, format)
+    audio.export(output_file_with_ext, format=format)
+    print(f"Converted to {output_file_with_ext}")
+    return output_file_with_ext
+
+def main(url, record_seconds, output_filename, output_format):
+    driver = driver_init
+    driver.get(url)
+    time.sleep(5) # ブラウザがストリーミングを読み込むまでの予備待機時間
+    wav_file = record_audio(record_seconds, output_filename)
+    driver.quit()
+    if output_format != "wav":
+        convert_file = convert_audio_format(wav_file, output_format)
+        os.remove(wav_file) # コンバート後にwavファイルを削除
+        print(f"Deleted the original WAV file: {wav_file}")
 
 if __name__ == "__main__":
     # selenium ChromeDriver設定
@@ -91,4 +127,4 @@ if __name__ == "__main__":
     # コマンドライン引数の解析
     args = parser.parse_args()
     # 録音を実行
-    record_audio(args.url, args.length, args.save_file_path, args.record_type)
+    main(args.url, args.length, args.save_file_path, args.record_type)
