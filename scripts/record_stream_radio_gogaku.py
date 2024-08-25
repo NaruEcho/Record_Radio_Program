@@ -67,6 +67,8 @@ def rename_audio_filename(original_file_path, file_format):
 
 
 if __name__ == "__main__":
+    get_driver = GetChromeDriver()
+    get_driver.install()
     parser = argparse.ArgumentParser(description="Record audio from a stream URL.")
     # コマンドライン引数の定義
     parser.add_argument("-u", 
