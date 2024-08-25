@@ -25,12 +25,6 @@ jobs:
       - name: sound-ci-setup
         uses: LABSN/sound-ci-helpers@v1
 
-      - name: Set up PulseAudio
-        run: |
-          sudo apt-get install -y pulseaudio pulseaudio-module-null-sink pulseaudio-module-alsa
-          pactl load-module module-null-sink sink_name=auto_null sink_properties=device.description="Dummy_Output"
-          pactl load-module module-remap-sink sink_name=auto_null_remap master=auto_null
-
       - name: List audio devices
         run: |
           python -c "import sounddevice as sd; print(sd.query_devices())"
