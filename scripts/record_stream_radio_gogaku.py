@@ -1,14 +1,30 @@
 #!/usr/bin/env python
 import ffmpeg
+import requests
 import argparse
 import os
 
 def record_audio(url, length, save_file_path, record_type):
     save_file_path = rename_audio_filename(save_file_path, record_type)
     try:
-        stream = ffmpeg.input(url, t=length*60)
+        # ヘッダーを設定
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        # ストリートを取得
+        response = requests.get(url, headers=headers, stream=True)
+        if response.status_code != 200:
+            raise ValueError(f"Failed to get stream: HTTP {response.status_code}")
+        # 一時ファイルにストリームを書き込む
+        temp_file = 'temp_stream.ts'
+        with open(temp_file, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+        # ffmpegで録音する
+        stream = ffmpeg.input(temp_file, t=length*60)
         stream = ffmpeg.output(stream, save_file_path, format=record_type)
         ffmpeg.run(stream)
+        os.remove(temp_file)
     except ffmpeg.Error as e:
         print(f"Error occurred during recording: {e}")
         raise
