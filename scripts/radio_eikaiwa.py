@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, strptime
 import pytz 
 import os
 import argparse
@@ -47,6 +47,16 @@ def run_recording(url, length, save_file_path, record_type):
         record_type
     ]
     subprocess.run(command, check=True)
+
+def process_time(time_str, deltaTime):
+    if time_str == "now":
+        exe_time_delta = 0
+        return exe_time_delta
+    else:
+        try:
+            return strptime(time_str, "%H:%M:%S")
+        except ValueError:
+            raise ValueError(f"Invalid time format: {time_str}")
 
 
 if __name__ == "__main__":
