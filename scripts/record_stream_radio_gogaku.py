@@ -12,7 +12,7 @@ def record_audio(url, length, save_file_path, record_type):
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'}
         # ストリートを取得
         response = requests.get(url, headers=headers, stream=True)
-        print(response.json())
+        #print(response.json())
         if response.status_code == 200:
             with open(save_file_path, 'wb') as file:
                 start_time = time.time()
