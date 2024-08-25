@@ -13,7 +13,7 @@ def run_recording(url, length, save_file_path, record_type):
         '-u',
         url,
         '-l',
-        int(length),
+        str(length),
         '-s',
         save_file_path,
         '-rt',
