@@ -3,6 +3,7 @@ import ffmpeg
 import requests
 import argparse
 import time
+import pytz
 import os
 from get_chrome_driver import GetChromeDriver
 from selenium import webdriver
@@ -21,6 +22,9 @@ def record_audio(url, length, save_file_path, record_type):
         driver = driver_init()
         driver.get(url)
         print("Recording...")
+        JST = pytz.timezone('Asia/Tokyo')
+        nowRecord = datetime.now(JST)
+        print(f"Start recording in {nowRecord}")
         recording = sd.rec(int(length * sample_rate), samplerate=sample_rate, channels=2, dtype='int16')
         sd.wait()  # 録音完了まで待機
         sf.write(save_file_path, recording, sample_rate)
