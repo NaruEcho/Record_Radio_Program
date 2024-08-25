@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  record_stream:
+  sound-recording:
     runs-on: ubuntu-latest
 
     steps:
