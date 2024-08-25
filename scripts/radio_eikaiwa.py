@@ -4,6 +4,7 @@ import os
 import argparse
 import subprocess
 import math
+import time
 
 def run_recording(url, length, save_file_path, record_type):
     command = [
@@ -106,7 +107,19 @@ if __name__ == "__main__":
     
     # コマンドライン引数の解析
     args = parser.paese_args()
-    
-    # 録音を実行
-    run_recording(args.url, args.length, args.save_file_path, args.record_type)
+
+    # 待機時間計算
+    delta_result = process_time(args.execution_time, now)
+    if delta_result == 0:
+        # 録音を即時実行
+        run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
+    elif delta_result:
+        delay = delta_result - args.buffer_time
+        if delay <= 0:
+            # 録音を即時実行
+            run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
+        else:
+            # 録音をdelay秒待ってから録音を実行
+            time.sleep(delay)
+            run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
 
