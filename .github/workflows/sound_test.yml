@@ -19,10 +19,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install sounddevice
+          sudo apt-get update
+          sudo apt-get install -y python3-pyaudio python3-pydub pulseaudio
 
       - name: sound-ci-setup
         uses: LABSN/sound-ci-helpers@v1
+
+      - name: Set up PulseAudio
+        run: |
+          sudo apt-get install -y pulseaudio pulseaudio-module-null-sink pulseaudio-module-alsa
+          pactl load-module module-null-sink sink_name=auto_null sink_properties=device.description="Dummy_Output"
+          pactl load-module module-remap-sink sink_name=auto_null_remap master=auto_null
 
       - name: List audio devices
         run: |
@@ -35,5 +42,12 @@ jobs:
       - name: Test audio input
         run: |
           python -c "import sounddevice as sd; print('Input devices:', [d for d in sd.query_devices() if d['max_input_channels'] > 0])"
-          
+
+      - name: Print PulseAudio Info
+        run: |
+          pactl list sinks
+          pactl list sources
+
+      - name: List files
+        run: ls -l
           
