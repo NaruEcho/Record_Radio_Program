@@ -6,3 +6,4 @@ sounddevice
 soundfile
 ffmpeg-python
 requests
+pyaudio
