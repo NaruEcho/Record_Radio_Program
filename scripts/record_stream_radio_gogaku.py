@@ -15,9 +15,20 @@ def driver_init():
     return webdriver.Chrome(options=options)
 
 def record_audio(url, length, save_file_path, record_type):
-    save_file_path = rename_audio_filename(save_file_path, record_type)
-    driver = driver_init()
-    driver.get(url)
+    try:
+        sample_rate = 44100  # サンプルレート
+        save_file_path = rename_audio_filename(save_file_path, record_type)
+        driver = driver_init()
+        driver.get(url)
+        print("Recording...")
+        recording = sd.rec(int(length * sample_rate), samplerate=sample_rate, channels=2, dtype='int16')
+        sd.wait()  # 録音完了まで待機
+        sf.write(save_file_path, recording, sample_rate)
+        print("Recording saved to", save_file_path)
+        driver.quit()
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
     """
     try:
         # ヘッダーを設定
@@ -92,8 +103,8 @@ if __name__ == "__main__":
                         "--length",
                         type=int,
                         nargs='?',
-                        default=10,
-                        help="Length of the recording in seconds (default: 10)."
+                        default=50,
+                        help="Length of the recording in seconds (default: 50)."
                         )
     parser.add_argument("-s",
                         "--save_file_path",
