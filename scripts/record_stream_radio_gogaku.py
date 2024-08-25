@@ -7,6 +7,11 @@ import os
 from get_chrome_driver import GetChromeDriver
 from selenium import webdriver
 
+def driver_init():
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    return webdriver.Chrome(options=options)
+
 def record_audio(url, length, save_file_path, record_type):
     save_file_path = rename_audio_filename(save_file_path, record_type)
     """
