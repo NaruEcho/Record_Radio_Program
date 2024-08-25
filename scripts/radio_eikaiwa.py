@@ -9,7 +9,7 @@ import time
 def run_recording(url, length, save_file_path, record_type):
     command = [
         'python',
-        'scripts/record_stream_radio_gokaku.py',
+        'scripts/record_stream_radio_gogaku.py',
         '-u',
         url,
         '-l',
