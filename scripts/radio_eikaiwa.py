@@ -13,7 +13,7 @@ def run_recording(url, length, save_file_path, record_type):
         '-u',
         url,
         '-l',
-        str(length),
+        int(length),
         '-s',
         save_file_path,
         '-rt',
@@ -50,6 +50,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Record audio from a stream URL.")
     
     # コマンドライン引数の定義
+    parser.add_argument("-c",
+                        action='store_true',
+                        help="If set, change the default save file path."
+                       )
+    
     parser.add_argument("-u", 
                         "--url", 
                         type=str, 
@@ -70,8 +75,8 @@ if __name__ == "__main__":
                         "--save_file_path",
                         type=str,
                         nargs='?',
-                        default='test_weather',
-                        help="File path (except extension) to save the recording (default: 'test_weather')."
+                        default='test_record',
+                        help="File path (except extension) to save the recording (default: 'test_record')."
                         )
     
     parser.add_argument("-rt",
@@ -106,21 +111,25 @@ if __name__ == "__main__":
     
     # コマンドライン引数の解析
     args = parser.parse_args()
-
-    # 待機時間計算
-    delta_result = process_time(args.execution_time, now)
-    if delta_result == 0:
-        # 録音を即時実行
+    if args.c:
+        args.save_file_path = f"contents/radio_eikaiwa/{now.year}/{now.month}/{now.day}"
+        if now.weekday() < 5:
+            # 待機時間計算
+            delta_result = process_time(args.execution_time, now)
+            if delta_result == 0:
+                # 録音を即時実行
+                run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
+        elif delta_result:
+            delay = delta_result - args.buffer_time
+            if delay <= 0:
+                # 録音を即時実行
+                run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
+            else:
+                # 録音をdelay秒待ってから録音を実行
+                time.sleep(delay)
+                run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
+        elif not delta_result:
+            print("Execute at least 10 minutes before.")
+    else:
         run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
-    elif delta_result:
-        delay = delta_result - args.buffer_time
-        if delay <= 0:
-            # 録音を即時実行
-            run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
-        else:
-            # 録音をdelay秒待ってから録音を実行
-            time.sleep(delay)
-            run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
-    elif not delta_result:
-        print("Execute at least 10 minutes before.")
 
