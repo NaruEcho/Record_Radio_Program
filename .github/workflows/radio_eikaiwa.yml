@@ -8,21 +8,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up ChromeDriver
-      uses: nanasess/setup-chromedriver@v1
+    - name: Check out repository
+      uses: actions/checkout@v4
 
+    - name: Set up Chromedriver
+      uses: nanasess/setup-chromedriver@v2
+    
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.9'
+        python-version: '3.12'
 
-    - name: Install dependencies
+    - name: Set up ffmpeg
       run: |
         sudo apt-get update
-        sudo apt-get install -y libasound2-dev
-        sudo apt-get install -y chromium-browser
+        sudo apt-get install -y ffmpeg
+
+    - name: Upgrade pip and install dependencies
+      run: |
         python -m pip install --upgrade pip
-        pip install selenium soundcard soundfile
+        pip install -r scripts/requirements.txt
+
+    - name: sound-ci-setup
+      uses: LABSN/sound-ci-helpers@v1
 
     - name: Run stream recording script
       run: |
