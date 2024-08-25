@@ -48,6 +48,10 @@ jobs:
           pactl list sinks
           pactl list sources
 
+      - name: Check PyAudio Device
+        run: |
+          python scripts/sounddevice_check.py
+
       - name: List files
         run: ls -l
           
