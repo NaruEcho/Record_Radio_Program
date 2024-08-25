@@ -1,4 +1,4 @@
-name: Record Stream Radio Eikaiwa
+name: Record Stream Test
 
 on:
   workflow_dispatch:
