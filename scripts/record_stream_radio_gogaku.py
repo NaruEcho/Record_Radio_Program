@@ -6,6 +6,8 @@ import time
 import os
 from get_chrome_driver import GetChromeDriver
 from selenium import webdriver
+import sounddevice as sd
+import soundfile as sf
 
 def driver_init():
     options = webdriver.ChromeOptions()
