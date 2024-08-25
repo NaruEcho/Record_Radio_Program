@@ -40,7 +40,7 @@ for index, date in enumerate(get_last_weekdays(now)):
 def run_recording(url, length, save_file_path, record_type):
     command = [
         'python',
-        'record_audio.py',
+        'scripts/record_stream_radio_gokaku.py',
         '-u',
         url,
         '-l',
