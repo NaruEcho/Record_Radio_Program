@@ -7,6 +7,7 @@ import os
 
 def record_audio(url, length, save_file_path, record_type):
     save_file_path = rename_audio_filename(save_file_path, record_type)
+    """
     try:
         # ヘッダーを設定
         headers = {
@@ -41,6 +42,7 @@ def record_audio(url, length, save_file_path, record_type):
     except ffmpeg.Error as e:
         print(f"Error occurred during recording: {e}")
         raise
+    """
 
 def rename_audio_filename(original_file_path, file_format):
     # オーディオ形式と拡張子のマッピング
