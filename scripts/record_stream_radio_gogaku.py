@@ -24,7 +24,8 @@ def record_audio(url, length, save_file_path, record_type):
         command = [
             "ffmpeg",
             "-y", # 既存ファイルの上書き
-            "-i", str(length), # 録音時間
+            "-i", url, # 入力URL
+            "-t", str(length), # 録音時間
             "-c:a", "copy", # オーディオコーデックをコピー
             save_file_path
         ]
