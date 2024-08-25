@@ -36,3 +36,13 @@ jobs:
     - name: Run stream recording script
       run: |
         python scripts/radio_eikaiwa.py
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v6
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: "Record Test"
+        title: "Record Radio from Streaming"
+        body: "This is PR adds or updates"
+        branch: record_streaming
+        base: main
