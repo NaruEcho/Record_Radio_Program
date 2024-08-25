@@ -44,8 +44,8 @@ def process_time(tar_time_str, nowTime):
                 # 小数点以下を切り上げ
                 rounded_minutes = math.ceil(total_minutes)
                 return rounded_minutes
-        except ValueError:
-            print(f"Invalid time format: {time_str}")
+        except Exception as e:
+            print(f"Invalid time format: {time_str}, {e}.")
             return False
 
 
