@@ -118,16 +118,16 @@ if __name__ == "__main__":
             delta_result = process_time(args.execution_time, now)
             if delta_result == 0:
                 # 録音を即時実行
-                run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
+                run_recording(args.url, args.length * 60 + args.buffer_time, args.save_file_path, args.record_type)
             elif delta_result:
                 delay = delta_result - args.buffer_time
                 if delay <= 0:
                     # 録音を即時実行
-                    run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
+                    run_recording(args.url, args.length * 60 + args.buffer_time, args.save_file_path, args.record_type)
                 else:
                     # 録音をdelay秒待ってから録音を実行
                     time.sleep(delay)
-                    run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
+                    run_recording(args.url, args.length * 60 + args.buffer_time, args.save_file_path, args.record_type)
             else:
                 print("Execute at least 10 minutes before.")
                 raise
@@ -135,5 +135,5 @@ if __name__ == "__main__":
             print("Radio Eikaiwa is broadcast only on weekdays.")
             raise
     else:
-        run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
+        run_recording(args.url, args.length * 60 + args.buffer_time, args.save_file_path, args.record_type)
 
