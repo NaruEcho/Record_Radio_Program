@@ -132,14 +132,14 @@ if __name__ == "__main__":
                 # 録音を即時実行
                 run_recording(args.url, args.length * 60 + args.buffer_time, args.save_file_path, args.record_type)
             elif delta_result:
-                delay = delta_result - args.buffer_time
+                delay = delta_result - args.buffer_time - timedelta(seconds=5)
                 if delay <= 0:
                     # 録音を即時実行
                     run_recording(args.url, args.length * 60 + args.buffer_time, args.save_file_path, args.record_type)
                 else:
                     # 録音をdelay秒待ってから録音を実行
                     time.sleep(delay)
-                    run_recording(args.url, args.length * 60 + args.buffer_time, args.save_file_path, args.record_type)
+                    run_recording(args.url, args.length * 60 + args.buffer_time * 2 + timedelta(seconds=5), args.save_file_path, args.record_type)
             else:
                 print("Execute at least 10 minutes before.")
                 raise
