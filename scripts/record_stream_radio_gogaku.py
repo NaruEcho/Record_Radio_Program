@@ -11,7 +11,7 @@ def record_audio(url, length, save_file_path, record_type):
         # ヘッダーを設定
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
-            'Referer': 'https://www.nhk.or.jp/radio/player/?ch=r2'
+            'Referer': 'https://radio-stream.nhk.jp/hls/live/2023501/nhkradiruakr2/master.m3u8'
         }
         # ストリートを取得
         response = requests.get(url, headers=headers, stream=True)
