@@ -4,12 +4,7 @@ import os
 import argparse
 import subprocess
 
-# 日本時間のタイムゾーンを設定
-JST = pytz.timezone('Asia/Tokyo')
-
-# 現在の日本時間の年、月、日、曜日を取得
-now = datetime.now(JST)
-
+"""
 # らじるらじるの放送日取得
 def get_last_weekdays(now_date):
     last_week = now_date - timedelta(days=7)
@@ -26,7 +21,7 @@ def get_last_weekdays(now_date):
             last_week += timedelta(days=1)
     return weekdays
 
-"""
+
 for index, date in enumerate(get_last_weekdays(now)):
     tar_path = f"content/radio_eikaiwa/date[0]/date[1]/date[2].mp3"
     if os.path.exists(tar_path):
@@ -55,32 +50,62 @@ def run_recording(url, length, save_file_path, record_type):
 
 
 if __name__ == "__main__":
-  parser = argparse.ArgumentParser(description="Record audio from a stream URL.")
-  # コマンドライン引数の定義
-  parser.add_argument("-u", 
-                      "--url", 
-                      type=str, 
-                      default='https://radio-stream.nhk.jp/hls/live/2023501/nhkradiruakr2/master.m3u8', 
-                      help="Stream URL to record from (default: NHK stream)."
-                     )
-  parser.add_argument("-l",
-                      "--length",
-                      type=int,
-                      default=2,
-                      help="Length of the recording in minutes (default: 2)."
-                     )
-  parser.add_argument("-s",
-                      "--save_file_path",
-                      type=str,
-                      default='test_weather',
-                      help="File path (except extension) to save the recording (default: 'test_weather')."
-                     )
-  parser.add_argument("-rt",
-                      "--record_type",
-                      type=str,
-                      default='mp3',
-                      help="Select audio format."
-                     )
+    parser = argparse.ArgumentParser(description="Record audio from a stream URL.")
+    
+    # コマンドライン引数の定義
+    parser.add_argument("-u", 
+                        "--url", 
+                        type=str, 
+                        nargs='?',
+                        default='https://radio-stream.nhk.jp/hls/live/2023501/nhkradiruakr2/master.m3u8', 
+                        help="Stream URL to record from (default: NHK stream)."
+                        )
+    
+    parser.add_argument("-l",
+                        "--length",
+                        type=int,
+                        nargs='?',
+                        default=2,
+                        help="Length of the recording in minutes (default: 2)."
+                        )
+    
+    parser.add_argument("-s",
+                        "--save_file_path",
+                        type=str,
+                        nargs='?',
+                        default='test_weather',
+                        help="File path (except extension) to save the recording (default: 'test_weather')."
+                        )
+    
+    parser.add_argument("-rt",
+                        "--record_type",
+                        type=str,
+                        nargs='?',
+                        default='mp3',
+                        help="Select audio format (default: mp3)."
+                        )
+    
+    parser.add_argument("-et",
+                        "--execution_time",
+                        type=str,
+                        nargs='?',
+                        default="06:00:00",
+                        help="Time to execute the program in 24h format in JST (h:m:s). Default is 06:00:00."
+                       )
+    
+    parser.add_argument("-bt",
+                        "--buffer_time",
+                        type=int,
+                        nargs='?',
+                        default=20,
+                        help="Buffer time in seconds. Default is 20 seconds."
+                       )
+
+# 日本時間のタイムゾーンを設定
+JST = pytz.timezone('Asia/Tokyo')
+
+# 現在の日本時間の年、月、日、曜日を取得
+now = datetime.now(JST)
 
 # コマンドライン引数の解析
 args = parser.paese_args()
