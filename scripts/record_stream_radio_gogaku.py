@@ -2,6 +2,7 @@
 import ffmpeg
 import requests
 import argparse
+import time
 import os
 
 def record_audio(url, length, save_file_path, record_type):
@@ -13,18 +14,28 @@ def record_audio(url, length, save_file_path, record_type):
         }
         # ストリートを取得
         response = requests.get(url, headers=headers, stream=True)
-        if response.status_code != 200:
-            raise ValueError(f"Failed to get stream: HTTP {response.status_code}")
+        if response.status_code == 200:
+            with open(save_file_path, 'wb') as file:
+                start_time = time.time()
+                for chunk in response.iter_content(chunk_size=8192):
+                    current_time = time.time()
+                    elapsed_time = current_time - start_time
+                    if elapsed_time >= length:
+                        break
+                    file.write(chunk)
+            print(f"Recording saved to {save_file_path}")
+        else:
+            print(f"Failed to retrieve the content: {response.status_code}")
         # 一時ファイルにストリームを書き込む
-        temp_file = 'temp_stream.ts'
-        with open(temp_file, 'wb') as f:
-            for chunk in response.iter_content(chunk_size=8192):
-                f.write(chunk)
+        #temp_file = 'temp_stream.ts'
+        #with open(temp_file, 'wb') as f:
+        #    for chunk in response.iter_content(chunk_size=8192):
+        #        f.write(chunk)
         # ffmpegで録音する
-        stream = ffmpeg.input(temp_file, t=length*60)
-        stream = ffmpeg.output(stream, save_file_path, format=record_type)
-        ffmpeg.run(stream)
-        os.remove(temp_file)
+        #stream = ffmpeg.input(temp_file, t=length)
+        #stream = ffmpeg.output(stream, save_file_path, format=record_type)
+        #ffmpeg.run(stream)
+        #os.remove(temp_file)
     except ffmpeg.Error as e:
         print(f"Error occurred during recording: {e}")
         raise
@@ -63,8 +74,8 @@ if __name__ == "__main__":
                         "--length",
                         type=int,
                         nargs='?',
-                        default=2,
-                        help="Length of the recording in minutes (default: 2)."
+                        default=10,
+                        help="Length of the recording in seconds (default: 10)."
                         )
     parser.add_argument("-s",
                         "--save_file_path",
