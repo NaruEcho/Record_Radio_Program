@@ -89,7 +89,7 @@ if __name__ == "__main__":
                         "--execution_time",
                         type=str,
                         nargs='?',
-                        default="06:00:00",
+                        default="now", # 即時実行
                         help="Time to execute the program in 24h format in JST (h:m:s). Default is 06:00:00."
                        )
     
