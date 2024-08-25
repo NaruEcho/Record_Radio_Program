@@ -3,6 +3,7 @@ import pytz
 import os
 import argparse
 import subprocess
+import math
 
 """
 # らじるらじるの放送日取得
@@ -48,18 +49,30 @@ def run_recording(url, length, save_file_path, record_type):
     ]
     subprocess.run(command, check=True)
 
-def process_time(time_str, deltaTime, nowTime):
-    if time_str == "now":
+def process_time(tar_time_str, nowTime):
+    if tar_time_str == "now":
         exe_time_delta = 0
         return exe_time_delta
     else:
         try:
             datetime_format = "%Y-%m-%d %H:%M:%S"
-            tar_time = datetime.strptime(time_str, datetime_format)
+            tar_time_str = datetime.strptime(tar_time_str, datetime_format)
             nowTime = datetime.strptime(nowTime, datetime_format)
-            ten_minutes_before = tar_time - time
-                
-            return strptime(time_str, "%H:%M:%S")
+            # 目標開始時刻の少なくとも10分前の時刻を計算
+            ten_minutes_before = tar_time_str - timedelta(minutes=10)
+            # 現在の時刻が10分間の時刻よりも前であるか確認
+            if nowTime < ten_minutes_before:
+                print(f"Execute at least 10 minutes before {tar_time}.")
+                return False
+            else:
+                # 時間差計算
+                time_diff = tar_time_str - nowTime
+                # 差を分単位に変換
+                total_seconds = time_diff.total_seconds()
+                total_minutes = total_seconds / 60
+                # 小数点以下を切り上げ
+                rounded_minutes = math.ceil(total_minutes)
+                return rounded_minutes
         except ValueError:
             print(f"Invalid time format: {time_str}")
             return False
