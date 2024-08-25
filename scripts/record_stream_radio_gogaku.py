@@ -4,6 +4,8 @@ import requests
 import argparse
 import time
 import os
+from get_chrome_driver import GetChromeDriver
+from selenium import webdriver
 
 def record_audio(url, length, save_file_path, record_type):
     save_file_path = rename_audio_filename(save_file_path, record_type)
