@@ -1,3 +1,0 @@
-pytz
-selenium
-webdriver-manager
