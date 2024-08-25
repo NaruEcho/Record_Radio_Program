@@ -13,6 +13,8 @@ from pydub import AudioSegment
 def driver_init():
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
     return webdriver.Chrome(options=options)
 
 def record_audio(length, save_file_path):
