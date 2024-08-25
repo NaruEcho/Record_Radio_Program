@@ -80,7 +80,7 @@ def convert_audio_format(wav_file, format):
     return output_file_with_ext
 
 def main(url, record_seconds, output_filename, output_format):
-    driver = driver_init
+    driver = driver_init()
     driver.get(url)
     time.sleep(5) # ブラウザがストリーミングを読み込むまでの予備待機時間
     wav_file = record_audio(record_seconds, output_filename)
