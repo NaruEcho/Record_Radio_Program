@@ -1,5 +1,6 @@
 get-chrome-driver
 pytz
+selenium
 sounddevice
 ffmpeg-python
 requests
