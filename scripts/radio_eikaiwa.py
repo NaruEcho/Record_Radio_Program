@@ -13,7 +13,7 @@ def run_recording(url, length, save_file_path, record_type):
         '-u',
         url,
         '-l',
-        length,
+        str(length),
         '-s',
         save_file_path,
         '-rt',
@@ -21,29 +21,28 @@ def run_recording(url, length, save_file_path, record_type):
     ]
     subprocess.run(command, check=True)
 
-def process_time(tar_time_str, nowTime):
+def process_time(tar_time_str, now_time):
     if tar_time_str == "now":
-        exe_time_delta = 0
-        return exe_time_delta
+        return 0
     else:
         try:
             datetime_format = "%Y-%m-%d %H:%M:%S"
-            tar_time_str = datetime.strptime(tar_time_str, datetime_format)
-            nowTime = datetime.strptime(nowTime, datetime_format)
+            tar_time = datetime.strptime(tar_time_str, datetime_format)
+            nowTime = datetime.strptime(now_time, datetime_format)
             # 目標開始時刻の少なくとも10分前の時刻を計算
-            ten_minutes_before = tar_time_str - timedelta(minutes=10)
+            ten_minutes_before = tar_time - timedelta(minutes=10)
             # 現在の時刻が10分間の時刻よりも前であるか確認
             if nowTime < ten_minutes_before:
-                print(f"Execute at least 10 minutes before {tar_time}.")
+                print(f"Execute at least 10 minutes before {tar_time_str}.")
                 return False
             else:
                 # 時間差計算
-                time_diff = tar_time_str - nowTime
+                time_diff = tar_time - nowTime
                 # 差を秒単位に変換
                 total_seconds = time_diff.total_seconds()
                 return total_seconds
         except Exception as e:
-            print(f"Invalid time format: {time_str}, {e}.")
+            print(f"Invalid time format: {tar_time_str}, {e}.")
             return False
 
 
@@ -106,7 +105,7 @@ if __name__ == "__main__":
     now = datetime.now(JST)
     
     # コマンドライン引数の解析
-    args = parser.paese_args()
+    args = parser.parse_args()
 
     # 待機時間計算
     delta_result = process_time(args.execution_time, now)
@@ -122,4 +121,6 @@ if __name__ == "__main__":
             # 録音をdelay秒待ってから録音を実行
             time.sleep(delay)
             run_recording(args.url, args.length + args.buffer_time, args.save_file_path, args.record_type)
+    elif not delta_result:
+        print("Execute at least 10 minutes before.")
 
