@@ -1,3 +1,4 @@
+get-chrome-driver
 pytz
 sounddevice
 ffmpeg-python
