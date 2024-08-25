@@ -5,9 +5,13 @@ import os
 
 def record_audio(url, length, save_file_path, record_type):
     save_file_path = rename_audio_filename(save_file_path, record_type)
-    stream = ffmpeg.input(url, t=length*60)
-    stream = ffmpeg.output(stream, save_file_path, format=record_type)
-    ffmpeg.run(stream)
+    try:
+        stream = ffmpeg.input(url, t=length*60)
+        stream = ffmpeg.output(stream, save_file_path, format=record_type)
+        ffmpeg.run(stream)
+    except ffmpeg.Error as e:
+        print(f"Error occurred during recording: {e}")
+        raise
 
 def rename_audio_filename(original_file_path, file_format):
     # オーディオ形式と拡張子のマッピング
@@ -51,7 +55,7 @@ if __name__ == "__main__":
                         type=str,
                         nargs='?',
                         default='test_record',
-                        help="File path (except extension) to save the recording (default: 'test_weather')."
+                        help="File path (except extension) to save the recording (default: 'test_record')."
                         )
     parser.add_argument("-rt",
                         "--record_type",
@@ -61,6 +65,6 @@ if __name__ == "__main__":
                         help="Select audio format."
                        )
     # コマンドライン引数の解析
-    args = parser.paese_args()
+    args = parser.parse_args()
     # 録音を実行
     record_audio(args.url, args.length, args.save_file_path, args.record_type)
