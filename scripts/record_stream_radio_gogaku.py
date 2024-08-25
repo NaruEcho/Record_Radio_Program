@@ -10,6 +10,7 @@ from get_chrome_driver import GetChromeDriver
 from selenium import webdriver
 import sounddevice as sd
 import soundfile as sf
+import subprocess
 
 def driver_init():
     options = webdriver.ChromeOptions()
@@ -18,19 +19,27 @@ def driver_init():
 
 def record_audio(url, length, save_file_path, record_type):
     try:
-        sample_rate = 44100  # サンプルレート
+        #sample_rate = 44100  # サンプルレート
         save_file_path = rename_audio_filename(save_file_path, record_type)
-        driver = driver_init()
-        driver.get(url)
-        print("Recording...")
+        command = [
+            "ffmpeg",
+            "-y", # 既存ファイルの上書き
+            "-i", str(length), # 録音時間
+            "-c:a", "copy", # オーディオコーデックをコピー
+            save_file_path
+        ]
+        #driver = driver_init()
+        #driver.get(url)
+        #print("Recording...")
         JST = pytz.timezone('Asia/Tokyo')
         nowRecord = datetime.now(JST)
         print(f"Start recording in {nowRecord}")
-        recording = sd.rec(int(length * sample_rate), samplerate=sample_rate, channels=2, dtype='int16')
-        sd.wait()  # 録音完了まで待機
-        sf.write(save_file_path, recording, sample_rate)
+        subprocess.run(command, check=True)
+        #recording = sd.rec(int(length * sample_rate), samplerate=sample_rate, channels=2, dtype='int16')
+        #sd.wait()  # 録音完了まで待機
+        #sf.write(save_file_path, recording, sample_rate)
         print("Recording saved to", save_file_path)
-        driver.quit()
+        #driver.quit()
     except Exception as e:
         print(f"Error: {e}")
         raise
