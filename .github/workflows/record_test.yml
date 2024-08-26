@@ -37,9 +37,7 @@ jobs:
         pip install -r scripts/requirements.txt
 
     - name: sound-ci-setup
-      run: |
-        chmod +x scripts/set_audio.sh
-        scripts/set_audio.sh
+      uses: LABSN/sound-ci-helpers@v1
 
     - name: Run stream recording script
       run: |
