@@ -13,7 +13,7 @@ pulseaudio --start
 sleep 10
 
 # 仮想オーディオデバイスの設定
-pactl -v load-module module-null-sink sink_name=auto_null sink_properties=device.description="Dummy Output"
+pactl load-module module-null-sink sink_name=auto_null sink_properties=device.description="Dummy Output"
 pactl load-module module-remap-sink sink_name=auto_null_remap master=auto_null
 
 # デバイスのリスト表示（デバッグ用）
