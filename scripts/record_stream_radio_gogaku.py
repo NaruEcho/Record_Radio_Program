@@ -27,10 +27,20 @@ def record_audio(length, save_file_path):
         nowRecord = datetime.now(JST)
         print(f"Start recording in {nowRecord}")
         p = pyaudio.PyAudio()
+        # 仮想オーディオデバイスのインデックスを取得
+        device_index = None
+        for i in range(p.get_device_count()):
+            dev = p.get_device_info_by_index(i)
+            if "auto_null.monitor" in dev['name']:
+                device_index = i
+                break
+        if device_index is None:
+            raise ValueError("auto_null.monitor デバイスが見つかりませんでした")
         stream = p.open(format=FORMAT,
                         channels=CHANNELS,
                         rate=RATE,
                         input=True,
+                        input_device_index=device_index,
                         frames_per_buffer=CHUNK
                        )
         print("* recording")
