@@ -39,6 +39,10 @@ jobs:
     - name: sound-ci-setup
       uses: LABSN/sound-ci-helpers@v1
 
+    - name: Check
+      run: |
+        pulseaudio --check
+
     - name: Run stream recording script
       run: |
         python scripts/radio_eikaiwa.py
