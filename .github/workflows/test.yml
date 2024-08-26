@@ -11,7 +11,10 @@ jobs:
 
     - name: sound-ci-setup
       uses: LABSN/sound-ci-helpers@v1
-      
+
+    - name: Install FFmpeg
+      run: sudo apt-get install -y ffmpeg
+    
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -28,4 +31,8 @@ jobs:
         set -xeo pipefail
         python -m sounddevice | grep "[82] out"
       name: Check that there is some output device after sleep
-      
+
+    - name: Record streaming audio
+      run: |
+        ffmpeg -i "http://example.com/stream-url" -t 120 -acodec copy output.wav
+      name: Record the stream for 2 minutes
