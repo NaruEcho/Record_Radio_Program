@@ -38,7 +38,8 @@ jobs:
 
     - name: sound-ci-setup
       run: |
-        scripts/set_sound.sh
+        chmod +x scripts/set_audio.sh
+        scripts/set_audio.sh
 
     - name: Run stream recording script
       run: |
