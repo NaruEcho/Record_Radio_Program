@@ -34,4 +34,4 @@ jobs:
 
     - name: Record the stream for 2 minutes
       run: |
-        ffmpeg -i "https://www.nhk.or.jp/radio/player/?ch=r2" -t 120 -acodec copy output.wav
+        ffmpeg -i https://radio-stream.nhk.jp/hls/live/2023501/nhkradiruakr2/master.m3u8 -t 120 -movflags faststart -c copy -bsf:a aac_adtstoasc rec.mp4
