@@ -32,6 +32,11 @@ jobs:
         python -m sounddevice | grep "[82] out"
       name: Check that there is some output device after sleep
 
+    - name: Check ffmpeg
+      run: |
+        ffmpeg -formats
+        ffmpeg -codecs
+
     - name: Record the stream for 2 minutes
       run: |
         ffmpeg -i https://radio-stream.nhk.jp/hls/live/2023501/nhkradiruakr2/master.m3u8 -t 120 -movflags faststart -c copy -bsf:a aac_adtstoasc rec.mp4
