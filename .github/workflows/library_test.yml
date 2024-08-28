@@ -1,2 +1,17 @@
 name: Test using library
 
+on:
+  workflow_dispatch:
+
+jobs:
+  sound-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
