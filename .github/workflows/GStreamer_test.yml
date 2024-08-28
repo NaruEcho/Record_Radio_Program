@@ -1,4 +1,4 @@
-name: Test using library
+name: GStreamer Test
 
 on:
   workflow_dispatch:
