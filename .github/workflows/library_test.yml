@@ -32,4 +32,4 @@ jobs:
 
       - name: Run test code
         run: |
-          python 
+          python scripts/test_downloader.py -o4 -q1 -d contents
