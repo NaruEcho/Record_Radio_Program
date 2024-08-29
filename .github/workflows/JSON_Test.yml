@@ -1,0 +1,34 @@
+name: JSON Test
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+on:
+  workflow_dispatch:
+jobs:
+  Output-Test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: sound-ci-setup
+      uses: LABSN/sound-ci-helpers@v1
+
+    - name: Install FFmpeg
+      run: sudo apt-get install -y ffmpeg
+
+    - name: FFmpeg JSON Test
+      run: |
+        ffmpeg -http_seekable 0 -i "https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_72bfecde4faa44bb7b2cf17776920220/index.m3u8" -c copy output_audio.mp3
+
+    - name: Push
+      uses: peter-evans/create-pull-request@v6
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: "Record JSON Test"
+        title: "Record Radio from Streaming using JSON"
+        body: "This is PR adds or updates"
+        branch: record_streaming
+        base: main
