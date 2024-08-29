@@ -17,7 +17,14 @@ jobs:
       uses: LABSN/sound-ci-helpers@v1
 
     - name: Install FFmpeg
-      run: sudo apt-get install -y ffmpeg
+      uses: FedericoCarboni/setup-ffmpeg@v3
+      with:
+        ffmpeg-version: release
+        architecture: ''
+        linking-type: static
+        
+    - run: |
+        ffmpeg --version
 
     - name: FFmpeg JSON Test
       run: |
