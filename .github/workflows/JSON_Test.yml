@@ -26,7 +26,7 @@ jobs:
         
     - name: FFmpeg JSON Test
       run: |
-        ffmpeg -http_seekable 0 -i "https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_72bfecde4faa44bb7b2cf17776920220/index.m3u8" -vn  -acodec copy "output_audio.m4a"
+        sudo -loglevel debug ffmpeg -http_seekable 0 -i "https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_72bfecde4faa44bb7b2cf17776920220/index.m3u8" -vn  -acodec copy "output_audio.m4a"
 
     - name: Push
       uses: peter-evans/create-pull-request@v6
