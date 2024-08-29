@@ -17,12 +17,9 @@ jobs:
       uses: LABSN/sound-ci-helpers@v1
 
     - name: Install FFmpeg
-      uses: FedericoCarboni/setup-ffmpeg@v3
-      id: setup-ffmpeg
-      with:
-        ffmpeg-version: release
-        architecture: ''
-        github-token: ${{ github.server_url == 'https://github.com' && github.token || '' }}
+      run: |
+        sudo apt-get update
+        sudo apt-get install ffmpeg
         
     - name: FFmpeg JSON Test
       run: |
