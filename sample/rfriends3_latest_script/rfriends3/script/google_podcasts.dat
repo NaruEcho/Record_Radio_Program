@@ -1,0 +1,131 @@
+;
+; Google Podcasts
+;  2021/09/24
+;
+;1)rss
+;https://omny.fm/shows/bayfm-program01/playlists/podcast.rss
+;
+;2)title,rss
+;青空FM,https://fortegp05.github.io/aozorafm/feed.xml
+;
+;3)title,pub
+;ＦＭヨコハマ,FM YOKOHAMA
+;
+;4)title,pub,key
+;おばさん(over the sun),TBS,ジェーン スー
+;ニッポン放送(ANN),,オールナイトニッポン
+;
+;-------------------------------------------------
+TOKYO FM,TOKYO FM
+TBS RADIO,TBS RADIO
+文化放送,文化放送
+
+bayfm78,bayfm78
+InterFM897,InterFM897
+J-WAVE,J-WAVE
+;
+MBSラジオ,MBS,ラジオ
+ラジオ関西,ラジオ関西
+LOVE FM,LOVE FM 76.1
+CROSS FM,CROSS FM
+FM FUKUOKA,FM FUKUOKA
+RFCラジオ福島,ラジオ福島
+ラジオ沖縄,ラジオ沖縄
+FM大阪,FM大阪
+FM OSAKA,FM OSAKA
+NHK,NHK
+;NHK world,NHK WORLD
+ラジオNIKKEI,ラジオNIKKEI
+TBSラジオ,TBSラジオ
+ＦＭヨコハマ,FM YOKOHAMA
+
+KBS京都ラジオ,KBS京都
+;
+おばさん(over the sun),TBS,ジェーン スー over the sun
+;
+;AIR-G'（FM北海道）,エフエム北海道
+;FM愛媛,JOEU-FM
+;NACK5,NACK5
+;FM NORTH WAVE,FMノースウェーブ
+;FM徳島,FM徳島
+;IBCラジオ,IBC岩手放送
+;Kiss FM KOBE,Kiss FM KOBE
+;OBCラジオ大阪,ラジオ大阪
+;RNB南海放送,南海放送
+;SBSラジオ,静岡放送
+;TBCラジオ,TBC RADIO
+;東海ラジオ,東海ラジオ
+;α-STATION FM京都,ALPHA-STATION FM KYOTO
+;RCCラジオ,RCC radio
+;
+;CBCラジオ,CBCラジオ
+;FM NIIGATA,FM NIIGATA
+;ＨＢＣラジオ,ＨＢＣラジオ
+;RadioBerry,エフエム栃木
+;
+;,ABCラジオ,ABCラジオ,ABC
+;,ＡＢＳ秋田放送,ＡＢＳ秋田放送,ABS
+;,AIR-G'（FM北海道）,エフエム北海道
+;,ＢＳＮラジオ,ＢＳＮラジオ,BSN
+;,BSSラジオ,BSSラジオ,BSS
+;,CBCラジオ,CBCラジオ
+;,Comment(2021/07/08),Comment(2021/07/08),;Station
+;,CRT栃木放送,CRT栃木放送,CRT
+;,Date fm エフエム仙台,Date fm エフエム仙台,DATEFM
+;,e-radio FM滋賀,e-radio FM滋賀,E-RADIO
+;,FBCラジオ,FBCラジオ,FBC
+;,FM AICHI,FM AICHI,FMAICHI
+;,FM COCOLO,FM COCOLO,CCL
+;,FM FUJI,FM FUJI,FM-FUJI
+;,ＦＭ ＧＩＦＵ,ＦＭ ＧＩＦＵ,FMGIFU
+;,FM GUNMA,FM GUNMA,FMGUNMA
+;,FM802,FM802,802
+;,FMKエフエム熊本,FMKエフエム熊本,FMK
+;,ＦＭとやま,ＦＭとやま,FMTOYAMA
+;,ＦＭ岡山,ＦＭ岡山,FM-OKAYAMA
+;,FM沖縄,FM沖縄,FM_OKINAWA
+;,FM長崎,FM長崎,FMNAGASAKI
+;,ＦＭ長野,ＦＭ長野,FMN
+;,FM福井,FM福井,FMFUKUI
+;,ＪＲＴ四国放送,ＪＲＴ四国放送,JRT
+;,K-MIX SHIZUOKA,K-MIX SHIZUOKA,K-MIX
+;,KBCラジオ,KBCラジオ,KBC
+;,ＫＮＢラジオ,ＫＮＢラジオ,KNB
+;,ＫＲＹ山口放送,ＫＲＹ山口放送,KRY
+;,LuckyFM 茨城放送,LuckyFM 茨城放送,IBS
+;,ＭＢＣラジオ,ＭＢＣラジオ,MBC
+;,NBC長崎放送,NBC長崎放送,NBC
+;,OBSラジオ,OBSラジオ,OBS
+;,ＲＡＢ青森放送,ＲＡＢ青森放送,RAB
+;,RBCiラジオ,RBCiラジオ,RBC
+;,Rhythm Station　エフエム山形,Rhythm Station　エフエム山形,RFM
+;,RKBラジオ,RKBラジオ,RKB
+;,RKC高知放送,RKC高知放送,RKC
+;,RKKラジオ,RKKラジオ,RKK
+;,RNC西日本放送,RNC西日本放送,RNC
+;,ＲＳＫラジオ,ＲＳＫラジオ,RSK
+;,SBCラジオ,SBCラジオ,SBC
+;,ＳＴＶラジオ,ＳＴＶラジオ,STV
+;,wbs和歌山放送,wbs和歌山放送,WBS
+;,YBC山形放送,YBC山形放送,YBC
+;,ＹＢＳラジオ,ＹＢＳラジオ,YBS
+;,ZIP-FM,ZIP-FM,ZIP-FM
+;,エフエム岩手,エフエム岩手,FMI
+;,エフエム宮崎,エフエム宮崎,JOYFM
+;,エフエム香川,エフエム香川,FMKAGAWA
+;,エフエム高知,エフエム高知,HI-SIX
+;,エフエム佐賀,エフエム佐賀,FMS
+;,エフエム山陰,エフエム山陰,FM-SANIN
+;,エフエム山口,エフエム山口,FMY
+;,エフエム秋田,エフエム秋田,AFM
+;,エフエム青森,エフエム青森,AFB
+;,エフエム石川,エフエム石川,HELLOFIVE
+;,エフエム大分,エフエム大分,FM_OITA
+;,ぎふチャン,ぎふチャン,GBS
+;,ふくしまFM,ふくしまFM,FMF
+;,ラジオ日本,ラジオ日本,JORF
+;,レディオキューブ ＦＭ三重,レディオキューブ ＦＭ三重,FMMIE
+;,宮崎放送,宮崎放送,MRT
+;,広島FM,広島FM,HFM
+;,放送大学,放送大学,HOUSOU-DAIGAKU
+;,μＦＭ,μＦＭ,MYUFM

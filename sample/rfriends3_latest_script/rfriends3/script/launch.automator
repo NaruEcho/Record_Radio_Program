@@ -1,0 +1,6 @@
+
+osascript sample.scpt "Feel, don't think."
+on run argv
+	set para to  (item 1 of argv)
+	do shell script para
+end run

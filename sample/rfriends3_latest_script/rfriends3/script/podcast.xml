@@ -1,0 +1,130 @@
+<!--
+    廃止 2021/10/10
+    podcast define 2021/09/18
+-->
+<podcast>
+  <program>
+    <title>ユーザプリセット</title>
+    <tag>user</tag>
+    <dir>user</dir>
+    <home>https://podcasts.google.com</home>
+    <page>https://podcasts.google.com/search/</page>
+    <status>on</status>
+  </program>
+  <program>
+    <title>Google Podcasts(プリセット)</title>
+    <tag>google_preset</tag>
+    <dir>google</dir>
+    <home>https://podcasts.google.com</home>
+    <page>https://podcasts.google.com/search/</page>
+    <status>on</status>
+  </program>
+  <program>
+    <title>Google Podcasts(検索)</title>
+    <tag>google</tag>
+    <dir>google</dir>
+    <home>https://podcasts.google.com</home>
+    <page>https://podcasts.google.com/search/</page>
+    <status>on</status>
+  </program>
+  <program>
+    <title>Audee(TOKYO FM)</title>
+    <tag>audee</tag>
+    <dir>audee</dir>
+    <home>https://audee.jp</home>
+    <page>https://audee.jp/program/list/</page>
+    <status>on</status>
+  </program>
+  <program>
+    <title>PodcastStation(ニッポン放送)</title>
+    <tag>lfrradio</tag>
+    <dir>lfr</dir>
+    <home>https://podcast.1242.com</home>
+    <page>https://podcast.1242.com/all/</page>
+    <status>on</status>
+    <brand>
+        <title>オールナイトニッポン podcast</title>
+        <url>annp</url>
+    </brand>
+    <brand>
+        <title>ニッポン放送 OnAirOn</title>
+        <url>oao</url>
+    </brand>
+    <brand>
+        <title>オールナイトニッポン i</title>
+        <url>anni</url>
+    </brand>
+    <brand>
+        <title>ニッポン放送 CLASSICS</title>
+        <url>classics</url>
+    </brand>
+    <brand>
+        <title>ニッポン放送 SpinOut</title>
+        <url>spinout</url>
+    </brand>
+  </program>
+  <program>
+    <title>文化放送</title>
+    <tag>joqrradio</tag>
+    <dir>joqr</dir>
+    <home>https://podcastqr.joqr.co.jp</home>
+    <page>https://podcastqr.joqr.co.jp/programs/</page>
+    <status>off</status>
+  </program>
+  <program>
+    <title>FM YOKOHAMA</title>
+    <tag>yfmradio</tag>
+    <dir>yfm</dir>
+    <home>https://www.fmyokohama.co.jp</home>
+    <page>https://www.fmyokohama.co.jp/pc/podcast/</page>
+    <status>off</status>
+  </program>
+  <program>
+    <title>bayfm</title>
+    <tag>bayfm</tag>
+    <dir>bayfm</dir>
+    <home>https://www.bayfm.co.jp</home>
+    <page>https://www.bayfm.co.jp/</page>
+    <status>off</status>
+  </program>
+  <program>
+    <title>NACK5</title>
+    <tag>nack5</tag>
+    <dir>nack5</dir>
+    <home>https://www.nack5.co.jp</home>
+    <page>https://www.nack5.co.jp/podcast/</page>
+    <status>off</status>
+  </program>
+  <program>
+    <title>MBSラジオ</title>
+    <tag>mbsradio</tag>
+    <dir>mbs</dir>
+    <home>https://www.mbs1179.com</home>
+    <page>https://www.mbs1179.com/podcast/</page>
+    <status>off</status>
+  </program>
+  <program>
+    <title>ラジオ関西</title>
+    <tag>crk</tag>
+    <dir>crk</dir>
+    <home>https://jocr.jp</home>
+    <page>https://jocr.jp/audio/</page>
+    <status>off</status>
+  </program>
+  <program>
+    <title>KBS京都</title>
+    <tag>kbs</tag>
+    <dir>kbs</dir>
+    <home>https://www.kbs-kyoto.co.jp</home>
+    <page>https://www.kbs-kyoto.co.jp/contents/pk_kbs/</page>
+    <status>off</status>
+  </program>
+  <program>
+    <title>FM大阪</title>
+    <tag>fmo</tag>
+    <dir>fmo</dir>
+    <home>https://www.fmosaka.net</home>
+    <page>https://www.fmosaka.net/</page>
+    <status>off</status>
+  </program>
+</podcast>
