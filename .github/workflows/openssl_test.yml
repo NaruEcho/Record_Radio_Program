@@ -1,0 +1,34 @@
+name: Build ffmpeg with OpenSSL
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential pkg-config libssl-dev
+
+      - name: Download and build ffmpeg
+        run: |
+          # Install ffmpeg dependencies
+          sudo apt-get install -y yasm libx264-dev libx265-dev libnuma-dev
+
+          # Download ffmpeg source
+          git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
+          cd ffmpeg
+
+          # Configure ffmpeg with OpenSSL support
+          ./configure --enable-openssl
+          make -j$(nproc)
+          sudo make install
+
+      - name: Verify ffmpeg installation
+        run: ffmpeg -version
