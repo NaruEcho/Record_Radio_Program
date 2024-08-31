@@ -32,3 +32,7 @@ jobs:
 
       - name: Verify ffmpeg installation
         run: ffmpeg -version
+
+      - name: ffmpeg NHk
+        run: |
+          ffmpeg -i https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_e9b0ea0e6938b112b70e53f93b233853/index.m3u8 -c copy output.m4a
