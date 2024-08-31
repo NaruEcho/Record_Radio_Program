@@ -1,0 +1,45 @@
+name: Unzip and Push
+
+on:
+  workflow_dispatch:
+
+jobs:
+  unzip_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up unzip tool
+      run: sudo apt-get install -y unzip
+
+    - name: Find ZIP files
+      id: find_zip
+      run: |
+        echo "ZIP_FILES=$(find . -name '*.zip')" >> $GITHUB_ENV
+
+    - name: Unzip files if not already extracted
+      run: |
+        for file in $ZIP_FILES; do
+          dir=$(dirname "$file")
+          base=$(basename "$file" .zip)
+          # Check if directory already exists
+          if [ ! -d "$dir/$base" ]; then
+            echo "Extracting $file to $dir/$base"
+            mkdir -p "$dir/$base"
+            unzip -o "$file" -d "$dir/$base"
+          else
+            echo "Skipping $file, already extracted."
+          fi
+        done
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v6
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: "Unzip"
+        title: "Unzip files"
+        body: "This is PR adds or updates"
+        branch: unziped
+        base: main
