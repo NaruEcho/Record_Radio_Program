@@ -1,0 +1,3 @@
+name: Script Test
+on:
+  worlflow_dispatch:
