@@ -1,0 +1,10 @@
+{
+    "year": "2024年度前期",
+    "url_json": "https://www.nhk.or.jp/radio-api/app/v1/web/ondemand/series?site_id={}&corner_site_id={}",
+    "programs": [
+        {"dir": "6805", "sub": "01", "title": "小学生の基礎英語"},
+        {"dir": "6806", "sub": "01", "title": "中学生の基礎英語 レベル1"},
+        {"dir": "6807", "sub": "01", "title": "中学生の基礎英語 レベル２"},
+        {"dir": "0916", "sub": "01", "title": "ラジオ英会話"}
+    ]
+}
