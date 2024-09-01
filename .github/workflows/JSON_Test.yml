@@ -20,7 +20,7 @@ jobs:
       uses: FedericoCarboni/setup-ffmpeg@v3
       id: setup-ffmpeg
       with:
-        ffmpeg-version: release
+        ffmpeg-version: 6.0
         architecture: ''
         github-token: ${{ github.server_url == 'https://github.com' && github.token || '' }}
 
