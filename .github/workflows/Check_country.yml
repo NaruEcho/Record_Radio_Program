@@ -1,0 +1,14 @@
+name: Check Country
+
+on:
+  workflow_dispatch:
+jobs:
+  check-ip:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get the IP address
+      run: |
+        IP=$(curl -s http://ifconfig.me)
+        echo "IP Address: $IP"
+        COUNTRY=$(curl -s https://ipinfo.io/${IP}/country)
+        echo "Country Code: $COUNTRY"
