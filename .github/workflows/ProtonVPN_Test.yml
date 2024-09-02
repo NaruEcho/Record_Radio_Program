@@ -11,7 +11,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up proton VPN
+      - name: Set up Proton VPN
         run: |
           mkdir -p binary && wget -P binary https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.4_all.deb
           sudo dpkg -i binary/protonvpn-stable-release_1.0.4_all.deb
@@ -20,5 +20,12 @@ jobs:
       - name: Check repo package
         run: echo "62a9d849835de8a5664cf95329458bf1966780b15cec420bf707b5f7278b9027  binary/protonvpn-stable-release_1.0.4_all.deb" | sha256sum --check -
 
-      - name: Install Proton Cli
-        run: sudo apt install protonvpn-cli
+      - name: Install tools
+        run: |
+          sudo apt install -y protonvpn-cli
+          sudo apt install -y expect
+
+      - name: ProtonVPN Login
+        env: 
+          PROTONVPN_USERNAME: ${{ secrets.PROTONVPN_USERNAME }}
+          PROTONVPN_PASSWORD: ${{ secrets.PROTONVPN_PASSWORD }}
