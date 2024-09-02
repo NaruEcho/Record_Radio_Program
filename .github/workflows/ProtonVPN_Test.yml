@@ -29,3 +29,4 @@ jobs:
         env: 
           PROTONVPN_USERNAME: ${{ secrets.PROTONVPN_USERNAME }}
           PROTONVPN_PASSWORD: ${{ secrets.PROTONVPN_PASSWORD }}
+        run: echo"test"
