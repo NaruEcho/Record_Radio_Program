@@ -13,6 +13,7 @@ jobs:
 
       - name: Set up proton VPN
         run: |
+          mkdir -p binary && wget -P binary https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.4_all.deb
           sudo dpkg -i binary/protonvpn-stable-release_1.0.4_all.deb
           sudo apt update
 
