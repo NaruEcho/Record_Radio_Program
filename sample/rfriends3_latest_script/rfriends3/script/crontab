@@ -1,5 +1,0 @@
-#SHELL=/bin/sh
-#PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-BASE_DIR=hogehoge
-# m h  dom mon dow   command
-10 5 * * * sh $BASE_DIR/script/ex_rfriends.sh
