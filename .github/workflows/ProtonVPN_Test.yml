@@ -24,8 +24,8 @@ jobs:
 
       - name: Install tools
         run: |
-          sudo apt install -y protonvpn-cli
-          sudo apt install -y expect
+          sudo apt install -y openvpn dialog python3-pip python3-setuptools expect
+          sudo pip3 install protonvpn-cli
 
       - name: ProtonVPN Login
         env: 
@@ -39,3 +39,6 @@ jobs:
           send "$env(PROTONVPN_PASSWORD)\r"
           expect "$"
           EOF
+
+      - name: Connect to ProtonVPN
+        run: echo "test"
