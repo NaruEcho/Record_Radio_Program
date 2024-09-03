@@ -66,6 +66,7 @@ jobs:
             }
             "Is this information correct? [Y/n]:" {
               send "y\r"
+              exp_continue
             }
             timeout {
               puts "Timeout occurred"
