@@ -40,6 +40,7 @@ jobs:
           PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
           COLUMNS: 80
         run: |
+          expect <<EOF
           set timeout 30
           spawn sudo protonvpn init
           expect "Enter your ProtonVPN OpenVPN username:"
@@ -57,6 +58,8 @@ jobs:
           expect "Your choice:"
           send "1\r"
           echo "Pass check choice"
+          expect eof
+          EOF
 
       - name: Disable IPv6
         run: |
