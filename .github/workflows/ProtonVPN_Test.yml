@@ -39,13 +39,19 @@ jobs:
           PROTONVPN_OPENVPN_USERNAME: ${{ secrets.PROTONVPN_OPENVPN_USERNAME }}
           PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
         run: |
-          expect <<EOF
+          cat << 'EOF' > protonvpn_init_expect.sh
+          #!/usr/bin/expect -f
           set timeout 10
           spawn sudo protonvpn init
           expect "Enter your ProtonVPN OpenVPN username:"
           send "$env(PROTONVPN_OPENVPN_USERNAME)\r"
           expect "Enter your ProtonVPN OpenVPN password:"
           send "$env(PROTONVPN_OPENVPN_PASSWORD)\r"
+          expect {
+            "Confirm your ProtonVPN OpenVPN password:" {
+              send "$env(PROTONVPN_OPENVPN_PASSWORD)\r"
+            }
+          }
           expect "Your plan:"
           send "1\r"
           expect "Your choice:"
