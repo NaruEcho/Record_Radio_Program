@@ -57,7 +57,7 @@ jobs:
           expect "Your choice:"
           send "1\r"
           puts "Pass check choice"
-          expect "Is this information correct? [Y/n]:"
+          expect "Is this information correct? \\[Y/n\\]:"
           send "Y\r"
           puts "Pass check information"
           expect eof
