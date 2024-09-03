@@ -36,15 +36,22 @@ jobs:
 
       - name: ProtonVPN Login
         env: 
-          PROTONVPN_USERNAME: ${{ secrets.PROTONVPN_USERNAME }}
-          PROTONVPN_PASSWORD: ${{ secrets.PROTONVPN_PASSWORD }}
+          PROTONVPN_OPENVPN_USERNAME: ${{ secrets.PROTONVPN_OPENVPN_USERNAME }}
+          PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
         run: |
           expect <<EOF
           set timeout 10
-          spawn protonvpn-cli login $env(PROTONVPN_USERNAME)
-          expect "Password:"
-          send "$env(PROTONVPN_PASSWORD)\r"
-          expect "$"
+          spawn sudo protonvpn init
+          expect "Enter your ProtonVPN OpenVPN username:"
+          send "$env(PROTONVPN_OPENVPN_USERNAME)\r"
+          expect "Enter your ProtonVPN OpenVPN password:"
+          send "$env(PROTONVPN_OPENVPN_PASSWORD)\r"
+          expect "Your plan:"
+          send "1\r"
+          expect "Your choice:"
+          send "1\r"
+          expect "Is this information correct? [Y/n]:"
+          send "y\r"
           EOF
 
       - name: Connect to ProtonVPN
