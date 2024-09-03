@@ -11,6 +11,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Setup faketty
+        uses: Yuri6037/Action-FakeTTY@v1.1
+
       - name: Set up Proton VPN
         run: mkdir -p binary && wget -P binary https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.4_all.deb
 
@@ -32,8 +35,9 @@ jobs:
         env: 
           PROTONVPN_OPENVPN_USERNAME: ${{ secrets.PROTONVPN_OPENVPN_USERNAME }}
           PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
-          COLUMNS: 80
         run: |
+          faketty cols 120 rows 40
+          export COLUMNS=$(tput cols) LINES=$(tput lines)
           expect <<EOF
           set timeout 30
           spawn sudo protonvpn init
@@ -52,6 +56,8 @@ jobs:
           expect "Your choice:"
           send "1\r"
           echo "Pass check choice"
+          expect "Is this information correct? [Y/n]:"
+          send "Y\r"
           expect eof
           EOF
 
