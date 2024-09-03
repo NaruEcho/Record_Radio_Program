@@ -36,7 +36,8 @@ jobs:
           PROTONVPN_OPENVPN_USERNAME: ${{ secrets.PROTONVPN_OPENVPN_USERNAME }}
           PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
         run: |
-          faketty cols 120 rows 40
+          faketty bash -c '
+          stty cols 120 rows 40
           export COLUMNS=$(tput cols) LINES=$(tput lines)
           expect <<EOF
           set timeout 30
@@ -60,6 +61,7 @@ jobs:
           send "Y\r"
           expect eof
           EOF
+          '
 
       - name: Disable IPv6
         run: |
