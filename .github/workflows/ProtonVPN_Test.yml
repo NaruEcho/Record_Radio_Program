@@ -28,7 +28,8 @@ jobs:
       - name: Install tools
         run: |
           sudo apt install -y openvpn dialog expect python3-pip python3-setuptools
-          sudo pip3 install protonvpn-cli
+          git clone https://github.com/ProtonVPN/linux-cli-community
+          sudo pip3 install -e linux-cli-community
           pip3 install -U pytest-pretty
 
       - name: ProtonVPN Login
