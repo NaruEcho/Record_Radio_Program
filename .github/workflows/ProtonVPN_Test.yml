@@ -44,21 +44,22 @@ jobs:
           spawn sudo protonvpn init
           expect "Enter your ProtonVPN OpenVPN username:"
           send "$env(PROTONVPN_OPENVPN_USERNAME)\r"
-          echo "Pass username"
+          puts "Pass username"
           expect "Enter your ProtonVPN OpenVPN password:"
           send "$env(PROTONVPN_OPENVPN_PASSWORD)\r"
-          echo "Pass password"
+          puts "Pass password"
           expect "Confirm your ProtonVPN OpenVPN password:"
           send "$env(PROTONVPN_OPENVPN_PASSWORD)\r"
-          echo "Pass confirm"
+          puts "Pass confirm"
           expect "Your plan:"
           send "1\r"
-          echo "Pass check plan"
+          puts "Pass check plan"
           expect "Your choice:"
           send "1\r"
-          echo "Pass check choice"
+          puts "Pass check choice"
           expect "Is this information correct? [Y/n]:"
           send "Y\r"
+          puts "Pass check information"
           expect eof
           EOF
           '
