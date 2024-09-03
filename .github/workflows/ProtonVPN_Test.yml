@@ -33,14 +33,14 @@ jobs:
           sudo apt install -y openvpn dialog expect
           python -m pip install --upgrade pip
           sudo pip install protonvpn-cli
+          pip install -U pytest-pretty
 
       - name: ProtonVPN Login
         env: 
           PROTONVPN_OPENVPN_USERNAME: ${{ secrets.PROTONVPN_OPENVPN_USERNAME }}
           PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
-          TERM: xterm
+          COLUMNS: 80
         run: |
-          export COLUMNS=80
           expect <<EOF
           set timeout 30
           spawn sudo protonvpn init
