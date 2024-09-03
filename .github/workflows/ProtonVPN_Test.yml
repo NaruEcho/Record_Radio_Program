@@ -38,43 +38,41 @@ jobs:
         env: 
           PROTONVPN_OPENVPN_USERNAME: ${{ secrets.PROTONVPN_OPENVPN_USERNAME }}
           PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
+          COLUMNS: 80
         run: |
           expect -c '
           set timeout 30
           spawn sudo protonvpn init
           expect {
             "Enter your ProtonVPN OpenVPN username:" {
-              send "$PROTONVPN_OPENVPN_USERNAME\r"
+              send "$env(PROTONVPN_OPENVPN_USERNAME)\r"
+              exp_continue
             }
-            timeout {
-              puts "Failed at username prompt"
-              exit 1
-            }
-          }
-          expect {
             "Enter your ProtonVPN OpenVPN password:" {
-              send "$PROTONVPN_OPENVPN_PASSWORD\r"
+              send "$env(PROTONVPN_OPENVPN_PASSWORD)\r"
+              exp_continue
             }
-            timeout {
-              puts "Failed at password prompt"
-              exit 1
-            }
-          }
-          expect {
             "Confirm your ProtonVPN OpenVPN password:" {
-              send "$PROTONVPN_OPENVPN_PASSWORD\r"
+              send "$env(PROTONVPN_OPENVPN_PASSWORD)\r"
+              exp_continue
+            }
+            "Your plan:" {
+              send "1\r"
+              exp_continue
+            }
+            "Your choice:" {
+              send "1\r"
+              exp_continue
+            }
+            "Is this information correct? [Y/n]:" {
+              send "y\r"
             }
             timeout {
+              puts "Timeout occurred"
+              exit 1
             }
             eof
           }
-          expect "Your plan:"
-          send "1\r"
-          expect "Your choice:"
-          send "1\r"
-          expect "Is this information correct? [Y/n]:"
-          send "y\r"
-          expect eof
           '
 
       - name: Disable IPv6
