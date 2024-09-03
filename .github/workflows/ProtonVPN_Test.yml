@@ -38,8 +38,8 @@ jobs:
         env: 
           PROTONVPN_OPENVPN_USERNAME: ${{ secrets.PROTONVPN_OPENVPN_USERNAME }}
           PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
-          COLUMNS: 80
         run: |
+          stty cols 80
           expect <<EOF
           set timeout 30
           spawn sudo protonvpn init
