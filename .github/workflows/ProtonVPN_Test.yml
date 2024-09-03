@@ -77,5 +77,8 @@ jobs:
           expect eof
           '
 
+      - name: Disable IPv6
+        run: sudo bash scripts/update-sysctl.sh
+
       - name: Connect to ProtonVPN
         run: echo "test"
