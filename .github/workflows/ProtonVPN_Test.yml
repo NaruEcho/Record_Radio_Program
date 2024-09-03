@@ -89,3 +89,6 @@ jobs:
           echo "IP Address: $IP"
           COUNTRY=$(curl -s https://ipinfo.io/${IP}/country)
           echo "Country Code: $COUNTRY"
+
+      - name: Disconnect ProtonVPN
+        run: sudo protonvpn disconnect
