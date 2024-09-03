@@ -10,6 +10,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          architecture: 'x64'
 
       - name: Set up Proton VPN
         run: mkdir -p binary && wget -P binary https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.4_all.deb
@@ -24,8 +30,9 @@ jobs:
 
       - name: Install tools
         run: |
-          sudo apt install -y openvpn dialog python3-pip python3-setuptools expect
-          sudo pip3 install protonvpn-cli
+          sudo apt install -y openvpn dialog expect
+          python -m pip install --upgrade pip
+          sudo pip install protonvpn-cli
 
       - name: ProtonVPN Login
         env: 
