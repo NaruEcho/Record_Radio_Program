@@ -56,7 +56,7 @@ jobs:
           send "1\r"
           puts "Pass check plan"
           expect "Your choice:"
-          send "1\r"
+          send "2\r"
           puts "Pass check choice"
           expect "Is this information correct? \\[Y/n\\]:"
           send "Y\r"
