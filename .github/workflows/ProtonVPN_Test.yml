@@ -33,7 +33,7 @@ jobs:
 
       - name: Install tools
         run: |
-          sudo apt install -y openvpn dialog expect python3-pip python3-setuptools xauth x11-apps gnome-terminal xvfb
+          sudo apt install -y openvpn dialog expect python3-pip python3-setuptools xauth x11-apps gnome-terminal xvfb network-manager-gnome
           git clone https://github.com/ProtonVPN/linux-cli-community
           sudo pip3 install -e linux-cli-community
           pip3 install -U pytest-pretty
