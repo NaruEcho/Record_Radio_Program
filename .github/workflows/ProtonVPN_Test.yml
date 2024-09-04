@@ -43,6 +43,10 @@ jobs:
           Xvfb :99 -screen 0 1280x1024x24 &
           export DISPLAY=:99
 
+      - name: Run nm-applet
+        run: |
+          nohup nm-applet &
+
       - name: ProtonVPN Login
         env: 
           PROTONVPN_USERNAME: ${{ secrets.PROTONVPN_USERNAME }}
