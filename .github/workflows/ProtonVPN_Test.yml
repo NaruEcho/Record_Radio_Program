@@ -70,7 +70,6 @@ jobs:
           protonvpn --version
           protonvpn status
           protonvpn --help
-          sudo protonvpn configure
 
       - name: Connect to ProtonVPN
         run: sudo protonvpn c --cc JP
