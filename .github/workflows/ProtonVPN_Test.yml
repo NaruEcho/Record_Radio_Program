@@ -6,7 +6,11 @@ on:
 jobs:
   proton-vpn-test:
     runs-on: ubuntu-latest
-
+    
+    env: 
+      PROTONVPN_OPENVPN_USERNAME: ${{ secrets.PROTONVPN_OPENVPN_USERNAME }}
+      PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
+    
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -33,9 +37,6 @@ jobs:
           pip3 install -U pytest-pretty docopt requests pythondialog jinja2
 
       - name: ProtonVPN Login
-        env: 
-          PROTONVPN_OPENVPN_USERNAME: ${{ secrets.PROTONVPN_OPENVPN_USERNAME }}
-          PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
         run: |
           faketty bash -c '
           stty cols 120 rows 40
