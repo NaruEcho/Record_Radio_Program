@@ -34,8 +34,8 @@ jobs:
 
       - name: ProtonVPN Login
         env: 
-          PROTONVPN_USERNAME: ${{ secrets.PROTONVPN_USERNAME }}
-          PROTONVPN_PASSWORD: ${{ secrets.PROTONVPN_PASSWORD }}
+          PROTONVPN_OPENVPN_USERNAME: ${{ secrets.PROTONVPN_OPENVPN_USERNAME }}
+          PROTONVPN_OPENVPN_PASSWORD: ${{ secrets.PROTONVPN_OPENVPN_PASSWORD }}
         run: |
           faketty bash -c '
           stty cols 120 rows 40
@@ -44,13 +44,13 @@ jobs:
           set timeout 30
           spawn sudo protonvpn init
           expect "Enter your ProtonVPN OpenVPN username:"
-          send "$env(PROTONVPN_USERNAME)\r"
+          send "$env(PROTONVPN_OPENVPN_USERNAME)\r"
           puts "Pass username"
           expect "Enter your ProtonVPN OpenVPN password:"
-          send "$env(PROTONVPN_PASSWORD)\r"
+          send "$env(PROTONVPN_OPENVPN_PASSWORD)\r"
           puts "Pass password"
           expect "Confirm your ProtonVPN OpenVPN password:"
-          send "$env(PROTONVPN_PASSWORD)\r"
+          send "$env(PROTONVPN_OPENVPN_PASSWORD)\r"
           puts "Pass confirm"
           expect "Your plan:"
           send "1\r"
