@@ -78,7 +78,7 @@ jobs:
           sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
 
       - name: Connect to ProtonVPN
-        run: sudo protonvpn c --cc JP
+        run: protonvpn c --cc JP
 
       - name: Check the country
         run: |
