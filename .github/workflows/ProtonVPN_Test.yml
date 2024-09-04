@@ -11,6 +11,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Setup faketty
+        uses: Yuri6037/Action-FakeTTY@v1.1
+
       - name: Disable IPv6
         run: |
           sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
@@ -45,7 +48,7 @@ jobs:
           PROTONVPN_USERNAME: ${{ secrets.PROTONVPN_USERNAME }}
           PROTONVPN_PASSWORD: ${{ secrets.PROTONVPN_PASSWORD }}
         run: |
-          gnome-terminal --geometry=120x40 -e "bash -c '
+          faketty bash -c '
           stty cols 120 rows 40
           export COLUMNS=$(tput cols) LINES=$(tput lines)
           expect <<EOF
@@ -71,7 +74,7 @@ jobs:
           puts "Pass check information"
           expect eof
           EOF
-          '"
+          '
 
       - name: Check ProtonVPN
         run: |
