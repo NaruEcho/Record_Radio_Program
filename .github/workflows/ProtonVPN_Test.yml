@@ -1,4 +1,4 @@
-name: ProtonVPN Test
+　name: ProtonVPN Test
 
 on:
   workflow_dispatch:
@@ -14,12 +14,6 @@ jobs:
       - name: Setup faketty
         uses: Yuri6037/Action-FakeTTY@v1.1
 
-      - name: Disable IPv6
-        run: |
-          sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-          sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-          sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
-
       - name: Set up Proton VPN
         run: mkdir -p binary && wget -P binary https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.4_all.deb
 
@@ -33,19 +27,10 @@ jobs:
 
       - name: Install tools
         run: |
-          sudo apt install -y openvpn dialog expect python3-pip python3-setuptools xauth x11-apps gnome-terminal xvfb network-manager-gnome
+          sudo apt install -y openvpn dialog expect python3-pip python3-setuptools
           git clone https://github.com/ProtonVPN/linux-cli-community
           sudo pip3 install -e linux-cli-community
           pip3 install -U pytest-pretty
-
-      - name: Start Xvfb
-        run: |
-          Xvfb :99 -screen 0 1280x1024x24 &
-          export DISPLAY=:99
-
-      - name: Run nm-applet
-        run: |
-          nohup nm-applet &
 
       - name: ProtonVPN Login
         env: 
