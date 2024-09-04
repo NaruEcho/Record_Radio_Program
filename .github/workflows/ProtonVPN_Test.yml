@@ -1,4 +1,4 @@
-　name: ProtonVPN Test
+name: ProtonVPN Test
 
 on:
   workflow_dispatch:
