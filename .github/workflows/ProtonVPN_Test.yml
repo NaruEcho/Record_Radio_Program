@@ -30,7 +30,7 @@ jobs:
           sudo apt install -y openvpn dialog expect python3-pip python3-setuptools
           git clone https://github.com/ProtonVPN/linux-cli-community
           sudo pip3 install -e linux-cli-community
-          pip3 install -U pytest-pretty
+          pip3 install -U pytest-pretty docopt requests pythondialog jinja2
 
       - name: ProtonVPN Login
         env: 
