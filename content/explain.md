@@ -28,8 +28,11 @@ The JSON file is saved in the following format:
     {
       "file_name": "ProgramName/2024/09/06.m4a",
       "download_time": "2024-09-06T12:34:56Z"
+    },
+    {
+      "file_name": "AnotherProgramName/2024/09/07.m4a",
+      "download_time": "2024-09-07T14:22:30Z"
     }
-    // Additional file information will be added here
   ]
 }
 ```
