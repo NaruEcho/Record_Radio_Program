@@ -14,5 +14,26 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Setup faketty
-        uses: Yuri6037/Action-FakeTTY@v1.1
+      - name: Install WireGuard
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wireguard
+
+      - name: Create WireGuard config file
+        run: |
+          echo "$WG_CONF" | sudo tee /etc/wireguard/wg0.conf > /dev/null
+          sudo chmod 600 /etc/wireguard/wg0.conf
+
+      - name: Start WireGuard VPN
+        run: sudo wg-quick up wg0
+
+      - name: Check connection and country
+        run: |
+          sudo wg
+          IP=$(curl -s http://ifconfig.me)
+          echo "IP Address: $IP"
+          COUNTRY=$(curl -s https://ipinfo.io/${IP}/country)
+          echo "Country Code: $COUNTRY"
+
+      - name: End WireGuard VPN
+        run: sudo wg-quick down wg0
