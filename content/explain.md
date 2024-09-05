@@ -22,7 +22,7 @@ The JSON file is saved in the following format:
 ```json
 {
   "year": "2024",
-  "nendoo: "2024",
+  "nendo": "2024",
   "month": "09",
   "files": [
     {
