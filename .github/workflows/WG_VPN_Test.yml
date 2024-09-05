@@ -22,6 +22,7 @@ jobs:
       - name: Create WireGuard config file
         run: |
           echo "$WG_CONF" | sudo tee /etc/wireguard/wg0.conf > /dev/null
+          sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf
           sudo chmod 600 /etc/wireguard/wg0.conf
 
       - name: Start WireGuard VPN
