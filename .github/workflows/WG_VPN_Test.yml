@@ -32,7 +32,7 @@ jobs:
 
       - name: Verify VPN Connection
         run: |
-          sudo wg
+          sudo wg | grep -v 'public key' | grep -v 'private key'
           sleep 10
 
       - name: Check external IP and country
