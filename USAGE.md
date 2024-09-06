@@ -39,7 +39,7 @@ The JSON file is saved in the following format:
 
 ## Dynamic URL Creation for Automatic Downloads
 
-Based on the following `content/course-all.json`, URLs are automatically generated for downloading programs:
+Based on the following `content/courses-all.json`, URLs are automatically generated for downloading programs:
 
 ```json
 {
