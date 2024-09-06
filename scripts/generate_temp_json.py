@@ -1,4 +1,7 @@
 import json
+import requests
+import sys
+import os
 
 def read_programs():
     try:
@@ -16,7 +19,8 @@ def read_programs():
                     "title": program['title'],
                     "url": url,
                     "folder_title": program['folder_title']
-                })         
+                })  
+        return output_list
         # json形式で出力
         output_json = json.dumps(output_list, ensure_ascii=False, indent=2)
         print(output_json)
@@ -25,4 +29,27 @@ def read_programs():
             f.write(output_json)
     except Exception as e:
         print(f"Error: {e}")
-        pass
+        return None
+
+def get_streaming_url():
+    jsonData = read_programs()
+    if jsonData is None:
+        print("Error check the content/programs.txt")
+        sys.exit(1)
+    try:
+        for info in jsonData:
+            url = info["url"]
+            response.requests.get(url)
+            response.raise_for_status() # HTTPエラーが発生した場合は例外をスロー
+            # JSONデータをパース
+            data = response.json()
+            if not os.path.exists(f"content/{info["title"]}/info.json"):
+                print(f"{info["title"]}のinfoファイルを作成します")
+                # 番組説明
+                series_description = data.get('series_description', '説明はありません')
+            episodes = data.get('episodes', [])
+            for episode in episodes:
+                streaming_url = episode.get('stream_url', 'URLがありません')
+                onair_date = episode.get('onair_date', '配信日がありません')
+            
+            
