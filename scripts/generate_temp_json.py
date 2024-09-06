@@ -3,10 +3,13 @@ import requests
 import sys
 import os
 
+# GITHUB_WORKSPACE 環境変数　ルートデディレクトリ
+workspace = os.getenv('GITHUB_WORKSPACE', '/default/path')
+
 def read_programs():
     try:
         # JSONファイルの読み込み
-        with open('content/courses-all.json.json', 'r', encoding='utf-8') as file:
+        with open(f"{workspace}/content/courses-all.json.json", 'r', encoding='utf-8') as file:
             courses_json = json.load(file)       
         # ダウンロードする番組を配列形式で受け取る
         with open('content/programs.txt', 'r', encoding='utf-8') as file:
@@ -43,7 +46,7 @@ def get_streaming_url():
             response.raise_for_status() # HTTPエラーが発生した場合は例外をスロー
             # JSONデータをパース
             data = response.json()
-            if not os.path.exists(f"content/{info["title"]}/info.json"):
+            if not os.path.exists(f"{workspace}/content/{info["title"]}/info.json"):
                 print(f"{info["title"]}のinfoファイルを作成します")
                 # 番組説明
                 series_description = data.get('series_description', '説明はありません')
