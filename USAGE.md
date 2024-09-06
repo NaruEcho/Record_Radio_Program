@@ -5,11 +5,11 @@
 Audio files are automatically saved in the following format:
 
 - **File Format**: `m4a`
-- **Filename Format**: `ProgramName/Year/Month/Day`
+- **Filename Format**: `content/ProgramName/Year/Month/Day`
 
 ### Example
 
-- `ProgramName/2024/09/06.m4a`
+- `content/ProgramName/2024/09/06.m4a`
 
 ## JSON File Generation
 
@@ -26,11 +26,11 @@ The JSON file is saved in the following format:
   "month": "09",
   "files": [
     {
-      "file_name": "ProgramName/2024/09/06.m4a",
+      "file_name": "content/ProgramName/2024/09/06.m4a",
       "download_time": "2024-09-06T12:34:56Z"
     },
     {
-      "file_name": "ProgramName/2024/09/07.m4a",
+      "file_name": "content/ProgramName/2024/09/07.m4a",
       "download_time": "2024-09-07T14:22:30Z"
     }
   ]
@@ -39,7 +39,7 @@ The JSON file is saved in the following format:
 
 ## Dynamic URL Creation for Automatic Downloads
 
-Based on the following `course-json`, URLs are automatically generated for downloading programs:
+Based on the following `content/course-all.json`, URLs are automatically generated for downloading programs:
 
 ```json
 {
@@ -78,7 +78,7 @@ The URLs are created dynamically by filling in the `site_id` and `corner_site_id
 
 To change the programs that are downloaded, simply edit the `Programs.txt` file. Each program name should be listed on a separate line to ensure proper formatting.
 
-### Example of `Programs.txt`
+### Example of `content/Programs.txt`
 
 ```
 小学生の基礎英語
