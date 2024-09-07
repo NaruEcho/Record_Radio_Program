@@ -58,7 +58,7 @@ jobs:
         run: |
             full_output=$(python scripts/setup_and_get_info.py 2>/dev/null)
             json_output=$(echo "$full_output" | grep -o '\[.*\]' | jq '.')
-            if [ -n "$json_output" ] && ["$json_output" != "[]" ]; then
+            if [ -n "$json_output" ] && [ "$json_output" != "[]" ]; then
                 echo "$json_output" | jq -c '.[]' | while IFS= read -r item; do
                     streaming_url=$(echo "$item" | jq -r '.streaming_url')
                     audio_path=$(echo "$item" | jq -r '.audio_path')
