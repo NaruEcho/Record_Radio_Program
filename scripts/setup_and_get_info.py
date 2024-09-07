@@ -22,7 +22,7 @@ def add_entry(json_data, date, entry):
 
 def save_json(file_path, json_data):
     with open(file_path, 'w', encoding='utf-8') as file:
-        json.dump(json_data, file, ensure_ascii=False, indenet=4)
+        json.dump(json_data, file, ensure_ascii=False, indent=4)
 
 def get_extract_broadcast_date(onair_date):
     try:
@@ -150,7 +150,7 @@ def get_streaming_url():
                     ])
                     filtered_data = OrderedDict((k, v) for k, v in broadcast_data.items() if v is not None)
                     broadcast_json_path = os.path.join(now_month_folder_path, "broadcast_info.json")
-                    broadcast_json_data = load_json(file_path)
+                    broadcast_json_data = load_json(broadcast_json_path)
                     # 日付をキーにしてJSONデータに追加
                     broadcast_json_data[date_key] = filtered_data
                     save_json(broadcast_json_path, broadcast_json_data)
@@ -167,8 +167,10 @@ def get_streaming_url():
             
 if __name__ == "__main__":
     # GITHUB_WORKSPACE 環境変数　ルートデディレクトリ
-    if workspace is not None:
-        print("root directory found")
+    if workspace is None:
+        print("root directory not found")
     else:
+        print("root directory found")
         pass_array = get_streaming_url()
-        print(json.dumps(pass_array))
+        if pass_array is not None:
+            print(json.dumps(pass_array))
