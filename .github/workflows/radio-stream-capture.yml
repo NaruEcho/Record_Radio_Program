@@ -17,7 +17,7 @@ jobs:
       - name: Install WireGuard
         run: |
           sudo apt-get update
-          sudo apt-get install -y wireguard
+          sudo apt-get install -y wireguard jq
 
       - name: Create WireGuard config file
         run: |
@@ -37,19 +37,9 @@ jobs:
 
       - name: Check external IP and country
         run: |
-          IP=$(curl -s http://ifconfig.me)
-          if [ -z "$IP" ]; then
-            echo "Failed to retrieve external IP address."
-            exit 1
-          fi
-          echo "IP Address: $IP"
-          
-          COUNTRY=$(curl -s https://ipinfo.io/${IP}/country)
-          if [ -z "$COUNTRY" ]; then
-            echo "Failed to retrieve country code."
-            exit 1
-          fi
-          echo "Country Code: $COUNTRY"
+          chmod +x scripts/get_info.sh
+          scripts/get_info.sh
 
       - name: End WireGuard VPN
+        if: always() # どんな状態でも必ず実行する
         run: sudo wg-quick down wg0
