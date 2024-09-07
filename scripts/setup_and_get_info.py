@@ -141,26 +141,27 @@ def get_streaming_url():
                         now_month_folder_path = os.path.join(folder_path, str(extract_broadcast_date.year), str(extract_broadcast_date.month))
                         audio_path = os.path.join(now_month_folder_path, str(extract_broadcast_date.day)) + ".m4a"
                         os.makedirs(now_month_folder_path, exist_ok=True)
-                        broadcast_data = OrderedDict([
-                            ("title": program_title),
-                            ("sub_title": title_sub),
-                            ("onair_date": str(extract_broadcast_date.year) + "年" + onair_date),
-                            ("closed_date": closed_date),
-                            ("streaming_url": streaming_url),
-                            ("audio_path": audio_path)
-                        ])
-                        filtered_data = OrderedDict((k, v) for k, v in broadcast_data.items() if v is not None)
-                        broadcast_json_path = os.path.join(now_month_folder_path, "broadcast_info.json")
-                        broadcast_json_data = load_json(broadcast_json_path)
-                        # 日付をキーにしてJSONデータに追加
-                        broadcast_json_data[date_key] = filtered_data
-                        save_json(broadcast_json_path, broadcast_json_data)
-                        back_array.append(
-                            {
-                                "streaming_url": streaming_url,
-                                "audio_path": audio_path
-                            }
-                        )
+                        if not os.path.exists(audio_path):
+                            broadcast_data = OrderedDict([
+                                ("title": program_title),
+                                ("sub_title": title_sub),
+                                ("onair_date": str(extract_broadcast_date.year) + "年" + onair_date),
+                                ("closed_date": closed_date),
+                                ("streaming_url": streaming_url),
+                                ("audio_path": audio_path)
+                            ])
+                            filtered_data = OrderedDict((k, v) for k, v in broadcast_data.items() if v is not None)
+                            broadcast_json_path = os.path.join(now_month_folder_path, "broadcast_info.json")
+                            broadcast_json_data = load_json(broadcast_json_path)
+                            # 日付をキーにしてJSONデータに追加
+                            broadcast_json_data[date_key] = filtered_data
+                            save_json(broadcast_json_path, broadcast_json_data)
+                            back_array.append(
+                                {
+                                    "streaming_url": streaming_url,
+                                    "audio_path": audio_path
+                                }
+                            )
         return back_array
     except Exception as e:
         print(f"Error: {e}")
