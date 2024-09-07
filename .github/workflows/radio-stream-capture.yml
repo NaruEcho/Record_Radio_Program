@@ -57,7 +57,8 @@ jobs:
 
       - name: Save info JSON and download
         run: |
-            full_output=$(python scripts/setup_and_get_info.py 2>/dev/null)
+            full_output=$(python scripts/setup_and_get_info.py)
+            echo "$full_output"
             echo "Run Pyhon script successfully"
             json_output=$(echo "$full_output" | grep -o '\[.*\]' | jq '.')
             echo "Filtered json data successfully"
