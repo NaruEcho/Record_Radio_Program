@@ -4,13 +4,7 @@ import sys
 import os
 import re
 from datetime import datetime
-from collections import OrderedDict
-
-# GITHUB_WORKSPACE 環境変数　ルートデディレクトリ
-workspace = os.getenv('GITHUB_WORKSPACE', None)
-
-if workspace is not None:
-    print("root directory found") 
+from collections import OrderedDict 
 
 def load_json(file_path):
     if os.path.exists(file_path):
@@ -79,10 +73,11 @@ def read_programs():
         return None
 
 def get_streaming_url():
+    back_array = []
     jsonData = read_programs()
     if jsonData is None:
         print("Error: Check the content/programs.txt")
-        sys.exit(1)
+        return None
     try:
         for info in jsonData:
             url = info["url"]
@@ -129,7 +124,7 @@ def get_streaming_url():
             episodes = data.get('episodes', None)
             if episodes is None:
                 print(f"Error: {info['title']}/episodes not found")
-                sys.exit(1)
+                return None
             for episode in episodes:
                 streaming_url = episode.get('stream_url', None)
                 onair_date = episode.get('onair_date', None)
@@ -140,6 +135,7 @@ def get_streaming_url():
                     extract_broadcast_date = get_extract_broadcast_date(onair_date)
                     date_key = extract_broadcast_date.strftime("%Y-%m-%d")
                     now_month_folder_path = os.path.join(folder_path, str(extract_broadcast_date.year), str(extract_broadcast_date.month))
+                    audio_path = os.path.join(now_month_folder_path, str(extract_broadcast_date.day)) + "m4a"
                     os.makedirs(now_month_folder_path, exist_ok=True)
                     broadcast_data = OrderedDict([
                         ("title": program_title),
@@ -147,7 +143,7 @@ def get_streaming_url():
                         ("onair_date": str(extract_broadcast_date.year) + "年" + onair_date),
                         ("closed_date": closed_date),
                         ("streaming_url": streaming_url),
-                        ("audio_path": os.path.join(now_month_folder_path, str(extract_broadcast_date.day)))
+                        ("audio_path": audio_path)
                     ])
                     filtered_data = OrderedDict((k, v) for k, v in broadcast_data.items() if v is not None)
                     broadcast_json_path = os.path.join(now_month_folder_path, "broadcast_info.json")
@@ -155,8 +151,21 @@ def get_streaming_url():
                     # 日付をキーにしてJSONデータに追加
                     broadcast_json_data[date_key] = filtered_data
                     save_json(broadcast_json_path, broadcast_json_data)
+                    back_array.append(
+                        {
+                            "streaming_url": streaming_url,
+                            "audio_filename": audio_path
+                        }
+                    )
+        return back_array
     except Exception as e:
         print(f"Error: {e}")
-        sys.exit(1)
+        return None
             
-            
+if __name__ == "__main__":
+    # GITHUB_WORKSPACE 環境変数　ルートデディレクトリ
+    workspace = os.getenv('GITHUB_WORKSPACE', None)
+    if workspace is not None:
+        print("root directory found")
+    pass_array = get_streaming_url
+    print(pass_array)
