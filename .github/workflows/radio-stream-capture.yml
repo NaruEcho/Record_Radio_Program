@@ -57,7 +57,9 @@ jobs:
       - name: Save info JSON and download
         run: |
             full_output=$(python scripts/setup_and_get_info.py 2>/dev/null)
+            echo "Run Pyhon script successfully"
             json_output=$(echo "$full_output" | grep -o '\[.*\]' | jq '.')
+            echo "Filtered json data successfully"
             if [ -n "$json_output" ] && [ "$json_output" != "[]" ]; then
                 echo "$json_output" | jq -c '.[]' | while IFS= read -r item; do
                     streaming_url=$(echo "$item" | jq -r '.streaming_url')
