@@ -1,7 +1,0 @@
-get-chrome-driver
-pytz
-selenium
-requests
-pyaudio
-pydub
-sounddevice
