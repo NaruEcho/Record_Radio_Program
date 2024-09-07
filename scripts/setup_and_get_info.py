@@ -103,11 +103,11 @@ def get_streaming_url():
                 schedule = data.get('schedule', '配信時間が設定されていません')
                 thumbnail_url = data.get('thumbnail_url', None)
                 program_data = OrderedDict([
-                    ("title": info['title']),
-                    ("radio_broadcast": radio_broadcast),
-                    ("schedule": schedule),
-                    ("series_url": series_url),
-                    ("series_description": series_description)
+                    ("title", info['title']),
+                    ("radio_broadcast", radio_broadcast),
+                    ("schedule", schedule),
+                    ("series_url", series_url),
+                    ("series_description", series_description)
                 ])
                 filtered_data = OrderedDict((k, v) for k, v in program_data.items() if v is not None)
                 os.makedirs(folder_path, exist_ok=True)
@@ -143,12 +143,12 @@ def get_streaming_url():
                         os.makedirs(now_month_folder_path, exist_ok=True)
                         if not os.path.exists(audio_path):
                             broadcast_data = OrderedDict([
-                                ("title": program_title),
-                                ("sub_title": title_sub),
-                                ("onair_date": str(extract_broadcast_date.year) + "年" + onair_date),
-                                ("closed_date": closed_date),
-                                ("streaming_url": streaming_url),
-                                ("audio_path": audio_path)
+                                ("title", program_title),
+                                ("sub_title", title_sub),
+                                ("onair_date", str(extract_broadcast_date.year) + "年" + onair_date),
+                                ("closed_date", closed_date),
+                                ("streaming_url", streaming_url),
+                                ("audio_path", audio_path)
                             ])
                             filtered_data = OrderedDict((k, v) for k, v in broadcast_data.items() if v is not None)
                             broadcast_json_path = os.path.join(now_month_folder_path, "broadcast_info.json")
