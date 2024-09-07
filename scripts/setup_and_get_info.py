@@ -7,7 +7,7 @@ from datetime import datetime
 from collections import OrderedDict 
 
 # GITHUB_WORKSPACE 環境変数　ルートデディレクトリ
-workspace = os.getenv('GITHUB_WORKSPACE', None)
+workspace = os.getenv('WORKSPACE', None)
 
 def load_json(file_path):
     if os.path.exists(file_path):
