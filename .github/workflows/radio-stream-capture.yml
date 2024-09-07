@@ -35,7 +35,7 @@ jobs:
           sudo wg | grep -v 'public key' | grep -v 'private key'
           sleep 10
 
-      - name: Check external IP and country
+      - name: Check IP and Security
         run: |
           chmod +x scripts/get_info.sh
           scripts/get_info.sh
