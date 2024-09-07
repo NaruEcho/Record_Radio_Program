@@ -6,6 +6,9 @@ import re
 from datetime import datetime
 from collections import OrderedDict 
 
+# GITHUB_WORKSPACE 環境変数　ルートデディレクトリ
+workspace = os.getenv('GITHUB_WORKSPACE', None)
+
 def load_json(file_path):
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -164,8 +167,8 @@ def get_streaming_url():
             
 if __name__ == "__main__":
     # GITHUB_WORKSPACE 環境変数　ルートデディレクトリ
-    workspace = os.getenv('GITHUB_WORKSPACE', None)
     if workspace is not None:
         print("root directory found")
-    pass_array = get_streaming_url
-    print(pass_array)
+    else:
+        pass_array = get_streaming_url()
+        print(json.dumps(pass_array))
