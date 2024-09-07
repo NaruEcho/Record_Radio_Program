@@ -4,6 +4,7 @@ import sys
 import os
 import re
 from datetime import datetime
+from collections import OrderedDict
 
 # GITHUB_WORKSPACE 環境変数　ルートデディレクトリ
 workspace = os.getenv('GITHUB_WORKSPACE', None)
@@ -94,15 +95,16 @@ def get_streaming_url():
                 radio_broadcast = data.get('radio_broadcast', '配信されていません')
                 schedule = data.get('schedule', '配信時間が設定されていません')
                 thumbnail_url = data.get('thumbnail_url', None)
-                program_data = {
-                    "title": info['title'],
-                    "radio_broadcast": radio_broadcast,
-                    "schedule": schedule,
-                    "series_url": series_url,
-                    "series_description": series_description
-                }
+                program_data = OrderedDict([
+                    ("title": info['title']),
+                    ("radio_broadcast": radio_broadcast),
+                    ("schedule": schedule),
+                    ("series_url": series_url),
+                    ("series_description": series_description)
+                ])
+                filtered_data = OrderedDict((k, v) for k, v in program_data.items() if v is not None)
                 os.makedirs(folder_path, exist_ok=True)
-                save_json(info_path, program_data)
+                save_json(info_path, filtered_data)
                 print(f"{info['title']}のinfoファイルを作成しました")
                 try:
                     if thumbnail_url is not None:
