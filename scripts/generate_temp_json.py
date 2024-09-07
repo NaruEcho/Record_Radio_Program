@@ -134,25 +134,27 @@ def get_streaming_url():
                 streaming_url = episode.get('stream_url', None)
                 onair_date = episode.get('onair_date', None)
                 closed_date = episode.get('closed_at', None)
-                if closed_date is not None:
-                    closed_date = get_extract_broadcast_date(closed_date)
                 title_sub = episode.get('program_sub_title', None)
                 program_title = episode.get('program_title', None)
                 if onair_date is not None:
                     extract_broadcast_date = get_extract_broadcast_date(onair_date)
-                    now_month_folder_path = os.path.join(folder_path, extract_broadcast_date.year, extract_broadcast_date.month)
+                    date_key = extract_broadcast_date.strftime("%Y-%m-%d")
+                    now_month_folder_path = os.path.join(folder_path, str(extract_broadcast_date.year), str(extract_broadcast_date.month))
                     os.makedirs(now_month_folder_path, exist_ok=True)
                     broadcast_data = OrderedDict([
                         ("title": program_title),
                         ("sub_title": title_sub),
-                        ("onair_date": onair_date),
+                        ("onair_date": str(extract_broadcast_date.year) + "年" + onair_date),
                         ("closed_date": closed_date),
                         ("streaming_url": streaming_url),
-                        ("audio_path": os.path.join(now_month_folder_path, extract_broadcast_date.day))
+                        ("audio_path": os.path.join(now_month_folder_path, str(extract_broadcast_date.day)))
                     ])
                     filtered_data = OrderedDict((k, v) for k, v in broadcast_data.items() if v is not None)
-                if streaming_url and onair_date:
-                    print("streaming URL and onair date found")
+                    broadcast_json_path = os.path.join(now_month_folder_path, "broadcast_info.json")
+                    broadcast_json_data = load_json(file_path)
+                    # 日付をキーにしてJSONデータに追加
+                    broadcast_json_data[date_key] = filtered_data
+                    save_json(broadcast_json_path, broadcast_json_data)
     except Exception as e:
         print(f"Error: {e}")
         sys.exit(1)
