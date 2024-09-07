@@ -127,6 +127,7 @@ def get_streaming_url():
                 closed_date = episode.get('closed_at', False)
                 title_sub = episode.get('program_sub_title', False)
                 program_title = episode.get('program_title', False)
+                extract_broadcast_date = get_extract_broadcast_date(onair_date)
                 if streaming_url and onair_date:
                     print("streaming URL and onair date found")
     except Exception as e:
