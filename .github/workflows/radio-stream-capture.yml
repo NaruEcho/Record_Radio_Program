@@ -9,6 +9,7 @@ jobs:
     
     env:
       WG_CONF: ${{ secrets.WG_VPN_CONF }}
+      WORKSPACE: $GITHUB_WORKSPACE
     
     steps:
       - name: Check out repository
