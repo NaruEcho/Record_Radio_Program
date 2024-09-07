@@ -9,7 +9,7 @@ workspace = os.getenv('GITHUB_WORKSPACE', '/default/path')
 def read_programs():
     try:
         # JSONファイルの読み込み
-        with open(f"{workspace}/content/courses-all.json.json", 'r', encoding='utf-8') as file:
+        with open(f"{workspace}/content/courses-all.json", 'r', encoding='utf-8') as file:
             courses_json = json.load(file)       
         # ダウンロードする番組を配列形式で受け取る
         with open('content/programs.txt', 'r', encoding='utf-8') as file:
@@ -24,12 +24,6 @@ def read_programs():
                     "folder_title": program['folder_title']
                 })  
         return output_list
-        # json形式で出力
-        output_json = json.dumps(output_list, ensure_ascii=False, indent=2)
-        print(output_json)
-        # ファイル保存
-        with open("temp.json", "w", encoding="utf-8") as f:
-            f.write(output_json)
     except Exception as e:
         print(f"Error: {e}")
         return None
@@ -46,13 +40,31 @@ def get_streaming_url():
             response.raise_for_status() # HTTPエラーが発生した場合は例外をスロー
             # JSONデータをパース
             data = response.json()
-            if not os.path.exists(f"{workspace}/content/{info["title"]}/info.json"):
+            if not os.path.exists(f"{workspace}/content/{info["folder_title"]}/info.json"):
                 print(f"{info["title"]}のinfoファイルを作成します")
                 # 番組説明
-                series_description = data.get('series_description', '説明はありません')
-            episodes = data.get('episodes', [])
+                series_description = data.get('series_description', '説明がありません')
+                series_url = data.get('series_url', '見つかりません')
+                radio_broadcast = data.get('radio_broadcast', '配信されていません')
+                schedule = data.get('schedule', '配信時間が設定されていません')
+                program_data = {
+                    "title": info["title"],
+                    "radio_broadcast": radio_broadcast,
+                    "schedule": schedule,
+                    "series_url": series_url,
+                    "series_description": series_description
+                }
+                with open(f"{workspace}/content/{info["folder_title"]}/info.json", "w", encoding="utf-8") as json_file:
+                    json.dump(program_data, json_file, ensure_ascii=False, indent=4)
+                print(f"{info["title"]}のinfoファイルを作成しました")
+            episodes = data.get('episodes', None)
+            if episodes is None:
+                print(f"Error: {info["title"]}/episodes not found")
+                sys.exit(1)
             for episode in episodes:
-                streaming_url = episode.get('stream_url', 'URLがありません')
-                onair_date = episode.get('onair_date', '配信日がありません')
+                streaming_url = episode.get('stream_url', False)
+                onair_date = episode.get('onair_date', False)
+                if streaming_url and onair_date:
+                    print("streaming URL and onair date found")
             
             
