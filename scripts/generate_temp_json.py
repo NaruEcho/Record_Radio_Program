@@ -29,21 +29,30 @@ def save_json(file_path, json_data):
 
 def get_extract_broadcast_date(onair_date):
     try:
-        # 正規表現で「月」と「日」を抽出する
-        match = re.search(r"(\d{1,2})月(\d{1,2})日", onair_date)
+        # 正規表現で「年」と「月」と「日」を抽出する
+        match = re.search(r"(\d{4})年(\d{1,2})月(\d{1,2})日", onair_date)
         if match:
-            month = int(match.group(1))
-            day = int(match.group(2))
-            # 現在の年と月を取得
-            now = datetime.now()
-            current_year = now.year
-            # 放送日が現在の月より大きい場合は前年の放送と推定する
-            if month > now.month:
-                year = current_year - 1
-            else:
-                year = current_year
+            year = int(match.group(1))
+            month = int(match.group(2))
+            day = int(match.group(3))
             # datetime形式で返す
             return datetime(year, month, day)
+        else:
+            # 「年」が与えられていない場合
+            match = re.search(r"(\d{1,2})月(\d{1,2})日", onair_date)
+            if match:
+                month = int(match.group(1))
+                day = int(match.group(2))
+                # 現在の年と月を取得
+                now = datetime.now()
+                current_year = now.year
+                # 放送日が現在の月より大きい場合は前年の放送と推定する
+                if month > now.month:
+                    year = current_year - 1
+                else:
+                    year = current_year
+                # datetime形式で返す
+                return datetime(year, month, day)
         return None
     except ValueError:
         return None
@@ -122,12 +131,26 @@ def get_streaming_url():
                 print(f"Error: {info['title']}/episodes not found")
                 sys.exit(1)
             for episode in episodes:
-                streaming_url = episode.get('stream_url', False)
-                onair_date = episode.get('onair_date', False)
-                closed_date = episode.get('closed_at', False)
-                title_sub = episode.get('program_sub_title', False)
-                program_title = episode.get('program_title', False)
-                extract_broadcast_date = get_extract_broadcast_date(onair_date)
+                streaming_url = episode.get('stream_url', None)
+                onair_date = episode.get('onair_date', None)
+                closed_date = episode.get('closed_at', None)
+                if closed_date is not None:
+                    closed_date = get_extract_broadcast_date(closed_date)
+                title_sub = episode.get('program_sub_title', None)
+                program_title = episode.get('program_title', None)
+                if onair_date is not None:
+                    extract_broadcast_date = get_extract_broadcast_date(onair_date)
+                    now_month_folder_path = os.path.join(folder_path, extract_broadcast_date.year, extract_broadcast_date.month)
+                    os.makedirs(now_month_folder_path, exist_ok=True)
+                    broadcast_data = OrderedDict([
+                        ("title": program_title),
+                        ("sub_title": title_sub),
+                        ("onair_date": onair_date),
+                        ("closed_date": closed_date),
+                        ("streaming_url": streaming_url),
+                        ("audio_path": os.path.join(now_month_folder_path, extract_broadcast_date.day))
+                    ])
+                    filtered_data = OrderedDict((k, v) for k, v in broadcast_data.items() if v is not None)
                 if streaming_url and onair_date:
                     print("streaming URL and onair date found")
     except Exception as e:
