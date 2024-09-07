@@ -46,13 +46,14 @@ def get_streaming_url():
                 print(f"Error fetching {info['title']}: {e}")
             # JSONデータをパース
             data = response.json()
-            if not os.path.exists(f"{workspace}/content/{info['folder_title']}/info.json"):
+            if not os.path.exists(f"{workspace}/content/{info['folder_title']}/info.json") and not os.path.exists(f"{workspace}/content/{info['folder_title']}/thumbnail.jpg"):
                 print(f"{info['title']}のinfoファイルを作成します")
                 # 番組説明
                 series_description = data.get('series_description', '説明がありません')
                 series_url = data.get('series_url', '見つかりません')
                 radio_broadcast = data.get('radio_broadcast', '配信されていません')
                 schedule = data.get('schedule', '配信時間が設定されていません')
+                thumbnail_url = data.get('thumbnail_url', None)
                 program_data = {
                     "title": info['title'],
                     "radio_broadcast": radio_broadcast,
@@ -64,6 +65,17 @@ def get_streaming_url():
                 with open(f"{workspace}/content/{info['folder_title']}/info.json", "w", encoding="utf-8") as json_file:
                     json.dump(program_data, json_file, ensure_ascii=False, indent=4)
                 print(f"{info['title']}のinfoファイルを作成しました")
+                try:
+                    if thumbnail_url is not None:
+                        print("save the thumbnail image")
+                        img_response = requests.get(thumbnail_url)
+                        img_response.raise_for_status() # エラーがあれば例外をスロー
+                        # 画像を保存
+                        with open(f"{workspace}/content/{info['folder_title']}/thumbnail.jpg", "wb") as file:
+                            file.write(img_response.content)
+                        print("saved the thumbnail image")
+                except requests.exceptions.RequestException as e:
+                    print(f"Error downloading image: {e}")
             episodes = data.get('episodes', None)
             if episodes is None:
                 print(f"Error: {info['title']}/episodes not found")
