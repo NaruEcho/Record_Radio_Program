@@ -2,6 +2,8 @@ import json
 import requests
 import sys
 import os
+import re
+from datetime import datetime
 
 # GITHUB_WORKSPACE 環境変数　ルートデディレクトリ
 workspace = os.getenv('GITHUB_WORKSPACE', None)
@@ -23,6 +25,29 @@ def add_entry(json_data, date, entry):
 def save_json(file_path, json_data):
     with open(file_path, 'w', encoding='utf-8') as file:
         json.dump(json_data, file, ensure_ascii=False, indenet=4)
+
+def get_extract_broadcast_date(onair_date):
+    # 正規表現で「月」と「日」を抽出する
+    match = re.search(r"(\d{1,2})月(\d{1,2})日", onair_date)
+    if match:
+        month = int(match.group(1))
+        day = int(match.group(2))
+        # 現在の年と月を取得
+        now = datetime.now()
+        current_year = now.year
+        # 放送日が現在の月より大きい場合は前年の放送と推定する
+        if month > now.month:
+            year = current_year - 1
+        else:
+            year = current_year
+        # 年を含めた日付文字列を作成
+        date_str = f"{year}-{month:02}-{day:02}"
+        try:
+            date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+            return date_obj.strftime("%Y-%m-%d")
+        except ValueError:
+            return None
+    return None
 
 def read_programs():
     try:
