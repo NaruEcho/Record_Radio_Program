@@ -4,7 +4,10 @@ import sys
 import os
 
 # GITHUB_WORKSPACE 環境変数　ルートデディレクトリ
-workspace = os.getenv('GITHUB_WORKSPACE', '/default/path')
+workspace = os.getenv('GITHUB_WORKSPACE', None)
+
+if workspace is not None:
+    print("root directory found") 
 
 def read_programs():
     try:
