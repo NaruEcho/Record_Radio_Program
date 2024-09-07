@@ -50,7 +50,7 @@ def get_extract_broadcast_date(onair_date):
                     year = current_year
                 # datetime形式で返す
                 return datetime(year, month, day)
-        return None
+            return None
     except ValueError:
         return None
 
