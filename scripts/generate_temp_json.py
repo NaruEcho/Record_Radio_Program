@@ -9,11 +9,25 @@ workspace = os.getenv('GITHUB_WORKSPACE', None)
 if workspace is not None:
     print("root directory found") 
 
+def load_json(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    return {} # ファイルが存在しない場合は空の辞書を返す
+
+# JSONに新しいエントリを追加する関数
+def add_entry(json_data, date, entry):
+    json_data[date] = entry
+    return json_data
+
+def save_json(file_path, json_data):
+    with open(file_path, 'w', encoding='utf-8') as file:
+        json.dump(json_data, file, ensure_ascii=False, indenet=4)
+
 def read_programs():
     try:
         # JSONファイルの読み込み
-        with open(f"{workspace}/content/courses-all.json", 'r', encoding='utf-8') as file:
-            courses_json = json.load(file)       
+        courses_json = load_json(f"{workspace}/content/courses-all.json")
         # ダウンロードする番組を配列形式で受け取る
         with open(f"{workspace}/content/programs.txt", 'r', encoding='utf-8') as file:
             programs_list = file.read().splitlines()      
@@ -46,7 +60,10 @@ def get_streaming_url():
                 print(f"Error fetching {info['title']}: {e}")
             # JSONデータをパース
             data = response.json()
-            if not os.path.exists(f"{workspace}/content/{info['folder_title']}/info.json") and not os.path.exists(f"{workspace}/content/{info['folder_title']}/thumbnail.jpg"):
+            folder_path = f"{workspace}/content/{info['folder_title']}"
+            info_path = os.path.join(folder_path, "info.json")
+            thumbnail_path = os.path.join(folder_path, "thumbnail.jpg")
+            if not os.path.exists(info_path) or not os.path.exists(thumbnail_path):
                 print(f"{info['title']}のinfoファイルを作成します")
                 # 番組説明
                 series_description = data.get('series_description', '説明がありません')
@@ -61,9 +78,8 @@ def get_streaming_url():
                     "series_url": series_url,
                     "series_description": series_description
                 }
-                os.makedirs(f"{workspace}/content/{info['folder_title']}", exist_ok=True)
-                with open(f"{workspace}/content/{info['folder_title']}/info.json", "w", encoding="utf-8") as json_file:
-                    json.dump(program_data, json_file, ensure_ascii=False, indent=4)
+                os.makedirs(folder_path, exist_ok=True)
+                save_json(info_path, program_data)
                 print(f"{info['title']}のinfoファイルを作成しました")
                 try:
                     if thumbnail_url is not None:
@@ -71,7 +87,7 @@ def get_streaming_url():
                         img_response = requests.get(thumbnail_url)
                         img_response.raise_for_status() # エラーがあれば例外をスロー
                         # 画像を保存
-                        with open(f"{workspace}/content/{info['folder_title']}/thumbnail.jpg", "wb") as file:
+                        with open(thumbnail_path, "wb") as file:
                             file.write(img_response.content)
                         print("saved the thumbnail image")
                 except requests.exceptions.RequestException as e:
