@@ -54,25 +54,8 @@ jobs:
             chmod +x scripts/get_info.sh
             scripts/get_info.sh
 
-      - name: Save info JSON and download
-        run: |
-            full_output=$(python scripts/setup_and_get_info.py)
-            echo "$full_output"
-            echo "Run Pyhon script successfully"
-            json_output=$(echo "$full_output" | grep -o '\[.*\]' | jq '.')
-            echo "Filtered json data successfully"
-            echo "$json_output"
-            if [ -n "$json_output" ] && [ "$json_output" != "[]" ]; then
-                echo "$json_output" | jq -c '.[]' | while IFS= read -r item; do
-                    streaming_url=$(echo "$item" | jq -r '.streaming_url')
-                    audio_path=$(echo "$item" | jq -r '.audio_path')
-                    echo "Downloading: $streaming_url to $audio_path"
-                    ffmpeg -http_seekable 0 -i "$streaming_url" -vn -acodec aac "$audio_path"
-                    echo "Saved: $audio_path"
-                done
-            else
-                echo "No data to process"
-            fi
+      - name: Save info JSON
+        run: python scripts/setup_and_get_info.py
 
       - name: End WireGuard VPN
         if: always() # どんな状態でも必ず実行する
