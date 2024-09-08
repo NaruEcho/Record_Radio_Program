@@ -66,11 +66,10 @@ jobs:
                 echo "jq command not found. Install jq like sudo apt-get install -y jq"
                 exit 1
             fi
-            jq . scripts/temp.json > formatted.json
-            cat -A formatted.json
-            cat formatted.json | jq .
-            cat formatted.json | jq -c .[]
-            jq -c '.[]' formatted.json | while read -r item; do
+            cat -A "$json_file"
+            cat "$json_file" | jq .
+            cat "$json_file" | jq -c .[]
+            jq -c '.[]' "$json_file" | while read -r item; do
                 url=$(echo "$item" | jq -r '.streaming_url')
                 path=$(echo "$item" | jq -r '.audio_path')
                 if [[ -n "$url" && -n "$path" ]]; then
