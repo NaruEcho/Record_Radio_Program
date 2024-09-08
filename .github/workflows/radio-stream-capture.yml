@@ -70,8 +70,8 @@ jobs:
                 url=$(echo "$entry" | jq -r '.streaming_url')
                 path=$(echo "$entry" | jq -r '.audio_path')
                 if [[ -n "$url" && -n "$path" ]]; then
-                    echo "ffmpeg -http_seekable 0 -i \"$url\" -loglevel quiet -ab 46k -ac 2 -ar 24000 -write_xing 0 \"$path\""
-                    ffmpeg -http_seekable 0 -i "$url" -loglevel quiet -ab 46k -ac 2 -ar 24000 -write_xing 0 "$path" 2>/dev/null
+                    echo "ffmpeg -http_seekable 0 -i $url -loglevel quiet -ab 46k -ac 2 -ar 24000 -write_xing 0 $path"
+                    ffmpeg -http_seekable 0 -i $url -ab 46k -ac 2 -ar 24000 -write_xing 0 $path 2>/dev/null
                 else
                     echo "Error: URL or PATH not found"
                 fi
