@@ -1,8 +1,9 @@
-import json5
+import json
 import requests
 import sys
 import os
 import re
+from zoneinfo import ZoneInfo
 from datetime import datetime
 from collections import OrderedDict 
 
@@ -12,7 +13,7 @@ workspace = os.getenv('GITHUB_WORKSPACE', None)
 def load_json(file_path):
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding='utf-8') as file:
-            return json5.load(file)
+            return json.load(file)
     return {} # ファイルが存在しない場合は空の辞書を返す
 
 # JSONに新しいエントリを追加する関数
@@ -22,7 +23,7 @@ def add_entry(json_data, date, entry):
 
 def save_json(file_path, json_data):
     with open(file_path, 'w', encoding='utf-8') as file:
-        json5.dump(json_data, file, ensure_ascii=False, indent=4)
+        json.dump(json_data, file, ensure_ascii=False, indent=4)
 
 def get_extract_broadcast_date(onair_date):
     try:
@@ -41,7 +42,7 @@ def get_extract_broadcast_date(onair_date):
                 month = int(match.group(1))
                 day = int(match.group(2))
                 # 現在の年と月を取得
-                now = datetime.now()
+                now = datetime.now(ZoneInfo("Asia/Tokyo"))
                 current_year = now.year
                 # 放送日が現在の月より大きい場合は前年の放送と推定する
                 if month > now.month:
@@ -152,11 +153,11 @@ def get_streaming_url():
                                 ("streaming_url", streaming_url),
                                 ("audio_path", audio_path)
                             ])
-                            filtered_data = OrderedDict((k, v) for k, v in broadcast_data.items() if v is not None)
+                            broadcast_filtered_data = OrderedDict((k, v) for k, v in broadcast_data.items() if v is not None)
                             broadcast_json_path = os.path.join(now_month_folder_path, "broadcast_info.json")
                             broadcast_json_data = load_json(broadcast_json_path)
                             # 日付をキーにしてJSONデータに追加
-                            broadcast_json_data[date_key] = filtered_data
+                            broadcast_json_data[date_key] = broadcast_filtered_data
                             save_json(broadcast_json_path, broadcast_json_data)
                             back_array.append(f"streaming_url:{streaming_url}")
                             back_array.append(f"audio_path:{audio_path_for_command_line}")
