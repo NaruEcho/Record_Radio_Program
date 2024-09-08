@@ -177,7 +177,10 @@ if __name__ == "__main__":
         if pass_array is not None:
             print(pass_array)
             with open("scripts/temp.txt", "w") as file:
-                file.write("\n".join(back_array))
+                file.write("\n".join(pass_array))
             print("saved download target info text")
         else:
-            save_json(temp_path, [])
+            pass_array = []
+            print("empty array")
+            with open("scripts/temp.txt", "w") as file:
+                file.write("\n".join(pass_array))
