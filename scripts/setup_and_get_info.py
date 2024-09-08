@@ -139,7 +139,7 @@ def get_streaming_url():
                     if extract_broadcast_date is not None:
                         date_key = extract_broadcast_date.strftime("%Y-%m-%d")
                         now_month_folder_path = os.path.join(folder_path, str(extract_broadcast_date.year).zfill(4), str(extract_broadcast_date.month).zfill(2))
-                        audio_path = os.path.join(now_month_folder_path, str(extract_broadcast_date.day).zfill(2)) + ".m4a"
+                        audio_path = os.path.join(now_month_folder_path, str(extract_broadcast_date.day).zfill(2)) + ".aac"
                         os.makedirs(now_month_folder_path, exist_ok=True)
                         if not os.path.exists(audio_path):
                             broadcast_data = OrderedDict([
