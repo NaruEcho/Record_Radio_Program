@@ -6,4 +6,4 @@ Record Radio Program automatically
 # Project
 
 ## Workflow Status
-Workflow status: [Status will be updated here]
+Workflow status: 
