@@ -91,7 +91,8 @@ def get_streaming_url():
                 print(f"Error fetching {info['title']}: {e}")
             # JSONデータをパース
             data = response.json()
-            folder_path = f"{workspace}/content/{info['folder_title']}"
+            folder_path_for_command = f"content/{info['folder_title']}"
+            folder_path = f"{workspace}/{folder_path_for_command}"
             info_path = os.path.join(folder_path, "info.json")
             thumbnail_path = os.path.join(folder_path, "thumbnail.jpg")
             if not os.path.exists(info_path) or not os.path.exists(thumbnail_path):
@@ -142,6 +143,7 @@ def get_streaming_url():
                         audio_path = os.path.join(now_month_folder_path, str(extract_broadcast_date.day).zfill(2)) + ".aac"
                         os.makedirs(now_month_folder_path, exist_ok=True)
                         if not os.path.exists(audio_path):
+                            audio_path_for_command_line = os.path.join(folder_path_for_command, str(extract_broadcast_date.year).zfill(4), str(extract_broadcast_date.month).zfill(2), str(extract_broadcast_date.day).zfill(2)) + ".aac"
                             broadcast_data = OrderedDict([
                                 ("title", program_title),
                                 ("sub_title", title_sub),
@@ -159,7 +161,7 @@ def get_streaming_url():
                             back_array.append(
                                 {
                                     "streaming_url": streaming_url,
-                                    "audio_path": audio_path
+                                    "audio_path": audio_path_for_command_line
                                 }
                             )
         return back_array
