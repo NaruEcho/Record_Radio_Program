@@ -158,7 +158,8 @@ def get_streaming_url():
                             # 日付をキーにしてJSONデータに追加
                             broadcast_json_data[date_key] = filtered_data
                             save_json(broadcast_json_path, broadcast_json_data)
-                            back_array.append({ "streaming_url":streaming_url,"audio_path":audio_path_for_command_line})
+                            back_array.append(f"streaming_url:{streaming_url}")
+                            back_array.append(f"audio_path:{audio_path_for_command_line}")
         return back_array
     except Exception as e:
         print(f"Error: {e}")
@@ -174,8 +175,9 @@ if __name__ == "__main__":
         print(f"WORKSPACE: {workspace}")
         pass_array = get_streaming_url()
         if pass_array is not None:
-            save_json(temp_path, pass_array)
-            print("saved temp.json succefully")
             print(pass_array)
+            with open("scripts/temp.txt", "w") as file:
+                file.write("\n".join(back_array))
+            print("saved download target info text")
         else:
             save_json(temp_path, [])
