@@ -140,10 +140,10 @@ def get_streaming_url():
                     if extract_broadcast_date is not None:
                         date_key = extract_broadcast_date.strftime("%Y-%m-%d")
                         now_month_folder_path = os.path.join(folder_path, str(extract_broadcast_date.year).zfill(4), str(extract_broadcast_date.month).zfill(2))
-                        audio_path = os.path.join(now_month_folder_path, str(extract_broadcast_date.day).zfill(2)) + ".aac"
+                        audio_path = os.path.join(now_month_folder_path, str(extract_broadcast_date.day).zfill(2)) + ".mp3"
                         os.makedirs(now_month_folder_path, exist_ok=True)
                         if not os.path.exists(audio_path):
-                            audio_path_for_command_line = os.path.join(folder_path_for_command, str(extract_broadcast_date.year).zfill(4), str(extract_broadcast_date.month).zfill(2), str(extract_broadcast_date.day).zfill(2)) + ".aac"
+                            audio_path_for_command_line = os.path.join(folder_path_for_command, str(extract_broadcast_date.year).zfill(4), str(extract_broadcast_date.month).zfill(2), str(extract_broadcast_date.day).zfill(2)) + ".mp3"
                             broadcast_data = OrderedDict([
                                 ("title", program_title),
                                 ("sub_title", title_sub),
