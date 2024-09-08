@@ -52,7 +52,7 @@ jobs:
       - name: Check IP and Security
         run: |
             chmod +x scripts/get_info.sh
-            scripts/get_info.s
+            scripts/get_info.sh
 
       - name: Save info JSON
         run: python scripts/setup_and_get_info.py
