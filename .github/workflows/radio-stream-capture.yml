@@ -67,14 +67,14 @@ jobs:
                 exit 1
             fi
             cat "$json_file" | jq .
-            cat "$json_file" | jq .[]
-            jq -c '.[]' "$json_file" | while IFS= read -r entry; do
-                url=$(echo "$entry" | jq -r '.streaming_url')
-                path=$(echo "$entry" | jq -r '.audio_path')
+            jq -c '.[]' "$json_file" | while read -r item; do
+                url=$(echo "$item" | jq -r '.streaming_url')
+                path=$(echo "$item" | jq -r '.audio_path')
                 if [[ -n "$url" && -n "$path" ]]; then
                     echo "Running ffmpeg for URL: $url"
                     echo "Output path: $path"
-                    ffmpeg -http_seekable 0 -i "$url" -ab 46k -ac 2 -ar 24000 -write_xing 0 "$path" 2>/dev/null
+                    ffmpeg -http_seekable 0 -i "$url" -ab 46k -ac 2 -ar 24000 -write_xing 0 "$path"
+                    echo "pass ffmpeg"
                 else
                     echo "Error: URL or PATH not found"
                 fi
