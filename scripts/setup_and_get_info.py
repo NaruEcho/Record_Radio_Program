@@ -144,14 +144,17 @@ def get_streaming_url():
                         audio_path = os.path.join(now_month_folder_path, str(extract_broadcast_date.day).zfill(2)) + ".mp3"
                         os.makedirs(now_month_folder_path, exist_ok=True)
                         if not os.path.exists(audio_path):
+                            download_date = datetime.now(ZoneInfo("Asia/Tokyo"))
+                            onair_date_with_year = str(extract_broadcast_date.year) + "年" + onair_date
                             audio_path_for_command_line = os.path.join(folder_path_for_command, str(extract_broadcast_date.year).zfill(4), str(extract_broadcast_date.month).zfill(2), str(extract_broadcast_date.day).zfill(2)) + ".mp3"
                             broadcast_data = OrderedDict([
                                 ("title", program_title),
                                 ("sub_title", title_sub),
-                                ("onair_date", str(extract_broadcast_date.year) + "年" + onair_date),
+                                ("onair_date", onair_date_with_year),
                                 ("closed_date", closed_date),
                                 ("streaming_url", streaming_url),
-                                ("audio_path", audio_path)
+                                ("audio_path", audio_path),
+                                ("download_date", download_date)
                             ])
                             broadcast_filtered_data = OrderedDict((k, v) for k, v in broadcast_data.items() if v is not None)
                             broadcast_json_path = os.path.join(now_month_folder_path, "broadcast_info.json")
