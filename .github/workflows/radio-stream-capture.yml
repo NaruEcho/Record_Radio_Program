@@ -61,36 +61,22 @@ jobs:
 
       - name: Convert m3u8 to m4a
         run: |
-            if [ ! -s "output.txt" ]; then
+            if [ ! -s "scripts/temp.txt" ]; then
                 echo "何もダウンロードするものがありません。"
                 exit 0
             fi
-            urls_and_paths=$(cat scripts/temp.txt)
-            for line in $urls_and_paths; do
+            while IFS= read -r line; do
                 if echo "$line" | grep -q "^streaming_url:"; then
                     streaming_url=$(echo "$line" | sed 's/^streaming_url://')
                 elif echo "$line" | grep -q "^audio_path:"; then
                     audio_path=$(echo "$line" | sed 's/^audio_path://')
-            json_file="scripts/temp.json"
-            if ! command -v jq &> /dev/null; then
-                echo "jq command not found. Install jq like sudo apt-get install -y jq"
-                exit 1
-            fi
-            cat -A "$json_file"
-            cat "$json_file" | jq .
-            cat "$json_file" | jq -c .[]
-            jq -c '.[]' "$json_file" | while read -r item; do
-                url=$(echo "$item" | jq -r '.streaming_url')
-                path=$(echo "$item" | jq -r '.audio_path')
-                if [[ -n "$url" && -n "$path" ]]; then
-                    echo "Running ffmpeg for URL: $url"
-                    echo "Output path: $path"
-                    ffmpeg -http_seekable 0 -i "$url" -ab 46k -ac 2 -ar 24000 -write_xing 0 "$path" 2>/dev/null
-                    echo "pass ffmpeg"
-                else
-                    echo "Error: URL or PATH not found"
+                    if [ -n "$streaming_url" ] && [ -n "$audio_path" ]; then
+                        ffmpeg -http_seekable 0 -i "$streaming_url" -ab 46k -ac 2 -ar 24000 -write_xing 0 "$audio_path" 2>/dev/null
+                        streaming_url=""
+                        audio_path=""
+                    fi
                 fi
-            done
+            done < scripts/temp.txt
 
       - name: auto-commit-changes
         if: always()
