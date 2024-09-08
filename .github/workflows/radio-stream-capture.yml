@@ -31,15 +31,8 @@ jobs:
       - name: Install library
         run: |
             set -e
-            sudo apt-get update
-            sudo apt-get install -y wireguard jq ffmpeg
-
-      - name: Verify library
-        run: |
-          which wireguard
-          which jq
-          which ffmpeg
-        continue-on-error: false
+            sudo apt update
+            sudo apt install -y wireguard jq ffmpeg
 
       - name: Create WireGuard config file
         run: |
