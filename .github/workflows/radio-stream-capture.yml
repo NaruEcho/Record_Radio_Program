@@ -53,6 +53,7 @@ jobs:
         run: |
             chmod +x scripts/get_info.sh
             scripts/get_info.sh
+        continue-on-error: true
 
       - name: Save info JSON
         run: python scripts/setup_and_get_info.py
