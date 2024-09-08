@@ -10,6 +10,7 @@ if [[ `git status --porcelain content` ]]; then
   
   # 変更をステージングしてコミット
   git add content
+  git add README.md
   git commit -m "Auto-update content folder"
   
   # 変更をプッシュ
