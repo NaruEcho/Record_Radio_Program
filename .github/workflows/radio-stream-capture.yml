@@ -67,6 +67,7 @@ jobs:
                 exit 1
             fi
             cat "$json_file" | jq .
+            jq -c '.[]' "$json_file"
             jq -c '.[]' "$json_file" | while read -r item; do
                 url=$(echo "$item" | jq -r '.streaming_url')
                 path=$(echo "$item" | jq -r '.audio_path')
