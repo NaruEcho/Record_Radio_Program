@@ -58,7 +58,7 @@ jobs:
         run: python scripts/setup_and_get_info.py
 
       - name: Convert m3u8 to m4a using GStreamer
-        run: gst-launch-1.0 souphttpsrc location="https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_6ca7c41799033b547d10c5fcfd802979/index.m3u8" ! decodebin ! audioconvert ! faac ! filesink location=content/radio_eikaiwa/2024/09/02.m4a
+        run: gst-launch-1.0 curlhttpsrc location='https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_6ca7c41799033b547d10c5fcfd802979/index.m3u8' ! hlsdemux ! decodebin ! audioconvert ! faac ! mp4mux ! filesink location='content/radio_eikaiwa/2024/09/02.m4a'
 
       - name: End WireGuard VPN
         if: always() # どんな状態でも必ず実行する
