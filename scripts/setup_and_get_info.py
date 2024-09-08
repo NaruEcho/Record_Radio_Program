@@ -180,6 +180,7 @@ if __name__ == "__main__":
         pass_array = get_streaming_url()
         if pass_array is not None:
             save_json(temp_path, pass_array)
+            print("saved temp.json succefully")
             print(pass_array)
         else:
             save_json(temp_path, [])
