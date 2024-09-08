@@ -66,6 +66,7 @@ jobs:
                 echo "jq command not found. Install jq like sudo apt-get install -y jq"
                 exit 1
             fi
+            cat -A scripts/temp.json
             cat "$json_file" | jq .
             cat "$json_file" | jq -c .[]
             jq -c '.[]' "$json_file" | while read -r item; do
