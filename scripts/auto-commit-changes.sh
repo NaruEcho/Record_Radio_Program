@@ -2,7 +2,7 @@
 
 # Gitユーザー設定
 git config --global user.name "actions-user"
-git config --global user.email "174163381+actions-user@users.noreply.github.com"
+git config --global user.email "65916846+actions-user@users.noreply.github.com"
 
 # contentフォルダの変更を検出
 if [[ `git status --porcelain content` ]]; then
