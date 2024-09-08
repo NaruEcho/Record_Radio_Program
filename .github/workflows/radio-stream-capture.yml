@@ -44,17 +44,15 @@ jobs:
             sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf
             sudo chmod 600 /etc/wireguard/wg0.conf
 
-      - name: Start WireGuard VPN and Verify VPN COonnection
+      - name: Start WireGuard VPN
         run: |
             sudo wg-quick up wg0
-            for i in {1..10}; do
-                if sudo wg | grep -v 'public key' | grep -v 'private key'; then
-                    echo "VPN is up"
-                    break
-                fi
-                echo "Waiting for VPN to come up..."
-                sleep 10
-            done
+            sleep 60
+
+      - name: Verify VPN Connection
+        run: |
+            sudo wg | grep -v 'public key' | grep -v 'private key'
+            sleep 60
 
       - name: Check IP and Security
         run: |
