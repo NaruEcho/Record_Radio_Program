@@ -158,12 +158,7 @@ def get_streaming_url():
                             # 日付をキーにしてJSONデータに追加
                             broadcast_json_data[date_key] = filtered_data
                             save_json(broadcast_json_path, broadcast_json_data)
-                            back_array.append(
-                                {
-                                    "streaming_url": streaming_url,
-                                    "audio_path": audio_path_for_command_line
-                                }
-                            )
+                            back_array.append({ "streaming_url":streaming_url,"audio_path":audio_path_for_command_line})
         return back_array
     except Exception as e:
         print(f"Error: {e}")
