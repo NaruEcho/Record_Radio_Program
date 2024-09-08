@@ -56,7 +56,10 @@ jobs:
             scripts/get_info.sh
 
       - name: Check GStreamer
-        run: gst-inspect
+        run: |
+          gst-inspect-1.0 | grep souphttpsrc
+          gst-inspect-1.0 | grep faac
+          gst-inspect-1.0
 
       - name: Save info JSON
         run: python scripts/setup_and_get_info.py
