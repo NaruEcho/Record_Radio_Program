@@ -61,7 +61,9 @@ jobs:
         continue-on-error: true
 
       - name: Save info JSON
-        run: python scripts/setup_and_get_info.py
+        run: |
+            python scripts/setup_and_get_info.py
+            sleep 40
 
       - name: Convert m3u8 to m4a
         run: |
@@ -69,27 +71,20 @@ jobs:
                 echo "何もダウンロードするものがありません。"
                 exit 0
             fi
-            while IFS= read -r line; do
-                sleep 10
-                if echo "$line" | grep -q "^streaming_url:"; then
-                    streaming_url=$(echo "$line" | sed 's/^streaming_url://')
-                sleep 10
-                elif echo "$line" | grep -q "^audio_path:"; then
-                    audio_path=$(echo "$line" | sed 's/^audio_path://')
-                    sleep 10
-                    if [ -n "$streaming_url" ] && [ -n "$audio_path" ]; then
-                        if ffmpeg -http_seekable 0 -i "$streaming_url" -ab 46k -ac 2 -ar 24000 -write_xing 0 "$audio_path" 2>/dev/null; then
-                            echo "ffmpeg コマンドが成功しました: $streaming_url -> $audio_path"
-                            sleep 30
-                        else
-                            echo "ffmpeg コマンドが失敗しました: $streaming_url -> $audio_path"
-                        fi
-                        streaming_url=""
-                        audio_path=""
+            FILE="scripts/temp.txt"
+            IFS=$'\n' read -d '' -ra ARR < "${FILE}"
+            for ((i=0; i<${#ARR[@]}; i+=2)); do
+                streaming_url=$(echo "${ARR[i]}" | sed 's/^streaming_url://')
+                audio_path=$(echo "${ARR[i+1]}" | sed 's/^audio_path://')
+                if [ -n "$streaming_url" ] && [ -n "$audio_path" ]; then
+                    if ffmpeg -http_seekable 0 -i "$streaming_url" -ab 46k -ac 2 -ar 24000 -write_xing 0 "$audio_path" 2>/dev/null; then
+                        echo "ffmpeg コマンドが成功しました: $streaming_url -> $audio_path"
                         sleep 30
+                    else
+                        echo "ffmpeg コマンドが失敗しました: $streaming_url -> $audio_path"
                     fi
                 fi
-            done < scripts/temp.txt
+            done
 
       - name: auto-commit-changes
         if: always()
