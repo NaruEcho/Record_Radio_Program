@@ -54,6 +54,9 @@ jobs:
             chmod +x scripts/get_info.sh
             scripts/get_info.sh
 
+      - name: Check GStreamer
+        run: gst-inspect
+
       - name: Save info JSON
         run: python scripts/setup_and_get_info.py
 
