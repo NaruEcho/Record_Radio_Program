@@ -1,4 +1,4 @@
-import json
+import json5
 import requests
 import sys
 import os
@@ -12,7 +12,7 @@ workspace = os.getenv('GITHUB_WORKSPACE', None)
 def load_json(file_path):
     if os.path.exists(file_path):
         with open(file_path, 'r', encoding='utf-8') as file:
-            return json.load(file)
+            return json5.load(file)
     return {} # ファイルが存在しない場合は空の辞書を返す
 
 # JSONに新しいエントリを追加する関数
@@ -22,7 +22,7 @@ def add_entry(json_data, date, entry):
 
 def save_json(file_path, json_data):
     with open(file_path, 'w', encoding='utf-8') as file:
-        json.dump(json_data, file, ensure_ascii=False, indent=4)
+        json5.dump(json_data, file, ensure_ascii=False, indent=4)
 
 def get_extract_broadcast_date(onair_date):
     try:
