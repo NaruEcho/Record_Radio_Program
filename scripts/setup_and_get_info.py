@@ -144,7 +144,7 @@ def get_streaming_url():
                         audio_path = os.path.join(now_month_folder_path, str(extract_broadcast_date.day).zfill(2)) + ".mp3"
                         os.makedirs(now_month_folder_path, exist_ok=True)
                         if not os.path.exists(audio_path):
-                            download_date = datetime.now(ZoneInfo("Asia/Tokyo"))
+                            download_date = datetime.now(ZoneInfo("Asia/Tokyo")).strftime("%Y-%m-%d-%H-%M-%S")
                             onair_date_with_year = str(extract_broadcast_date.year) + "年" + onair_date
                             audio_path_for_command_line = os.path.join(folder_path_for_command, str(extract_broadcast_date.year).zfill(4), str(extract_broadcast_date.month).zfill(2), str(extract_broadcast_date.day).zfill(2)) + ".mp3"
                             broadcast_data = OrderedDict([
