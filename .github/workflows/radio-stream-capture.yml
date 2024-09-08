@@ -73,7 +73,7 @@ jobs:
                 if [[ -n "$url" && -n "$path" ]]; then
                     echo "Running ffmpeg for URL: $url"
                     echo "Output path: $path"
-                    ffmpeg -http_seekable 0 -i "$url" -ab 46k -ac 2 -ar 24000 -write_xing 0 "$path"
+                    ffmpeg -http_seekable 0 -i "$url" -ab 46k -ac 2 -ar 24000 -write_xing 0 "$path" 2>/dev/null
                     echo "pass ffmpeg"
                 else
                     echo "Error: URL or PATH not found"
