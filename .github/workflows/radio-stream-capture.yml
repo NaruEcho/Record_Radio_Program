@@ -65,7 +65,7 @@ jobs:
             python scripts/setup_and_get_info.py
             sleep 40
 
-      - name: Convert m3u8 to m4a
+      - name: Convert m3u8 to mp3
         run: |
             if [ ! -s "scripts/temp.txt" ]; then
                 echo "何もダウンロードするものがありません。"
