@@ -76,7 +76,7 @@ jobs:
             fi
             FILE="scripts/temp.txt"
             echo "pass1"
-            IFS=$'\n' read -d '' -ra ARR < "${FILE}"
+            mapfile -t ARR < "${FILE}"
             echo "pass2"
             for ((i=0; i<${#ARR[@]}; i+=2)); do
                 streaming_url=$(echo "${ARR[i]}" | sed 's/^streaming_url://')
