@@ -31,7 +31,7 @@ jobs:
       - name: Install library
         run: |
             sudo apt-get update
-            sudo apt-get install -y wireguard jq fonts-noto gstreamer1.0-tools gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
+            sudo apt-get install -y wireguard jq fonts-noto gstreamer1.0-tools gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav
 
       - name: Create WireGuard config file
         run: |
@@ -57,8 +57,8 @@ jobs:
       - name: Save info JSON
         run: python scripts/setup_and_get_info.py
 
-      - name: ffmpeg Download
-        run: gst-launch-1.0 souphttpsrc location="https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_6ca7c41799033b547d10c5fcfd802979/index.m3u8" ! decodebin ! audioconvert ! avenc_aac ! filesink location=content/radio_eikaiwa/2024/09/02.m4a
+      - name: Convert m3u8 to m4a using GStreamer
+        run: gst-launch-1.0 souphttpsrc location="https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_6ca7c41799033b547d10c5fcfd802979/index.m3u8" ! decodebin ! audioconvert ! faac ! filesink location=content/radio_eikaiwa/2024/09/02.m4a
 
       - name: End WireGuard VPN
         if: always() # どんな状態でも必ず実行する
