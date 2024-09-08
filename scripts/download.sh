@@ -15,8 +15,9 @@ jq -c '.[]' "$json_file" | while IFS= read -r entry; do
     path=$(echo "$entry" | jq -r '.audio_path')
 
     if [[ -n "$url" && -n "$path" ]]; then
-        echo "ffmpeg -http_seekable 0 -i \"$url\" -loglevel quiet -ab 46k -ac 2 -ar 24000 -write_xing 0 \"$path\""
-        ffmpeg -http_seekable 0 -i "$url" -loglevel quiet -ab 46k -ac 2 -ar 24000 -write_xing 0 "$path"
+        # ダブルクオテーションなしで実行する
+        echo "ffmpeg -http_seekable 0 -i $url -loglevel quiet -ab 46k -ac 2 -ar 24000 -write_xing 0 $path"
+        ffmpeg -http_seekable 0 -i $url -loglevel quiet -ab 46k -ac 2 -ar 24000 -write_xing 0 $path
     else
         echo "Error: URL or PATH not found"
     fi
