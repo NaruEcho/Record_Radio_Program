@@ -78,12 +78,6 @@ jobs:
                 fi
             done
 
-      - name: Reflect update status
-        if: always()
-        run: |
-            chmod +x scripts/update_readme.sh
-            scripts/update_readme.sh
-
       - name: auto-commit-changes
         if: always()
         run: |
