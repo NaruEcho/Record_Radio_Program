@@ -67,7 +67,7 @@ jobs:
                     streaming_url=$(echo "$item" | jq -r '.streaming_url')
                     audio_path=$(echo "$item" | jq -r '.audio_path')
                     echo "Downloading: $streaming_url to $audio_path"
-                    ffmpeg -http_seekable 0 -i "$streaming_url" -vn -acodec m4a "$audio_path"
+                    ffmpeg -http_seekable 0 -i "$streaming_url" -vn -acodec aac "$audio_path"
                     echo "Saved: $audio_path"
                 done
             else
