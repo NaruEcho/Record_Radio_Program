@@ -67,12 +67,17 @@ jobs:
 
       - name: Convert m3u8 to mp3
         run: |
-            if [ ! -s "scripts/temp.txt" ]; then
-                echo "何もダウンロードするものがありません。"
-                exit 0
+            if [ ! -f "scripts/temp.txt" ]; then
+                echo "ファイルが存在しません: scripts/temp.txt"
+                exit 1
+            elif [ ! -s "scripts/temp.txt" ]; then
+                echo "ファイルは存在しますが、空です: scripts/temp.txt"
+                exit 1
             fi
             FILE="scripts/temp.txt"
+            echo "pass1"
             IFS=$'\n' read -d '' -ra ARR < "${FILE}"
+            echo "pass2"
             for ((i=0; i<${#ARR[@]}; i+=2)); do
                 streaming_url=$(echo "${ARR[i]}" | sed 's/^streaming_url://')
                 audio_path=$(echo "${ARR[i+1]}" | sed 's/^audio_path://')
