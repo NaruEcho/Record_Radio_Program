@@ -61,6 +61,16 @@ jobs:
 
       - name: Convert m3u8 to m4a
         run: |
+            if [ ! -s "output.txt" ]; then
+                echo "何もダウンロードするものがありません。"
+                exit 0
+            fi
+            urls_and_paths=$(cat scripts/temp.txt)
+            for line in $urls_and_paths; do
+                if echo "$line" | grep -q "^streaming_url:"; then
+                    streaming_url=$(echo "$line" | sed 's/^streaming_url://')
+                elif echo "$line" | grep -q "^audio_path:"; then
+                    audio_path=$(echo "$line" | sed 's/^audio_path://')
             json_file="scripts/temp.json"
             if ! command -v jq &> /dev/null; then
                 echo "jq command not found. Install jq like sudo apt-get install -y jq"
