@@ -1,7 +1,9 @@
 name: Radio Stream Capture
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 1-5'  # UTCで平日の午前3時（JSTで正午）
+  workflow_dispatch:    # 手動トリガーを有効にする設定
 
 jobs:
   radio-stream-capture:
