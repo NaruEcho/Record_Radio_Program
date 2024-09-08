@@ -172,8 +172,9 @@ if __name__ == "__main__":
     if workspace is None:
         print("root directory not found")
     else:
+        temp_path = f"{workspace}/scripts/temp.json"
         print("root directory found")
         print(f"WORKSPACE: {workspace}")
         pass_array = get_streaming_url()
         if pass_array is not None:
-            print(json.dumps(pass_array))
+            save_json(temp_path, pass_array)
