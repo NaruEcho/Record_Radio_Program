@@ -66,7 +66,8 @@ jobs:
                 echo "jq command not found. Install jq like sudo apt-get install -y jq"
                 exit 1
             fi
-            jq '.' "$json_file"
+            cat "$json_file" | jq .
+            cat "$json_file" | jq .[]
             jq -c '.[]' "$json_file" | while IFS= read -r entry; do
                 url=$(echo "$entry" | jq -r '.streaming_url')
                 path=$(echo "$entry" | jq -r '.audio_path')
