@@ -57,6 +57,9 @@ jobs:
       - name: Save info JSON
         run: python scripts/setup_and_get_info.py
 
+      - name: ffmpeg Download
+        run: ffmpeg -i https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_6ca7c41799033b547d10c5fcfd802979/index.m3u8 -vn -acodec copy content/radio_eikaiwa/2024/09/02.aac
+
       - name: End WireGuard VPN
         if: always() # どんな状態でも必ず実行する
         run: sudo wg-quick down wg0
