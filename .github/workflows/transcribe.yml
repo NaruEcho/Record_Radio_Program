@@ -1,0 +1,64 @@
+name: Transcribe MP3 Files
+
+on:
+  schedule:
+    - cron: '0 0 * * 1-5'  # UTCで平日の午前3時（JSTで正午）
+  workflow_dispatch:    # 手動トリガーを有効にする設定
+
+jobs:
+  transcribe:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ffmpeg
+
+    - name: Find MP3 files without transcript
+      id: find_mp3_files
+      run: |
+        mp3_files=$(find . -type f -name "*.mp3")
+        files_to_process=()
+        for file in $mp3_files; do
+          src_file="${file%.mp3}.src"
+          if [ ! -f "$src_file" ]; then
+            files_to_process+=("$file")
+          fi
+        done
+        echo "::set-output name=files::${files_to_process[@]}"
+
+    - name: Transcribe files
+      if: steps.find_mp3_files.outputs.files != ''
+      uses: appleboy/whisper-action@v0.1.1
+      with:
+        model: medium
+        audio_path: ${{ steps.find_mp3_files.outputs.files }}
+        output_format: txt
+        output_folder: transcripts
+        print_progress: true
+        translate: false
+
+    - name: Save transcript as .src
+      if: steps.find_mp3_files.outputs.files != ''
+      run: |
+        for file in ${{ steps.find_mp3_files.outputs.files }}; do
+          transcript_file="transcripts/${file%.mp3}.txt"
+          if [ -f "$transcript_file" ]; then
+            mv "$transcript_file" "${file%.mp3}.src"
+          fi
+        done
+
+    - name: Commit and push changes
+      if: steps.find_mp3_files.outputs.files != ''
+      uses: appleboy/git-push-action@v0.0.2
+      with:
+        branch: main
+        commit: true
+        commit_message: "[skip ci] Add transcript files"
+        remote: git@github.com:${{ github.repository }}
+        ssh_key: ${{ secrets.DEPLOY_KEY }}
+        rebase: true
+        
