@@ -2,7 +2,7 @@ name: Transcribe MP3 Files
 
 on:
   schedule:
-    - cron: '0 0 * * 1-5'  # UTCで平日の午前3時（JSTで正午）
+    - cron: '0 6 * * 1-5'  # UTCで平日の午前6時（JSTで午後5時)
   workflow_dispatch:    # 手動トリガーを有効にする設定
 
 jobs:
@@ -23,20 +23,24 @@ jobs:
         mp3_files=$(find . -type f -name "*.mp3")
         files_to_process=()
         for file in $mp3_files; do
-          src_file="${file%.mp3}.src"
-          if [ ! -f "$src_file" ]; then
+          srt_file="${file%.mp3}.srt"
+          if [ ! -f "$srt_file" ]; then
             files_to_process+=("$file")
           fi
         done
         echo "::set-output name=files::${files_to_process[@]}"
 
+    - name: Debug filelist
+      run: |
+        echo "Files to process: ${{ steps.find_mp3_files.outputs.files }}"
+
     - name: Transcribe files
       if: steps.find_mp3_files.outputs.files != ''
       uses: appleboy/whisper-action@v0.1.1
       with:
-        model: medium
+        model: small
         audio_path: ${{ steps.find_mp3_files.outputs.files }}
-        output_format: txt
+        output_format: srt
         output_folder: transcripts
         print_progress: true
         translate: false
