@@ -30,8 +30,8 @@ jobs:
               files_to_process+=("$file")
             fi
           done
-          files_output=$(printf "%s\n" "${files_to_process[@]}")
-          echo "files=${files_output}" >> $GITHUB_ENV
+          files_output=$(printf "%s\n" "${files_to_process[@]}" | jq -R . | jq -s .)
+          echo "::set-output name=files::$files_output"
 
   transcribe_files:
     needs: find_mp3_files
