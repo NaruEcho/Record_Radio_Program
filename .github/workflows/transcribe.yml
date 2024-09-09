@@ -27,7 +27,8 @@ jobs:
           fi
         done
         files_output=$(printf "%s\n" "${files_to_process[@]}")
-        echo "files=$files_output" >> $GITHUB_ENV
+        mapfile -t ARR < "${files_output}"
+        echo "files=$ARR" >> $GITHUB_ENV
 
     - name: Transcribe files
       if: steps.find_mp3_files.outputs.files != ''
