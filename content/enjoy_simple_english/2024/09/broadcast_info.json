@@ -43,5 +43,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_16c5ca0ba9970ad2420ce26a3c922451/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/09/06.mp3",
         "download_date": "2024-09-09-01-37-53"
+    },
+    "2024-09-09": {
+        "title": "エンジョイ・シンプル・イングリッシュ「手作りの階段」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年9月9日(月)午前9:10放送",
+        "closed_date": "2024年9月16日(月)午前9:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_53537e85992580bf09d5a38704db2b73/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/09/09.mp3",
+        "download_date": "2024-09-09-12-25-52"
     }
 }
