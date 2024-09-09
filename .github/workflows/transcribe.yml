@@ -60,3 +60,4 @@ jobs:
               mv "$transcript_file" "${file%.mp3}.srt"
             fi
           done
+          ls
