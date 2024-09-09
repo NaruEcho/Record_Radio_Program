@@ -28,11 +28,8 @@ jobs:
             files_to_process+=("$file")
           fi
         done
-        echo "::set-output name=files::${files_to_process[@]}"
-
-    - name: Debug filelist
-      run: |
-        echo "Files to process: ${{ steps.find_mp3_files.outputs.files }}"
+        files_output=$(printf "%s\n" "${files_to_process[@]}")
+        echo "files=$files_output" >> $GITHUB_ENV
 
     - name: Transcribe files
       if: steps.find_mp3_files.outputs.files != ''
