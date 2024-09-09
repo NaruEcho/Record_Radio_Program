@@ -57,12 +57,4 @@ jobs:
 
     - name: Commit and push changes
       if: steps.find_mp3_files.outputs.files != ''
-      uses: appleboy/git-push-action@v0.0.2
-      with:
-        branch: main
-        commit: true
-        commit_message: "[skip ci] Add transcript files"
-        remote: git@github.com:${{ github.repository }}
-        ssh_key: ${{ secrets.DEPLOY_KEY }}
-        rebase: true
-        
+      run: echo done
