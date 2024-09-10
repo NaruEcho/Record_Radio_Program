@@ -36,7 +36,7 @@ jobs:
                       audio_file = os.path.join(root, file_without_ext + '.mp3')
                       if not os.path.exists(srt_file):
                           audio_path.append(audio_file)
-          matrix_arr = json.dumps(audio_path)
+          matrix_arr = json.dumps({"path": audio_path})
           print(audio_path)
           with open(os.getenv('GITHUB_OUTPUT'), 'a') as output_file:
             output_file.write(f"matrix={matrix_arr}\n")
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        path: ${{ fromJson(needs.generate_matrix.outputs.matrix) }}
+        path: ${{ fromJson(needs.generate_matrix.outputs.matrix).path }}
     steps:
       - name: speech to text
         if: matrix.path != ''
@@ -56,8 +56,8 @@ jobs:
           model: small
           audio_path: "${{ matrix.path }}"
           output_format: srt
-          output_folder: $(dirname "${{ matrix.path }}")
-          output_filename: $(basename "${{ matrix.path }}" .mp3)
+          output_folder: "${{ matrix.path | dirname }}"
+          output_filename: "${{ matrix.path | basename | split:'.' | first }}"
           print_progress: true
           translate: false
 
