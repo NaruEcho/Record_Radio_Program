@@ -60,7 +60,6 @@ jobs:
           audio_path: "${{ matrix.path }}"
           output_format: srt
           output_folder:  $(dirname "${{ matrix.path }}")
-          output_filename: $(basename "${{ matrix.path }}" .mp3)
           print_progress: true
           translate: false
 
