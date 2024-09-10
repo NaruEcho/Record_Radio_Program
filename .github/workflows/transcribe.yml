@@ -81,7 +81,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: $(dirname "${{ matrix.path }}")-files
+          name: $(echo "${{ matrix.path }}" | sed 's/\"//g; s/^\.\///; s/\//-/g')-files
           path: temp/
 
   collect-and-commit:
