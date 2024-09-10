@@ -27,16 +27,17 @@ jobs:
           import os
           import json
           directory = '.'
-          srt_path = []
+          audio_path = []
           for root, dirs, files in os.walk(directory):
               for file in files:
                   if file.endswith('.mp3'):
                       file_without_ext = os.path.splitext(file)[0]
                       srt_file = os.path.join(root, file_without_ext + '.srt')
+                      audio_file = os.path.join(root, file_without_ext + '.mp3')
                       if not os.path.exists(srt_file):
-                          srt_path.append(srt_file)
-          matrix_arr = json.dumps(srt_path)
-          print(srt_path)
+                          audio_path.append(audio_file)
+          matrix_arr = json.dumps(audio_path)
+          print(audio_path)
           with open(os.getenv('GITHUB_OUTPUT'), 'a') as output_file:
             output_file.write(f"matrix={matrix_arr}\n")
           EOF
@@ -56,7 +57,7 @@ jobs:
           audio_path: $(echo "${{ matrix.path }}" | sed 's/\.srt$/\.mp3/')
           output_format: srt
           output_folder: $(dirname "${{ matrix.path }}")
-          output_filename: $(basename "${{ matrix.path }}" .srt)
+          output_filename: $(basename "${{ matrix.path }}" .mp3)
           print_progress: true
           translate: false
 
