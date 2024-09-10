@@ -1,6 +1,6 @@
 requests
 json5
 ffmpeg-python
-pysrt
+srt
 faster_whisper
 pydub
