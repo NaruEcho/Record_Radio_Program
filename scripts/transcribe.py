@@ -58,9 +58,12 @@ def transcribe(path):
         end_time = segment.end
         srt_entry = srt.Subtitle(index=len(srt_entries) + 1, start=start_time, end=end_time, content=segment.text)
         srt_entries.append(srt_entry)
-    os.makedirs(f"temp/{os.path.dirname(audio_file)}", exist_ok=True)
-    with open(f"temp/{audio_file}.srt", "w", encoding='utf-8') as srt_file:
+    os.makedirs(f"temp/{os.path.dirname(path)}", exist_ok=True)
+    with open(f"temp/{path}.srt", "w", encoding='utf-8') as srt_file:
         srt_file.write(srt.compose(srt_entries))
+
+def vad_transcribe(path):
+    print("try vad model")
 
 # スクリプトの実行
 if __name__ == "__main__":
