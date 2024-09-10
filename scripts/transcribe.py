@@ -1,5 +1,6 @@
 from faster_whisper import WhisperModel
 import ffmpeg
+import os
 import srt
 import sys
 from pydub import AudioSegment
@@ -20,7 +21,7 @@ def transcribe_audio_with_silence_handling(audio_file, silence_thresh=-40, min_s
     model = WhisperModel("large-v3", device="cpu", compute_type="int8")
 
     for i, chunk in enumerate(chunks):
-        chunk_file = f"{audio_file}_chunk_{i}.mp3"
+        chunk_file = f"temp_chunk_{i}.mp3"
         chunk.export(chunk_file, format="mp3")
 
         # チャンクごとに音声を転写
@@ -39,8 +40,10 @@ def transcribe_audio_with_silence_handling(audio_file, silence_thresh=-40, min_s
         # チャンクの再生時間を加算（len(chunk)はミリ秒なので）
         current_time += len(chunk)
 
+    os.makedir(f"temp/{os.path.dirname(audio_file)}", exist_ok=True)
+
     # SRTファイルに書き出し
-    with open(f"{audio_file}.srt", "w", encoding='utf-8') as srt_file:
+    with open(f"temp/{audio_file}.srt", "w", encoding='utf-8') as srt_file:
         srt_file.write(srt.compose(srt_entries))
 
 # スクリプトの実行
