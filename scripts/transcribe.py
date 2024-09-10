@@ -18,14 +18,15 @@ def transcribe_audio_with_silence_handling(audio_file, silence_thresh=-40, min_s
     current_time = 0  # current_timeはミリ秒単位で追跡する
 
     srt_entries = []
-    model = WhisperModel("large-v3", device="cpu", compute_type="int8")
+    model_size = "distil-large-v3"
+    model = WhisperModel(model_size, device="cpu", compute_type="int8")
 
     for i, chunk in enumerate(chunks):
         chunk_file = f"temp_chunk_{i}.mp3"
         chunk.export(chunk_file, format="mp3")
 
         # チャンクごとに音声を転写
-        segments, info = model.transcribe(chunk_file, beam_size=5, vad_filter=True, without_timestamps=False, multilingual=True)
+        segments, info = model.transcribe(chunk_file, beam_size=5, vad_filter=True, without_timestamps=False, debug=True)
 
         # 言語検出の確認
         print(f"Detected language '{info.language}' with probability {info.language_probability}")
