@@ -79,11 +79,8 @@ jobs:
     needs: transcribe
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-        
       - name: auto-commit-changes
         if: always()
         run: |
-            chmod +x scripts/auto-commit-changes.sh
-            scripts/auto-commit-changes.sh
+            chmod +x scripts/auto-commit-srt-changes.sh
+            scripts/auto-commit-srt-changes.sh
