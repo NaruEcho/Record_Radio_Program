@@ -23,7 +23,7 @@ def transcribe_audio_with_silence_handling(audio_file, silence_thresh=-40, min_s
 			start_time = timedelta(seconds=segment.start) + timedelta(milliseconds=current_time)
 			end_time = timedelta(seconds=segment.end) + timedelta(milliseconds=current_time)
 			srt_entry = srt.Subtitle(index=len(srt_entries) + 1, start=start_time, end=end_time, content=segment.text)
-    		srt_entries.append(srt_entry)
+			srt_entries.append(srt_entry)
 		current_time += len(chunk)
 	with open(f"{audio_file}.srt", "w", encoding='utf-8') as srt_file:
 		srt_file.write(srt.compose(srt_entries))
