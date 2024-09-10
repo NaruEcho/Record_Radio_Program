@@ -17,13 +17,11 @@ jobs:
       - name: Generate matrix dynamically
         id: set-matrix
         run: |
-          # Pythonスクリプトを実行し、MP3とSRTのパスを検索
           python3 << EOF
           import os
           import json
-          directory = '/content'  # ここに検索するディレクトリを指定
+          directory = '.'
           srt_path = []
-          # ディレクトリ内のファイルを再帰的に探索
           for root, dirs, files in os.walk(directory):
               for file in files:
                   if file.endswith('.mp3'):
@@ -31,7 +29,8 @@ jobs:
                       srt_file = os.path.join(root, file_without_ext + '.srt')
                       if not os.path.exists(srt_file):
                           srt_path.append(srt_file)
-          matrix_arr = srt_path
+          matrix_arr = json.dump(srt_path)
+          print(str_arr)
           with open(os.getenv('GITHUB_OUTPUT'), 'a') as output_file:
             output_file.write(f"matrix={matrix_arr}\n")
           EOF
