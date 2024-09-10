@@ -56,8 +56,8 @@ jobs:
           model: small
           audio_path: "${{ matrix.path }}"
           output_format: srt
-          output_folder: "${{ matrix.path | dirname }}"
-          output_filename: "${{ matrix.path | basename | split:'.' | first }}"
+          output_folder:  $(dirname "${{ matrix.path }}")
+          output_filename: $(basename "${{ matrix.path }}" .mp3)
           print_progress: true
           translate: false
 
