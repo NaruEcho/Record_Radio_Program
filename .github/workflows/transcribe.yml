@@ -19,29 +19,23 @@ jobs:
         run: |
           # Pythonスクリプトを実行し、MP3とSRTのパスを検索
           python3 << EOF
-            import os
-            import json
-
-            directory = '/content'  # ここに検索するディレクトリを指定
-
-            srt_path = []
-
-            # ディレクトリ内のファイルを再帰的に探索
-            for root, dirs, files in os.walk(directory):
-                for file in files:
-                    if file.endswith('.mp3'):
-                        file_without_ext = os.path.splitext(file)[0]
-                        srt_file = os.path.join(root, file_without_ext + '.srt')
-                        if not os.path.exists(srt_file):
-                            srt_path.append(srt_file)
-
-            matrix_arr = srt_path
-
-            # GITHUB_ENVに結果を出力
-            print(f"::set-output name=matrix::{matrix_arr}")
+          import os
+          import json
+          directory = '/content'  # ここに検索するディレクトリを指定
+          srt_path = []
+          # ディレクトリ内のファイルを再帰的に探索
+          for root, dirs, files in os.walk(directory):
+              for file in files:
+                  if file.endswith('.mp3'):
+                      file_without_ext = os.path.splitext(file)[0]
+                      srt_file = os.path.join(root, file_without_ext + '.srt')
+                      if not os.path.exists(srt_file):
+                          srt_path.append(srt_file)
+          matrix_arr = srt_path
+          print(f"::set-output name=matrix::{matrix_arr}")
           EOF
 
-  example_job:
+  transcribe:
     needs: generate_matrix
     runs-on: ubuntu-latest
     strategy:
@@ -61,6 +55,7 @@ jobs:
           translate: false
 
   commit:
+    needs: transcribe
     runs-on: ubuntu-latest
     steps:
       - name: auto-commit-changes
