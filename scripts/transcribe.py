@@ -7,7 +7,7 @@ from pydub import AudioSegment
 from pydub.silence import split_on_silence
 from datetime import timedelta
 
-def transcribe_audio_with_silence_handling(audio_file, silence_thresh=-40, min_silence_len=500):
+def transcribe_audio_with_silence_handling(audio_file, model_size, silence_thresh=-40, min_silence_len=500):
     # 音声ファイルを読み込み
     audio = AudioSegment.from_file(audio_file)
 
@@ -18,7 +18,6 @@ def transcribe_audio_with_silence_handling(audio_file, silence_thresh=-40, min_s
     current_time = 0  # current_timeはミリ秒単位で追跡する
 
     srt_entries = []
-    model_size = "distil-large-v3"
     model = WhisperModel(model_size, device="cpu", compute_type="int8")
 
     for i, chunk in enumerate(chunks):
@@ -47,9 +46,8 @@ def transcribe_audio_with_silence_handling(audio_file, silence_thresh=-40, min_s
     with open(f"temp/{audio_file}.srt", "w", encoding='utf-8') as srt_file:
         srt_file.write(srt.compose(srt_entries))
 
-def transcribe(path):
+def transcribe(path,model_size):
     srt_entries = []
-    model_size = "distil-large-v3"
     model = WhisperModel(model_size, device="cpu", compute_type="int8")
     segments, info = model.transcribe(path, beam_size=5, vad_filter=True, without_timestamps=False)
     print(f"Detected language '{info.language}' with probability {info.language_probability}")
@@ -67,5 +65,6 @@ def vad_transcribe(path):
 
 # スクリプトの実行
 if __name__ == "__main__":
-    transcribe(sys.argv[1])
+    model_size = "large-v3"
+    transcribe(sys.argv[1], model_size)
     #transcribe_audio_with_silence_handling(sys.argv[1])
