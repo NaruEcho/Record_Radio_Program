@@ -30,7 +30,7 @@ jobs:
                       if not os.path.exists(srt_file):
                           srt_path.append(srt_file)
           matrix_arr = json.dumps(srt_path)
-          print(str_arr)
+          print(srt_arr)
           with open(os.getenv('GITHUB_OUTPUT'), 'a') as output_file:
             output_file.write(f"matrix={matrix_arr}\n")
           EOF
