@@ -32,7 +32,8 @@ jobs:
                       if not os.path.exists(srt_file):
                           srt_path.append(srt_file)
           matrix_arr = srt_path
-          print(f"::set-output name=matrix::{matrix_arr}")
+          with open(os.getenv('GITHUB_OUTPUT'), 'a') as output_file:
+            output_file.write(f"matrix={matrix_arr}\n")
           EOF
 
   transcribe:
@@ -40,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        path: ${{ needs.generate_matrix.outputs.matrix }}
+        path: ${{ fromJson(needs.generate_matrix.outputs.matrix) }}
     steps:
       - name: speech to text
         if: matrix.path != ''
