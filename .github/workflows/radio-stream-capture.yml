@@ -96,8 +96,8 @@ jobs:
       - name: auto-commit-changes
         if: always()
         run: |
-            chmod +x scripts/auto-commit-changes.sh
-            scripts/auto-commit-changes.sh
+            chmod +x scripts/auto-commit-audio-changes.sh
+            scripts/auto-commit-audio-changes.sh
 
       - name: End WireGuard VPN
         if: always() # どんな状態でも必ず実行する
