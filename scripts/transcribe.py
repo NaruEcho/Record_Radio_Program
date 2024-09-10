@@ -55,7 +55,7 @@ def transcribe(path):
     print(f"Detected language '{info.language}' with probability {info.language_probability}")
     for segment in segments:
         start_time = segment.start
-        end_time = egment.end
+        end_time = segment.end
         srt_entry = srt.Subtitle(index=len(srt_entries) + 1, start=start_time, end=end_time, content=segment.text)
         srt_entries.append(srt_entry)
     os.makedir(f"temp/{os.path.dirname(audio_file)}", exist_ok=True)
