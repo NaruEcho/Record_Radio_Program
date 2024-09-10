@@ -54,7 +54,7 @@ jobs:
         uses: appleboy/whisper-action@v0.1.1
         with:
           model: small
-          audio_path: $(echo "${{ matrix.path }}" | sed 's/\.srt$/\.mp3/')
+          audio_path: "${{ matrix.path }}"
           output_format: srt
           output_folder: $(dirname "${{ matrix.path }}")
           output_filename: $(basename "${{ matrix.path }}" .mp3)
