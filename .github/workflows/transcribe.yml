@@ -82,7 +82,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: $(dirname "${{ matrix.path }}")-files
-          path: $(dirname "${{ matrix.path }}")/$(basename "${{ matrix.path }}" .mp3)
+          path: temp/
 
   collect-and-commit:
     runs-on: ubuntu-latest
@@ -96,8 +96,12 @@ jobs:
         with:
           name: '*-files'
 
+      - name: Combine all generated files
+        run: |
+          chmod +x scripts/move_srt.sh
+          scripts/move_srt.sh
+
       - name: Commit and push all changes
         run: |
-          git add .
-          git commit -m "Update all generated SRT files"
-          git push origin main
+          chmod +x scripts/auto-commit-srt-changes.sh
+          scripts/auto-commit-srt-changes.sh
