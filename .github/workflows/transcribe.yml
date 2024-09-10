@@ -1,8 +1,8 @@
 name: Transcribe MP3 Files
 
 on:
-  schedule:
-    - cron: '0 6 * * 1-5'  # UTCで平日の午前6時（JSTで午後5時)
+#  schedule:
+#    - cron: '0 6 * * 1-5'  # UTCで平日の午前6時（JSTで午後5時)
   workflow_dispatch:    # 手動トリガーを有効にする設定
 
 jobs:
@@ -24,7 +24,6 @@ jobs:
 
             directory = '/content'  # ここに検索するディレクトリを指定
 
-            audio_path = []
             srt_path = []
 
             # ディレクトリ内のファイルを再帰的に探索
@@ -34,13 +33,9 @@ jobs:
                         file_without_ext = os.path.splitext(file)[0]
                         srt_file = os.path.join(root, file_without_ext + '.srt')
                         if not os.path.exists(srt_file):
-                            audio_path.append(os.path.join(root, file))
                             srt_path.append(srt_file)
 
-            matrix = [{"audio": a, "srt": s} for a, s in zip(audio_path, srt_path)]
-
-            # 検索結果をJSONに変換
-            matrix_json = json.dumps(matrix)
+            matrix = srt_path
 
             # GITHUB_ENVに結果を出力
             print(f"::set-output name=matrix::{matrix_json}")
