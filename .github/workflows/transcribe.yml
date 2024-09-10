@@ -49,6 +49,9 @@ jobs:
       matrix:
         path: ${{ fromJson(needs.generate_matrix.outputs.matrix).path }}
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        
       - name: speech to text
         if: matrix.path != ''
         uses: appleboy/whisper-action@v0.1.1
