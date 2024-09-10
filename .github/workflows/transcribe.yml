@@ -6,58 +6,51 @@ on:
   workflow_dispatch:    # 手動トリガーを有効にする設定
 
 jobs:
-  find_mp3_files:
+  generate_matrix:
     runs-on: ubuntu-latest
     outputs:
-      files: ${{ steps.find_mp3_files.outputs.files }}
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
+      - name: Set up Python
+        uses: actions/setup-python@v4
 
-      - name: Find MP3 files without transcript
-        id: find_mp3_files
+      - name: Generate matrix dynamically
+        id: set-matrix
         run: |
-          mp3_files=$(find . -type f -name "*.mp3")
-          files_to_process=()
-          for file in $mp3_files; do
-            srt_file="${file%.mp3}.srt"
-            if [ ! -f "$srt_file" ]; then
-              files_to_process+=("$file")
-            fi
-          done
-          files_output=$(printf "%s\n" "${files_to_process[@]}" | jq -R . | jq -s .)
-          echo "::set-output name=files::$files_output"
+          # Pythonスクリプトを実行し、MP3とSRTのパスを検索
+          python3 << EOF
+            import os
+            import json
 
-  transcribe_files:
-    needs: find_mp3_files
+            directory = '/content'  # ここに検索するディレクトリを指定
+
+            audio_path = []
+            srt_path = []
+
+            # ディレクトリ内のファイルを再帰的に探索
+            for root, dirs, files in os.walk(directory):
+                for file in files:
+                    if file.endswith('.mp3'):
+                        file_without_ext = os.path.splitext(file)[0]
+                        srt_file = os.path.join(root, file_without_ext + '.srt')
+                        if not os.path.exists(srt_file):
+                            audio_path.append(os.path.join(root, file))
+                            srt_path.append(srt_file)
+
+            matrix = [{"audio": a, "srt": s} for a, s in zip(audio_path, srt_path)]
+
+            # 検索結果をJSONに変換
+            matrix_json = json.dumps(matrix)
+
+            # GITHUB_ENVに結果を出力
+            print(f"::set-output name=matrix::{matrix_json}")
+          EOF
+
+  example_job:
+    needs: generate_matrix
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        file: ${{ fromJson(needs.find_mp3_files.outputs.files) }}
+      matrix: ${{ fromJson(needs.generate_matrix.outputs.matrix) }}
     steps:
-      - name: Transcribe files
-        if: matrix.file != ''
-        uses: appleboy/whisper-action@v0.1.1
-        with:
-          model: small
-          audio_path: ${{ matrix.file }}
-          output_format: srt
-          output_folder: transcripts
-          print_progress: true
-          translate: false
-
-      - name: Save transcript as .src
-        if: matrix.file != ''
-        run: |
-          for file in ${{ matrix.file }}; do
-            transcript_file="transcripts/${file%.mp3}.srt"
-            if [ -f "$transcript_file" ]; then
-              mv "$transcript_file" "${file%.mp3}.srt"
-            fi
-          done
-          ls
+      - name: Print combination
+        run: echo "Audio: ${{ matrix.audio }} need SRT (missing): ${{ matrix.srt }}"
