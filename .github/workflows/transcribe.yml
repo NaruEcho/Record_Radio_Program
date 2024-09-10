@@ -50,6 +50,9 @@ jobs:
       matrix:
         path: ${{ fromJson(needs.generate_matrix.outputs.matrix).path }}
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -75,10 +78,6 @@ jobs:
         run: |
           python scripts/transcribe.py "${{ matrix.path }}"
 
-  commit:
-    needs: transcribe
-    runs-on: ubuntu-latest
-    steps:
       - name: auto-commit-changes
         if: always()
         run: |
