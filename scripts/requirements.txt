@@ -1,2 +1,5 @@
 requests
 json5
+openai-whisper
+ffmpeg-python
+pysrt
