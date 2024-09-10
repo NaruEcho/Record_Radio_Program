@@ -93,8 +93,6 @@ jobs:
 
       - name: Download artifacts from all jobs
         uses: actions/download-artifact@v4
-        with:
-          name: '*-files'
 
       - name: Combine all generated files
         run: |
