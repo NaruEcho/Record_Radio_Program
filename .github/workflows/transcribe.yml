@@ -35,17 +35,36 @@ jobs:
                         if not os.path.exists(srt_file):
                             srt_path.append(srt_file)
 
-            matrix = srt_path
+            matrix_arr = srt_path
 
             # GITHUB_ENVに結果を出力
-            print(f"::set-output name=matrix::{matrix_json}")
+            print(f"::set-output name=matrix::{matrix_arr}")
           EOF
 
   example_job:
     needs: generate_matrix
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{ fromJson(needs.generate_matrix.outputs.matrix) }}
+      matrix:
+        path: ${{ needs.generate_matrix.outputs.matrix }}
     steps:
-      - name: Print combination
-        run: echo "Audio: ${{ matrix.audio }} need SRT (missing): ${{ matrix.srt }}"
+      - name: speech to text
+        if: matrix.path != ''
+        uses: appleboy/whisper-action@v0.1.1
+        with:
+          model: small
+          audio_path: $(echo "${{ matrix.path }}" | sed 's/\.srt$/\.mp3/')
+          output_format: srt
+          output_folder: $(dirname "${{ matrix.path }}")
+          output_filename: $(basename "${{ matrix.path }}" .srt)
+          print_progress: true
+          translate: false
+
+  commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: auto-commit-changes
+        if: always()
+        run: |
+            chmod +x scripts/auto-commit-changes.sh
+            scripts/auto-commit-changes.sh
