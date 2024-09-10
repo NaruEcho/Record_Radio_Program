@@ -52,5 +52,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_53537e85992580bf09d5a38704db2b73/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/09/09.mp3",
         "download_date": "2024-09-09-12-25-52"
+    },
+    "2024-09-10": {
+        "title": "エンジョイ・シンプル・イングリッシュ「マラソン＆変わったところ」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年9月10日(火)午前9:10放送",
+        "closed_date": "2024年9月17日(火)午前9:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_fc3f399dfdb368739f8943ebd11bb7da/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/09/10.mp3",
+        "download_date": "2024-09-10-12-24-51"
     }
 }
