@@ -3,3 +3,4 @@ json5
 ffmpeg-python
 pysrt
 faster_whisper
+pydub
