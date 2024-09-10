@@ -46,6 +46,7 @@ jobs:
     needs: generate_matrix
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         path: ${{ fromJson(needs.generate_matrix.outputs.matrix).path }}
     steps:
