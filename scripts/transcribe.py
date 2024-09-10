@@ -54,8 +54,8 @@ def transcribe(path):
     segments, info = model.transcribe(path, beam_size=5, vad_filter=True, without_timestamps=False)
     print(f"Detected language '{info.language}' with probability {info.language_probability}")
     for segment in segments:
-        start_time = segment.start
-        end_time = segment.end
+        start_time = datetime.timedelta(seconds=segment.start)
+        end_time = datetime.timedelta(seconds=segment.end)
         srt_entry = srt.Subtitle(index=len(srt_entries) + 1, start=start_time, end=end_time, content=segment.text)
         srt_entries.append(srt_entry)
     os.makedirs(f"temp/{os.path.dirname(path)}", exist_ok=True)
