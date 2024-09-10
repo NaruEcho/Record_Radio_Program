@@ -25,7 +25,7 @@ def transcribe_audio_with_silence_handling(audio_file, silence_thresh=-40, min_s
         chunk.export(chunk_file, format="mp3")
 
         # チャンクごとに音声を転写
-        segments, info = model.transcribe(chunk_file, beam_size=5, vad_filter=True, without_timestamps=False)
+        segments, info = model.transcribe(chunk_file, beam_size=5, vad_filter=True, without_timestamps=False, multilingual=True)
 
         # 言語検出の確認
         print(f"Detected language '{info.language}' with probability {info.language_probability}")
