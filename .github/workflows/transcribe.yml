@@ -83,6 +83,7 @@ jobs:
         with:
           name: $(echo "${{ matrix.path }}" | sed 's/\"//g; s/^\.\///; s/\//-/g')-files
           path: temp/
+          retention-days: 1
 
   collect-and-commit:
     runs-on: ubuntu-latest
