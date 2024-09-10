@@ -52,17 +52,31 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          architecture: 'x64'
+
+      - name: Install library
+        run: |
+          set -e
+          sudo apt update
+          sudo apt install -y ffmpeg
+
+      - name: sound-ci-setup
+        uses: LABSN/sound-ci-helpers@v1
+
+      - name: Upgrade pip and install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
         
       - name: speech to text
         if: matrix.path != ''
-        uses: appleboy/whisper-action@v0.1.1
-        with:
-          model: small
-          audio_path: "${{ matrix.path }}"
-          output_format: srt
-          output_folder:  $(dirname "${{ matrix.path }}")
-          print_progress: true
-          translate: false
+        run: |
+          python scripts/transcribe.py "${{ matrix.path }}"
 
   commit:
     needs: transcribe
