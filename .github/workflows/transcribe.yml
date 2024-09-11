@@ -97,6 +97,7 @@ jobs:
   collect-and-commit:
     runs-on: ubuntu-latest
     needs: transcribe
+    if: always()
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
