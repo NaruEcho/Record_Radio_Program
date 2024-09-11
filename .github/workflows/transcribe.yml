@@ -73,6 +73,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r scripts/requirements.txt
           pip install --force-reinstall "faster-whisper @ https://github.com/SYSTRAN/faster-whisper/archive/refs/heads/master.tar.gz"
+          python -m pytorch_lightning.utilities.upgrade_checkpoint ../../../../../opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/faster_whisper/assets/pyannote_vad_model.bin
         
       - name: speech to text
         if: matrix.path != ''
