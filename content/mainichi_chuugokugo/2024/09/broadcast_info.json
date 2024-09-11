@@ -61,5 +61,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_5f4edab2b7ebcd7bda4266fd45d25221/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/09/10.mp3",
         "download_date": "2024-09-10-12-24-56"
+    },
+    "2024-09-11": {
+        "title": "まいにち中国語　おとなりさんと中国語で話そう（１０８）",
+        "sub_title": "第２２週　今週の目標「手料理でもてなしてみよう」",
+        "onair_date": "2024年9月11日(水)午前8:15放送",
+        "closed_date": "2024年9月18日(水)午前8:30配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_0970c8147610888683c750e14d598fd0/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/09/11.mp3",
+        "download_date": "2024-09-11-13-25-30"
     }
 }
