@@ -113,10 +113,10 @@ jobs:
         with:
           path: downloaded-artifacts
 
-      - name: Combine all generated files
+      - name: Unzip tar
         run: |
-          chmod +x scripts/move_srt.sh
-          scripts/move_srt.sh
+          chmod +x scripts/tar_unzip.sh
+          scripts/tar_unzip.sh
 
       - name: Commit and push all changes
         run: |
