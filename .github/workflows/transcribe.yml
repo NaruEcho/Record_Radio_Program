@@ -1,8 +1,8 @@
 name: Transcribe MP3 Files
 
 on:
-#  schedule:
-#    - cron: '0 6 * * 1-5'  # UTCで平日の午前6時（JSTで午後3時)
+  schedule:
+    - cron: '0 6 * * 1-5'  # UTCで平日の午前6時（JSTで午後3時)
   workflow_dispatch:    # 手動トリガーを有効にする設定
 
 jobs:
