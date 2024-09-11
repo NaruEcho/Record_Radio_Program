@@ -120,5 +120,7 @@ jobs:
 
       - name: Commit and push all changes
         run: |
+          sudo apt install tree
+          tree
           chmod +x scripts/auto-commit-srt-changes.sh
           scripts/auto-commit-srt-changes.sh
