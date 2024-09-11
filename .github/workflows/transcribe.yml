@@ -79,6 +79,11 @@ jobs:
         run: |
           python scripts/transcribe.py "${{ matrix.path }}"
 
+      - name: Archive srt files in temp folder
+        run: |
+          chmod +x scripts/temp_archive.sh
+          scripts/temp_archive.sh
+
       - name: Prepare artifact environment
         id: set-arti-env
         if: matrix.path != ''
@@ -91,7 +96,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.set-arti-env.outputs.name }}
-          path: temp/
+          path: archived/
           retention-days: 1
 
   collect-and-commit:
