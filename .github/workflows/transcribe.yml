@@ -31,9 +31,8 @@ jobs:
           for root, dirs, files in os.walk(directory):
               for file in files:
                   if file.endswith('.mp3'):
-                      file_without_ext = os.path.splitext(file)[0]
-                      srt_file = os.path.join(root, file_without_ext + '.srt')
-                      audio_file = os.path.join(root, file_without_ext + '.mp3')
+                      srt_file = os.path.join(root, file + '.srt')
+                      audio_file = os.path.join(root, file)
                       if not os.path.exists(srt_file):
                           audio_path.append(audio_file)
           matrix_arr = json.dumps({"path": audio_path})
@@ -47,6 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      max-parallel: 5
       matrix:
         path: ${{ fromJson(needs.generate_matrix.outputs.matrix).path }}
     continue-on-error: true
