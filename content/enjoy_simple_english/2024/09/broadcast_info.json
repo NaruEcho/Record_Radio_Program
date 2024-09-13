@@ -79,5 +79,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_6bb1f55b2a3735224bc6841536d50810/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/09/12.mp3",
         "download_date": "2024-09-12-12-24-28"
+    },
+    "2024-09-13": {
+        "title": "エンジョイ・シンプル・イングリッシュ「遅すぎたシャーロック・ホームズ－第２話－」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年9月13日(金)午前9:10放送",
+        "closed_date": "2024年9月20日(金)午前9:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_8504426ff3422a2f859c0a6e3742c40c/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/09/13.mp3",
+        "download_date": "2024-09-13-12-24-58"
     }
 }
