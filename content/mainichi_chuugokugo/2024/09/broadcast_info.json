@@ -88,5 +88,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_5109eb3cb3ac225cde2c89b2d0d28f5c/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/09/13.mp3",
         "download_date": "2024-09-13-12-25-05"
+    },
+    "2024-09-16": {
+        "title": "まいにち中国語　おとなりさんと中国語で話そう（１１１）",
+        "sub_title": "第２３週　今週の目標「体の具合を確認してみよう」",
+        "onair_date": "2024年9月16日(月)午前8:15放送",
+        "closed_date": "2024年9月23日(月)午前8:30配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_f0e1eaa7847ed85f40f765ea044a9ab8/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/09/16.mp3",
+        "download_date": "2024-09-16-12-30-58"
     }
 }
