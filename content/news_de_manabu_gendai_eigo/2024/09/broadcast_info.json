@@ -115,5 +115,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_a52a9316e083788c2fcb720b66261562/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/09/18.mp3",
         "download_date": "2024-09-18-12-25-15"
+    },
+    "2024-09-19": {
+        "title": "ニュースで学ぶ「現代英語」　宮崎駿監督にマグサイサイ賞",
+        "sub_title": "ニュースや研究の現場で活躍している専門家が、「実際に現場で使っている英語」をニュースの背景とともに解説します。ＭＣ：トラウデン直美　解説：前嶋和弘",
+        "onair_date": "2024年9月19日(木)午前9:30放送",
+        "closed_date": "2024年9月26日(木)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_6362fcc1470f3770af9a552ae95acee2/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/09/19.mp3",
+        "download_date": "2024-09-19-12-26-34"
     }
 }
