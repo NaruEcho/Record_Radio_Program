@@ -1,0 +1,652 @@
+1
+00:00:05,027 --> 00:00:06,507
+ Bonjour tout le monde.
+
+2
+00:00:07,107 --> 00:00:08,067
+ Mai-nichi france-go.
+
+3
+00:00:08,627 --> 00:00:09,447
+ Zoé au Japon.
+
+4
+00:00:09,867 --> 00:00:11,067
+ Zoé to manabu france-go.
+
+5
+00:00:11,567 --> 00:00:13,007
+ Koshi no Himeta Mariko desu.
+
+6
+00:00:13,407 --> 00:00:14,907
+ Alberic de Ribledes.
+
+7
+00:00:15,447 --> 00:00:19,927
+ Kono kouza dewa france-jinryu gakusei Zoé no nihonde no seikatsu o toshite
+
+8
+00:00:19,927 --> 00:00:23,587
+ sho-kyu no bunpo to benri na koutou hyougen o benkyou shite imasu.
+
+9
+00:00:28,147 --> 00:00:29,787
+ Leçon soixante-dix.
+
+10
+00:00:30,547 --> 00:00:32,367
+ Dai nanajuka made kimashita ne.
+
+11
+00:00:32,820 --> 00:00:35,820
+ Zoé et Watanabe sont dans le département aujourd'hui.
+
+12
+00:00:35,820 --> 00:00:39,820
+ Ils entendent le japonais, donc ils savent ce qui se passe.
+
+13
+00:00:39,820 --> 00:00:44,820
+ Est-ce que Watanabe s'y attend, ou est-ce qu'il est négatif ?
+
+14
+00:00:44,820 --> 00:00:47,820
+ Pensez-y et écoutez.
+
+15
+00:00:49,820 --> 00:00:52,820
+ Tu vois ces sacs en papier, en vitrine du magasin ?
+
+16
+00:00:52,820 --> 00:00:55,820
+ Ce sont des fukubukuro.
+
+17
+00:00:55,820 --> 00:01:02,740
+ On peut faire parfois de très bonnes affaires, même si on ne sait pas exactement ce qu'il y a dedans.
+
+18
+00:01:03,178 --> 00:01:05,178
+ C'est quand même risqué, non ?
+
+19
+00:01:31,849 --> 00:01:59,859
+ Bonn'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'n'
+
+20
+00:01:59,878 --> 00:02:02,058
+女性複数形でSがあるので
+
+21
+00:02:02,058 --> 00:02:04,078
+Aから始まる後ろの名詞
+
+22
+00:02:04,078 --> 00:02:05,958
+Affairesとリエゾンしていました
+
+23
+00:02:05,958 --> 00:02:07,778
+Très bonnes affaires
+
+24
+00:02:07,778 --> 00:02:10,158
+はとても良い買い物の意味です
+
+25
+00:02:10,158 --> 00:02:12,358
+はじめから見ていきましょう
+
+26
+00:02:12,358 --> 00:02:13,738
+渡辺さんは
+
+27
+00:02:13,738 --> 00:02:14,818
+Zoeに話しかけて
+
+28
+00:02:14,818 --> 00:02:17,138
+ショーウィンドウに注意を流しています
+
+29
+00:02:17,138 --> 00:02:19,398
+ Tu vois ces sacs en papier
+
+30
+00:02:19,398 --> 00:02:21,738
+ en vitrine du magasin ?
+
+31
+00:02:21,738 --> 00:02:22,938
+見る見えるの意味の
+
+32
+00:02:22,938 --> 00:02:25,218
+voirの中の活用形の後ろは
+
+33
+00:02:25,218 --> 00:02:27,178
+その直接目的保護の
+
+34
+00:02:27,178 --> 00:02:28,238
+ ces sacs en papier
+
+35
+00:02:28,238 --> 00:02:29,738
+あの紙袋
+
+36
+00:02:30,118 --> 00:02:32,138
+ En vitrine du magasin
+
+37
+00:02:32,138 --> 00:02:32,398
+ En vitrine du magasin
+
+38
+00:02:32,398 --> 00:02:32,418
+ En vitrine du magasin
+
+39
+00:02:32,418 --> 00:02:32,438
+ En vitrine du magasin
+
+40
+00:02:32,438 --> 00:02:32,498
+ En vitrine du magasin
+
+41
+00:02:32,498 --> 00:02:32,538
+ En vitrine du magasin
+
+42
+00:02:32,538 --> 00:02:32,558
+ En vitrine du magasin
+
+43
+00:02:32,558 --> 00:02:32,598
+ En vitrine du magasin
+
+44
+00:02:32,598 --> 00:02:32,638
+ En vitrine du magasin
+
+45
+00:02:32,638 --> 00:02:32,698
+ En vitrine du magasin
+
+46
+00:02:32,698 --> 00:02:32,738
+ En vitrine du magasin
+
+47
+00:02:32,738 --> 00:02:32,798
+ En vitrine du magasin
+
+48
+00:02:32,798 --> 00:02:32,898
+ En vitrine du magasin
+
+49
+00:02:32,898 --> 00:02:32,978
+ En vitrine du magasin
+
+50
+00:02:32,978 --> 00:02:33,178
+ En vitrine du magasin
+
+51
+00:02:33,178 --> 00:02:33,198
+ En vitrine du magasin
+
+52
+00:02:33,198 --> 00:02:33,258
+ En vitrine du magasin
+
+53
+00:02:33,258 --> 00:02:33,298
+ En vitrine du magasin
+
+54
+00:02:33,298 --> 00:02:33,358
+ En vitrine du magasin
+
+55
+00:02:33,358 --> 00:02:33,438
+ En vitrine du magasin
+
+56
+00:02:33,438 --> 00:02:33,498
+ En vitrine du magasin
+
+57
+00:02:33,498 --> 00:02:33,598
+ En vitrine du magasin
+
+58
+00:02:33,598 --> 00:02:33,658
+ En vitrine du magasin
+
+59
+00:02:33,658 --> 00:02:33,698
+ En vitrine du magasin
+
+60
+00:03:00,274 --> 00:03:06,634
+ Oui, c'est une expression toute faite.
+
+61
+00:03:07,094 --> 00:03:11,534
+ Ici, on aurait aussi très bien pu dire « dans la vitrine », bien entendu.
+
+62
+00:03:23,114 --> 00:03:25,454
+ Ce sont des fukubukuro.
+
+63
+00:03:26,278 --> 00:03:30,278
+ Nijijou kaiwa dewa fukusu meishu no mae demo sei to itte yoi no desu ga,
+
+64
+00:03:30,578 --> 00:03:34,738
+ itsumo teinei na fransugu o hanasu Watanabe-san wa su son o tsukatte imasu.
+
+65
+00:03:35,698 --> 00:03:39,958
+ Sono tsugi no bun ga sakihodo mita bonnes affaires o fukumu bun desu.
+
+66
+00:03:40,018 --> 00:03:42,598
+ Masu, même si no mae made, mou ikai onegaishimasu.
+
+67
+00:03:43,318 --> 00:03:46,598
+ On peut faire parfois de très bonnes affaires.
+
+68
+00:03:47,478 --> 00:03:53,118
+ On peut faire ou pouvoir no genzai no katsuyoke plus genkei no faire desu.
+
+69
+00:03:53,548 --> 00:03:59,208
+ « Parfois » est un mot qui signifie « souvent », et « parfois », « parfois », c'est le mot qui signifie « parfois ».
+
+70
+00:03:59,208 --> 00:04:03,428
+ « Le mot « parfois » signifie « il y a des moments où l'on peut faire de très bonnes achats ».
+
+71
+00:04:03,428 --> 00:04:08,648
+ Je vous demande encore une fois de commencer par le mot « même si ».
+
+72
+00:04:08,648 --> 00:04:13,628
+ « Même si » signifie « même si on ne sait pas exactement ce qu'il y a dedans ».
+
+73
+00:04:13,628 --> 00:04:19,388
+ « Même si » signifie « même si on ne sait pas exactement ce qu'il y a dedans ».
+
+74
+00:04:19,823 --> 00:04:27,543
+ Même si以下の情報が正しくても間違っていても、主節の情報の方は正しいという時に使います。
+
+75
+00:04:27,543 --> 00:04:30,183
+他の例文を挙げておきましょうか。
+
+76
+00:04:30,183 --> 00:04:32,823
+ Même si c'est difficile, il faut essayer.
+
+77
+00:04:33,563 --> 00:04:36,003
+難しくてもやってみなきゃ。
+
+78
+00:04:36,003 --> 00:04:38,603
+こんな風に使います。
+
+79
+00:04:38,603 --> 00:04:44,683
+渡辺さんのセリフの même si以下の on ne sait pas exactementは正確にはわからない。
+
+80
+00:04:45,085 --> 00:04:57,385
+ Ensuite, « skiria » est un mot qui est lié à « sku » et « iria », et « dudon » est un mot qui est lié à « dans », donc on peut dire « ce qu'il y a dans ça, il ne faut pas savoir précisément ».
+
+81
+00:04:57,385 --> 00:05:14,805
+ « Dudon » est un mot qui est lié à « zentishi don » plus un mot qui est lié à un mot qui est lié à un mot qui est lié à un mot qui est lié à un mot qui est lié à un mot.
+
+82
+00:05:14,869 --> 00:05:25,629
+ C'est quand même risqué, non ?
+
+83
+00:05:25,629 --> 00:05:44,169
+ « Quand même » est un mot qui est opposé à ce qui a été dit précédemment, c'est-à-dire « c'est-à-dire, c'est-à-dire, c'est-à-dire, c'est-à-dire, c'est-à-dire, c'est-à-dire ».
+
+84
+00:05:44,873 --> 00:05:50,373
+ Quand même, c'est quand on fait des choses contrairement à nos sentiments ou à notre situation.
+
+85
+00:05:50,373 --> 00:05:51,373
+ Par exemple,
+
+86
+00:05:51,373 --> 00:05:55,373
+ Il fait très froid, mais je vais sortir quand même.
+
+87
+00:05:55,373 --> 00:05:58,873
+ C'est très froid, mais je vais sortir quand même.
+
+88
+00:05:58,873 --> 00:06:00,873
+ C'est ce qu'on dit quand on fait des choses contrairement à nos sentiments ou à notre situation.
+
+89
+00:06:00,873 --> 00:06:05,373
+ Alors, on va reprendre ce qu'on a dit aujourd'hui, et après, on va s'entraîner.
+
+90
+00:06:07,373 --> 00:06:10,373
+ Tu vois ces sacs en papier, en vitrine du magasin ?
+
+91
+00:06:10,373 --> 00:06:12,693
+ Ce sont des fukubukuro.
+
+92
+00:06:13,020 --> 00:06:15,940
+ On peut faire parfois de très bonnes affaires,
+
+93
+00:06:16,560 --> 00:06:19,780
+ même si on ne sait pas exactement ce qu'il y a dedans.
+
+94
+00:06:20,520 --> 00:06:22,680
+ C'est quand même risqué, non ?
+
+95
+00:06:24,680 --> 00:06:39,680
+ Tu vois ces sacs en papier en vitrine du magasin ?
+
+96
+00:06:43,176 --> 00:06:44,736
+ Ce sont des fukubukuro.
+
+97
+00:06:46,236 --> 00:06:49,436
+ On peut faire parfois de très bonnes affaires.
+
+98
+00:06:52,676 --> 00:06:56,176
+ Même si on ne sait pas exactement ce qu'il y a dedans.
+
+99
+00:06:59,896 --> 00:07:02,176
+ C'est quand même risqué, non ?
+
+100
+00:07:03,836 --> 00:07:07,536
+ A la fin, pratiquez lentement et évoluez de plus en plus.
+
+101
+00:07:17,365 --> 00:07:18,705
+ Un peu d'exercice.
+
+102
+00:07:19,385 --> 00:07:23,745
+ Aujourd'hui, il y a eu un mot de réponse exacte qui signifie « c'est précis ».
+
+103
+00:07:23,745 --> 00:07:27,205
+ C'est un mot de réponse exacte qui signifie « c'est précis ».
+
+104
+00:07:27,205 --> 00:07:31,665
+ C'est un mot de réponse exacte qui signifie « c'est précis ».
+
+105
+00:07:31,665 --> 00:07:36,625
+ En plupart des cas, le mot de réponse exacte qui signifie « c'est précis » est un mot de réponse exacte.
+
+106
+00:07:37,725 --> 00:07:42,625
+ Mais il y a aussi des mots de réponse exacte qui signifient « c'est précis » qui signifient « c'est précis ».
+
+107
+00:07:42,625 --> 00:07:45,105
+ Je vous présente quelques exemples.
+
+108
+00:07:45,462 --> 00:07:51,242
+ Dribble-sensei ni keiyoshi no danseikei, joseikei, fukushi no jun de itte moraimasu.
+
+109
+00:07:51,942 --> 00:07:55,662
+ Sono ato de watashi kara keiyoshi fukushi no jun de imi wo iimasu.
+
+110
+00:07:56,322 --> 00:07:59,902
+ Masu joseikei plus mnt no rei desu.
+
+111
+00:08:00,642 --> 00:08:04,382
+ Certain, certaine, certainement.
+
+112
+00:08:05,402 --> 00:08:06,822
+ Tashikana, tashikani.
+
+113
+00:08:07,902 --> 00:08:11,282
+ Eureu, eureuze, eureuzemon.
+
+114
+00:08:12,062 --> 00:08:14,622
+ Shiawase na, kouun na koto ni.
+
+115
+00:08:15,398 --> 00:08:18,838
+ Complets, complètes, complètement.
+
+116
+00:08:20,058 --> 00:08:22,878
+ Complets, complètes, complètement.
+
+117
+00:08:34,878 --> 00:08:38,278
+ Facile, facile, facilement.
+
+118
+00:08:39,238 --> 00:08:40,878
+ Complets, complètes, complètement.
+
+119
+00:08:45,402 --> 00:08:52,802
+ Vrai. Vrai. Vraiment.
+
+120
+00:08:56,342 --> 00:08:59,602
+ Absolue. Absolue. Absolument.
+
+121
+00:09:03,362 --> 00:09:11,542
+ Kéyoshi danseikei no gobiga ANT no mono wa ANT wo totte AMMUNTE wo tsukemasu.
+
+122
+00:09:11,895 --> 00:09:23,915
+ Souffisant, suffisante, suffisamment.
+
+123
+00:09:25,075 --> 00:09:31,115
+ Prudent, prudente, prudemment.
+
+124
+00:09:42,152 --> 00:09:45,312
+ Lent, lente, lentement.
+
+125
+00:09:46,192 --> 00:09:48,032
+ Jutkuri to shita, yukkuri to.
+
+126
+00:09:49,432 --> 00:09:52,392
+ Shinsetsu na no imi no janti mo reigai desu.
+
+127
+00:09:52,852 --> 00:09:57,052
+ Danseikei no gobi no yomanai elu wo totte munt desu.
+
+128
+00:09:57,752 --> 00:10:01,192
+ Janti, gentille, gentiment.
+
+129
+00:10:02,152 --> 00:10:03,892
+ Shinsetsu na, shinsetsu ni.
+
+130
+00:10:05,032 --> 00:10:07,352
+ Kono kisoku wo oboete goi wo fuyashimashou.
+
+131
+00:10:11,548 --> 00:10:31,768
+ Les fukubukuro sont populaires au Nouvel An au Japon.
+
+132
+00:10:39,688 --> 00:10:40,988
+ Les fukubukuro sont populaires au Nouvel An au Japon.
+
+133
+00:10:41,670 --> 00:10:47,170
+ Bref, « populaire » est « ninki ga aru », « au nouvel an » est « au shougatsu ni »
+
+134
+00:10:47,170 --> 00:10:50,230
+ « fukubukuro » est « au shougatsu ni ninki ga aru »
+
+135
+00:10:50,230 --> 00:10:53,090
+ C'est correct, n'est-ce pas ?
+
+136
+00:10:53,090 --> 00:10:53,870
+ Seconde question
+
+137
+00:10:53,870 --> 00:10:59,670
+ Le fukubukuro veut dire « sac gratuit »
+
+138
+00:10:59,670 --> 00:11:04,750
+ Le fukubukuro veut dire « sac gratuit »
+
+139
+00:11:04,750 --> 00:11:07,530
+ La réponse est « faux »
+
+140
+00:11:07,962 --> 00:11:34,672
+ « Gratuit » est un mot que j'ai appris pendant 39 ans, et c'est un mot qui signifie « non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non, non
+
+141
+00:11:34,877 --> 00:11:38,297
+ serait plus évocatrice et mieux comprise des Français.
+
+142
+00:12:02,147 --> 00:12:07,427
+ Si vous le faites, comment expliquez-vous le mot « fukubukuro » en français ?
+
+143
+00:12:07,427 --> 00:12:21,967
+ Puisque nous avons parlé dans cette leçon des fukubukuro,
+
+144
+00:12:22,647 --> 00:12:28,847
+ je voudrais parler aujourd'hui d'un sac français d'un genre très spécial, le filet à provision.
+
+145
+00:12:29,400 --> 00:12:41,000
+ C'est l'équivalent français du « éco-bag » japonais.
+
+146
+00:12:41,660 --> 00:12:46,640
+ Il était encore utilisé très fréquemment il y a une quarantaine d'années en France,
+
+147
+00:12:47,160 --> 00:12:51,780
+ avant la généralisation des sacs de caisse en plastique à usage unique.
+
+148
+00:12:52,500 --> 00:12:55,020
+ C'est un sac à usage unique.
+
+149
+00:12:55,506 --> 00:13:04,466
+ Amibac a été très bien utilisé il y a 40 ans en France. C'est une histoire avant que les sacs de plastique qu'on n'utilise ne soient plus un peu plus généralisés.
+
+150
+00:13:05,326 --> 00:13:21,246
+ Mais comme ces derniers sont interdits en France depuis 2016, le filet à provision est réapparu aux bras de nombreux Français qui s'en servent à nouveau pour transporter leurs achats alimentaires du supermarché à la maison.
+
+151
+00:13:21,865 --> 00:13:28,865
+ Traditionnellement tricoté en coton, son maillage extensible fait de lui un accessoire aussi léger que pratique.
+
+152
+00:13:52,273 --> 00:14:00,093
+ De retour du travail, vous venez de réaliser qu'il vous faudrait passer par l'épicerie du quartier pour acheter une brique de lait.
+
+153
+00:14:00,653 --> 00:14:07,333
+ Et peut-être aussi du beurre et des œufs pour demain matin ? Pas de problème, vous le sortez à la caisse et le tour est joué.
+
+154
+00:14:21,417 --> 00:14:31,117
+ Symbole de l'art de vivre à la française, il se décline maintenant dans de jolies couleurs et allie ainsi conscience écologique et chic citadin.
+
+155
+00:14:31,857 --> 00:14:34,877
+ Ami-Bac, symbole de l'art de vivre en France, est un symbole de l'art de vivre en France.
+
+156
+00:14:34,877 --> 00:14:35,077
+ Ami-Bac est un symbole de l'art de vivre en France.
+
+157
+00:14:35,077 --> 00:14:35,117
+ Ami-Bac est un symbole de l'art de vivre en France.
+
+158
+00:14:35,117 --> 00:14:35,197
+ Ami-Bac est un symbole de l'art de vivre en France.
+
+159
+00:14:35,197 --> 00:14:35,217
+ Ami-Bac est un symbole de l'art de vivre en France.
+
+160
+00:14:35,217 --> 00:14:35,237
+ Ami-Bac est un symbole de l'art de vivre en France.
+
+161
+00:14:35,237 --> 00:14:35,277
+ Ami-Bac est un symbole de l'art de vivre en France.
+
+162
+00:14:35,277 --> 00:14:35,377
+ Ami-Bac est un symbole de l'art de vivre en France.
+
+163
+00:14:50,155 --> 00:14:51,955
+ Au revoir, à demain.
+
