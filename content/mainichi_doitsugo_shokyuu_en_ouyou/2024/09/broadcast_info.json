@@ -133,5 +133,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/N8PZRZ9WQY/s/stream_N8PZRZ9WQY_24f6cfcc0ec68b0ebf3cfa7143e209d2/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_doitsugo_shokyuu_en_ouyou/2024/09/20.mp3",
         "download_date": "2024-09-20-12-26-19"
+    },
+    "2024-09-23": {
+        "title": "まいにちドイツ語　初級編　北ドイツの秘宝を探せ！（７０）",
+        "sub_title": "　",
+        "onair_date": "2024年9月23日(月)午前7:00放送",
+        "closed_date": "2024年9月30日(月)午前7:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/N8PZRZ9WQY/s/stream_N8PZRZ9WQY_c90cd5d9f9a6f5596c55f80b8557b90c/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_doitsugo_shokyuu_en_ouyou/2024/09/23.mp3",
+        "download_date": "2024-09-23-12-28-55"
     }
 }

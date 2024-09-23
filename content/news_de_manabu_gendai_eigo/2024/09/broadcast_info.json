@@ -133,5 +133,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_abd3878320b55c9764c59b22a8f3991f/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/09/20.mp3",
         "download_date": "2024-09-20-12-26-15"
+    },
+    "2024-09-23": {
+        "title": "ニュースで学ぶ「現代英語」　旧優生保護法は“違憲”",
+        "sub_title": "「現代英語」とは、世界で実際に使われている英語です。最新の英語ニュースを通して、生きた英語を身につけます。講師：伊藤サム　パートナー：クリスティ・ウェスト",
+        "onair_date": "2024年9月23日(月)午前9:30放送",
+        "closed_date": "2024年9月30日(月)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_e8e5eff524ac4a5985092e1bf042ab86/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/09/23.mp3",
+        "download_date": "2024-09-23-12-28-52"
     }
 }
