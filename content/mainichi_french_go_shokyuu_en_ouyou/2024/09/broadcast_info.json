@@ -142,5 +142,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/XQ487ZM61K/s/stream_XQ487ZM61K_c470ccc525261c9475e2aaa7b7f076ba/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_french_go_shokyuu_en_ouyou/2024/09/23.mp3",
         "download_date": "2024-09-23-12-28-56"
+    },
+    "2024-09-24": {
+        "title": "まいにちフランス語　初級編　ゾエと学ぶフランス語（７１）",
+        "sub_title": "　",
+        "onair_date": "2024年9月24日(火)午前7:30放送",
+        "closed_date": "2024年10月1日(火)午前7:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/XQ487ZM61K/s/stream_XQ487ZM61K_39cff4f42772ac629b12dabf2b27be18/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_french_go_shokyuu_en_ouyou/2024/09/24.mp3",
+        "download_date": "2024-09-24-12-28-48"
     }
 }

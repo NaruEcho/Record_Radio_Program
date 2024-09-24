@@ -142,5 +142,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/8Z6XJ6J415/s/stream_8Z6XJ6J415_b94eccbfa34d48b0a30f217a37a3ba24/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/eikaiwa_time_trial/2024/09/23.mp3",
         "download_date": "2024-09-23-12-28-50"
+    },
+    "2024-09-24": {
+        "title": "英会話タイムトライアル「９月ＤＡＹ１７」",
+        "sub_title": "　",
+        "onair_date": "2024年9月24日(火)午後0:15放送",
+        "closed_date": "2024年10月1日(火)午後0:25配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/8Z6XJ6J415/s/stream_8Z6XJ6J415_07018cfc7329704a0579042c49ccb3b1/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/eikaiwa_time_trial/2024/09/24.mp3",
+        "download_date": "2024-09-24-12-28-42"
     }
 }
