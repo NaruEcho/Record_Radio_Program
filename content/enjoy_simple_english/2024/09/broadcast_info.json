@@ -142,5 +142,23 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_de1a297dd14d84f5fddbf216a857a426/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/09/23.mp3",
         "download_date": "2024-09-23-12-28-48"
+    },
+    "2024-09-24": {
+        "title": "エンジョイ・シンプル・イングリッシュ「すごい写真＆学校の制服」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年9月24日(火)午後0:55放送",
+        "closed_date": "2024年10月1日(火)午後1:00配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_e8fa7be46dc6aecd666dc85dd2390960/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/09/24.mp3",
+        "download_date": "2024-09-25-12-31-00"
+    },
+    "2024-09-25": {
+        "title": "エンジョイ・シンプル・イングリッシュ「携帯型音楽プレーヤー」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年9月25日(水)午前9:10放送",
+        "closed_date": "2024年10月2日(水)午前9:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_ff4eefd79a4c36ea2db7cfb14b13fdfe/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/09/25.mp3",
+        "download_date": "2024-09-25-12-31-00"
     }
 }
