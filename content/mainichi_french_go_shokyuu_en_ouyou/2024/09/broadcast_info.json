@@ -160,5 +160,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/XQ487ZM61K/s/stream_XQ487ZM61K_77d3a8b4dd01d6bb5e448a94ba446520/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_french_go_shokyuu_en_ouyou/2024/09/25.mp3",
         "download_date": "2024-09-25-12-31-08"
+    },
+    "2024-09-26": {
+        "title": "まいにちフランス語　応用編　フランコフォニーとは何か（４７）",
+        "sub_title": "　",
+        "onair_date": "2024年9月26日(木)午前7:30放送",
+        "closed_date": "2024年10月3日(木)午前7:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/XQ487ZM61K/s/stream_XQ487ZM61K_a0a409a7fc62e0ea4d52a2c40e8a3ddb/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_french_go_shokyuu_en_ouyou/2024/09/26.mp3",
+        "download_date": "2024-09-26-12-29-20"
     }
 }

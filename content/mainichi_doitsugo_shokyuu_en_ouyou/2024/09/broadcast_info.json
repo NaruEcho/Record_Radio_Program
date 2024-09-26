@@ -160,5 +160,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/N8PZRZ9WQY/s/stream_N8PZRZ9WQY_f62c8773f8753b31a90949c2e3fb8f22/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_doitsugo_shokyuu_en_ouyou/2024/09/25.mp3",
         "download_date": "2024-09-25-12-31-07"
+    },
+    "2024-09-26": {
+        "title": "まいにちドイツ語　応用編　こつこつ一人で続けよう（４７）",
+        "sub_title": "　",
+        "onair_date": "2024年9月26日(木)午前7:00放送",
+        "closed_date": "2024年10月3日(木)午前7:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/N8PZRZ9WQY/s/stream_N8PZRZ9WQY_aa201e7e9e46c53a9c96c5c3c304eafe/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_doitsugo_shokyuu_en_ouyou/2024/09/26.mp3",
+        "download_date": "2024-09-26-12-29-19"
     }
 }

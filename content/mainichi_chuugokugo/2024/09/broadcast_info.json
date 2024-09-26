@@ -160,5 +160,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_fce1cf092c61b24df9fa99e9568f2882/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/09/25.mp3",
         "download_date": "2024-09-25-12-31-05"
+    },
+    "2024-09-26": {
+        "title": "まいにち中国語　おとなりさんと中国語で話そう（１１９）",
+        "sub_title": "第２４週　今週の目標「別れに際し、祈る言葉をかけてみよう」",
+        "onair_date": "2024年9月26日(木)午前8:15放送",
+        "closed_date": "2024年10月3日(木)午前8:30配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_bf8eb040b64f5b54c056bab48e73b836/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/09/26.mp3",
+        "download_date": "2024-09-26-12-29-18"
     }
 }
