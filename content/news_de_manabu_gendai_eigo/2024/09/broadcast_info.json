@@ -169,5 +169,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_3be4090ca6a13b8ec246c23e9e1201b2/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/09/26.mp3",
         "download_date": "2024-09-26-12-29-17"
+    },
+    "2024-09-27": {
+        "title": "ニュースで学ぶ「現代英語」“仕事より余暇を優先”　過去最高６５％に",
+        "sub_title": "ニュースや研究の現場で活躍している専門家が、「実際に現場で使っている英語」をニュースの背景とともに解説します。ＭＣ：トラウデン直美　解説：前嶋和弘",
+        "onair_date": "2024年9月27日(金)午前9:30放送",
+        "closed_date": "2024年10月4日(金)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_2fab8bbfa3988c64db75038f8fcaa107/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/09/27.mp3",
+        "download_date": "2024-09-27-12-28-59"
     }
 }
