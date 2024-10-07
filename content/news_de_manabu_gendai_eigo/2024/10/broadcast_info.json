@@ -34,5 +34,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_5456630e6b55b54094f20ce10aab7355/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/04.mp3",
         "download_date": "2024-10-04-12-29-24"
+    },
+    "2024-10-07": {
+        "title": "ニュースで学ぶ「現代英語」　レバノンで携帯通信機の爆発相次ぐ",
+        "sub_title": "「現代英語」とは、世界で実際に使われている英語です。最新の英語ニュースを通して、生きた英語を身につけます。講師：伊藤サム　パートナー：クリスティ・ウェスト",
+        "onair_date": "2024年10月7日(月)午前9:30放送",
+        "closed_date": "2024年10月14日(月)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_722ac769e84274b083ba61bb5bc3d0e0/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/07.mp3",
+        "download_date": "2024-10-07-12-30-41"
     }
 }
