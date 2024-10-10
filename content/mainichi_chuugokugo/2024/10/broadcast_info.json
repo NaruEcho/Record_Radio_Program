@@ -61,5 +61,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_032ec25620ad13a8f1716897fcb307d4/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/10/09.mp3",
         "download_date": "2024-10-09-12-28-54"
+    },
+    "2024-10-10": {
+        "title": "まいにち中国語　口と耳で“イメトレ”！（９）",
+        "sub_title": "発音９",
+        "onair_date": "2024年10月10日(木)午前8:15放送",
+        "closed_date": "2024年10月17日(木)午前8:30配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_4f34d0999b406d90852361ee9d5a0517/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/10/10.mp3",
+        "download_date": "2024-10-10-12-28-54"
     }
 }
