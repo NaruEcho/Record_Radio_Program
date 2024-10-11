@@ -70,5 +70,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/XQ487ZM61K/s/stream_XQ487ZM61K_da872cbefd583c3c1d214781a0898a14/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_french_go_shokyuu_en_ouyou/2024/10/10.mp3",
         "download_date": "2024-10-10-12-28-57"
+    },
+    "2024-10-11": {
+        "title": "まいにちフランス語　応用編　ラ・ブリュイエールを読む（４）",
+        "sub_title": "　",
+        "onair_date": "2024年10月11日(金)午前7:30放送",
+        "closed_date": "2024年10月18日(金)午前7:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/XQ487ZM61K/s/stream_XQ487ZM61K_302f946699f4ab16543263386e8b720e/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_french_go_shokyuu_en_ouyou/2024/10/11.mp3",
+        "download_date": "2024-10-11-12-28-06"
     }
 }
