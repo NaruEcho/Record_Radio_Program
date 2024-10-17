@@ -106,5 +106,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_2323407d72806bebfb2041033d91f9f3/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/10/16.mp3",
         "download_date": "2024-10-16-12-31-43"
+    },
+    "2024-10-17": {
+        "title": "エンジョイ・シンプル・イングリッシュ「父親と息子とろば」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年10月17日(木)午前9:10放送",
+        "closed_date": "2024年10月24日(木)午前9:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_3745c04934a511500bb88101626fd724/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/10/17.mp3",
+        "download_date": "2024-10-17-12-29-42"
     }
 }
