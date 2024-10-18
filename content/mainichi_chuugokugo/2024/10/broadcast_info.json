@@ -115,5 +115,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_30af9b7532a09d3712dca0989167ed3d/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/10/17.mp3",
         "download_date": "2024-10-17-12-29-46"
+    },
+    "2024-10-18": {
+        "title": "まいにち中国語　口と耳で“イメトレ”！（１５）",
+        "sub_title": "中国語で言ってみよう　総まとめ",
+        "onair_date": "2024年10月18日(金)午前8:15放送",
+        "closed_date": "2024年10月25日(金)午前8:30配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_38b211be109cc7fd2ba1070e33830ea8/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/10/18.mp3",
+        "download_date": "2024-10-18-12-31-57"
     }
 }

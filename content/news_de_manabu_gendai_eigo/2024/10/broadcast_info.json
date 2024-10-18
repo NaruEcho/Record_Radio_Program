@@ -115,5 +115,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_dd1be2f6f1d69825379b5fa47311aa4c/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/17.mp3",
         "download_date": "2024-10-17-12-29-45"
+    },
+    "2024-10-18": {
+        "title": "ニュースで学ぶ「現代英語」　フランスで大規模な日本酒見本市",
+        "sub_title": "ニュースや研究の現場で活躍している専門家が、「実際に現場で使っている英語」をニュースの背景とともに解説します。ＭＣ：トラウデン直美　解説：前嶋和弘",
+        "onair_date": "2024年10月18日(金)午前9:30放送",
+        "closed_date": "2024年10月25日(金)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_f535d473a831f0325c40d73508d008d5/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/18.mp3",
+        "download_date": "2024-10-18-12-31-56"
     }
 }
