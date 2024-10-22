@@ -133,5 +133,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_e096b899c8c2b80846973d1de1efca4f/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/21.mp3",
         "download_date": "2024-10-21-12-33-01"
+    },
+    "2024-10-22": {
+        "title": "ニュースで学ぶ「現代英語」　トヨタとＢＭＷ　燃料電池車で協力強化へ",
+        "sub_title": "「現代英語」とは、世界で実際に使われている英語です。最新の英語ニュースを通して、生きた英語を身につけます。講師：伊藤サム　パートナー：クリスティ・ウェスト",
+        "onair_date": "2024年10月22日(火)午前9:30放送",
+        "closed_date": "2024年10月29日(火)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_2c810c63cf26403e8b2e86779c05de55/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/22.mp3",
+        "download_date": "2024-10-22-12-30-06"
     }
 }

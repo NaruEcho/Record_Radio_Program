@@ -133,5 +133,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_8ead5f26cfbcbe58a5c34fc399b5d617/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/10/21.mp3",
         "download_date": "2024-10-21-12-32-59"
+    },
+    "2024-10-22": {
+        "title": "エンジョイ・シンプル・イングリッシュ「時限爆弾＆ソムリエのテスト」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年10月22日(火)午前9:10放送",
+        "closed_date": "2024年10月29日(火)午前9:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_e4fb385b858aefeb415093fe2d580dce/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/10/22.mp3",
+        "download_date": "2024-10-22-12-30-02"
     }
 }
