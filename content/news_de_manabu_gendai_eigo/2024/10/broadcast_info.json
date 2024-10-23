@@ -142,5 +142,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_2c810c63cf26403e8b2e86779c05de55/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/22.mp3",
         "download_date": "2024-10-22-12-30-06"
+    },
+    "2024-10-23": {
+        "title": "ニュースで学ぶ「現代英語」　長期宇宙飛行での食料調達を競うコンテスト",
+        "sub_title": "ニュースや研究の現場で活躍している専門家が、「実際に現場で使っている英語」をニュースの背景とともに解説します。ＭＣ：トラウデン直美　解説：大門小百合",
+        "onair_date": "2024年10月23日(水)午前9:30放送",
+        "closed_date": "2024年10月30日(水)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_3b7de03ae078c53d0d9742985bbbb9c3/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/23.mp3",
+        "download_date": "2024-10-23-12-30-34"
     }
 }
