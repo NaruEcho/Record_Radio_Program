@@ -169,5 +169,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_1fffca4c2b7d6c0418b766880920bb1a/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/25.mp3",
         "download_date": "2024-10-25-12-31-43"
+    },
+    "2024-10-28": {
+        "title": "ニュースで学ぶ「現代英語」　日本被団協にノーベル平和賞",
+        "sub_title": "「現代英語」とは、世界で実際に使われている英語です。最新の英語ニュースを通して、生きた英語を身につけます。講師：伊藤サム　パートナー：クリスティ・ウェスト",
+        "onair_date": "2024年10月28日(月)午前9:30放送",
+        "closed_date": "2024年11月4日(月)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_255eac9edf0408032424d6db3be3ac6d/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/28.mp3",
+        "download_date": "2024-10-28-12-34-06"
     }
 }
