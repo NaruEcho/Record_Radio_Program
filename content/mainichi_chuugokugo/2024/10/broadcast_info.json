@@ -187,5 +187,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_1ae823c86463be2dcd1a0cdf842aa8a0/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/10/29.mp3",
         "download_date": "2024-10-29-12-31-42"
+    },
+    "2024-10-30": {
+        "title": "まいにち中国語　口と耳で“イメトレ”！（１８）",
+        "sub_title": "あなたは大学生ですよね",
+        "onair_date": "2024年10月30日(水)午前8:15放送",
+        "closed_date": "2024年11月6日(水)午前8:30配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_9096ec05d466e60555f4ff799c5c763c/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/10/30.mp3",
+        "download_date": "2024-10-30-12-31-44"
     }
 }

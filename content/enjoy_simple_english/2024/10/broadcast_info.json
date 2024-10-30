@@ -187,5 +187,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_32900d10ba7d166b9f3d84082dbed0b9/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/10/29.mp3",
         "download_date": "2024-10-29-12-31-39"
+    },
+    "2024-10-30": {
+        "title": "エンジョイ・シンプル・イングリッシュ「カメラ付き携帯電話」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年10月30日(水)午前9:10放送",
+        "closed_date": "2024年11月6日(水)午前9:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_5d8ac292b8538678706a552f410a37b4/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/10/30.mp3",
+        "download_date": "2024-10-30-12-31-39"
     }
 }

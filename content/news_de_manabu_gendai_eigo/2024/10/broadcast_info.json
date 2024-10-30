@@ -187,5 +187,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_d5d34593e134ff06abaf4651ed917aa8/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/29.mp3",
         "download_date": "2024-10-29-12-31-41"
+    },
+    "2024-10-30": {
+        "title": "ニュースで学ぶ「現代英語」　袴田巌さん　無罪確定",
+        "sub_title": "ニュースや研究の現場で活躍している専門家が、「実際に現場で使っている英語」をニュースの背景とともに解説します。ＭＣ：トラウデン直美　解説：大門小百合",
+        "onair_date": "2024年10月30日(水)午前9:30放送",
+        "closed_date": "2024年11月6日(水)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_1690ddab744bf636dc1e6a987ce33df1/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/10/30.mp3",
+        "download_date": "2024-10-30-12-31-42"
     }
 }
