@@ -196,5 +196,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_5d8ac292b8538678706a552f410a37b4/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/10/30.mp3",
         "download_date": "2024-10-30-12-31-39"
+    },
+    "2024-10-31": {
+        "title": "エンジョイ・シンプル・イングリッシュ「熊と旅人」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年10月31日(木)午前9:10放送",
+        "closed_date": "2024年11月7日(木)午前9:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_748ba629f9fb03d61d89dd4bcb6e1c51/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/10/31.mp3",
+        "download_date": "2024-10-31-12-33-01"
     }
 }

@@ -196,5 +196,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_9096ec05d466e60555f4ff799c5c763c/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/10/30.mp3",
         "download_date": "2024-10-30-12-31-44"
+    },
+    "2024-10-31": {
+        "title": "まいにち中国語　口と耳で“イメトレ”！（１９）",
+        "sub_title": "わたしは李と言います",
+        "onair_date": "2024年10月31日(木)午前8:15放送",
+        "closed_date": "2024年11月7日(木)午前8:30配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/983PKQPYN7/s/stream_983PKQPYN7_c01fa0c8f2b92925382da3b5a87830f9/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_chuugokugo/2024/10/31.mp3",
+        "download_date": "2024-10-31-12-33-04"
     }
 }
