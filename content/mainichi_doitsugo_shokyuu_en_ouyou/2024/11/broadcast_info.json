@@ -16,5 +16,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/N8PZRZ9WQY/s/stream_N8PZRZ9WQY_e56a4f835832cc2d3565e02b6bfed33a/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_doitsugo_shokyuu_en_ouyou/2024/11/04.mp3",
         "download_date": "2024-11-04-12-34-11"
+    },
+    "2024-11-05": {
+        "title": "まいにちドイツ語　初級編　文法からはじめよう（１４）",
+        "sub_title": "　",
+        "onair_date": "2024年11月5日(火)午前7:00放送",
+        "closed_date": "2024年11月12日(火)午前7:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/N8PZRZ9WQY/s/stream_N8PZRZ9WQY_dd38baa5179e85218041e81beec492fb/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/mainichi_doitsugo_shokyuu_en_ouyou/2024/11/05.mp3",
+        "download_date": "2024-11-05-12-28-40"
     }
 }
