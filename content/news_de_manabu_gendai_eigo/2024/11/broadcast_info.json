@@ -34,5 +34,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_f10a27b60d6889299676814b81b72e83/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/11/06.mp3",
         "download_date": "2024-11-06-12-26-33"
+    },
+    "2024-11-07": {
+        "title": "ニュースで学ぶ「現代英語」　アマゾン　原発開発に投資",
+        "sub_title": "ニュースや研究の現場で活躍している専門家が、「実際に現場で使っている英語」をニュースの背景とともに解説します。ＭＣ：トラウデン直美　解説：大門小百合",
+        "onair_date": "2024年11月7日(木)午前9:30放送",
+        "closed_date": "2024年11月14日(木)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_e900887f6a2f4b1d72c6f2fa8fbc5732/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/11/07.mp3",
+        "download_date": "2024-11-07-12-29-38"
     }
 }
