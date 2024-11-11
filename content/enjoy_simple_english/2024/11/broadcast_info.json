@@ -52,5 +52,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_691f66d1648aed012d0a79f088c055f1/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/11/08.mp3",
         "download_date": "2024-11-08-12-27-18"
+    },
+    "2024-11-11": {
+        "title": "エンジョイ・シンプル・イングリッシュ「伝言板」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年11月11日(月)午前9:10放送",
+        "closed_date": "2024年11月18日(月)午前9:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_d94a1d7cddbb4c5a316cc7a8a7c5ea11/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/11/11.mp3",
+        "download_date": "2024-11-11-12-28-33"
     }
 }
