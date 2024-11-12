@@ -61,5 +61,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_a3f0098360c7ddb52c9fe7e964b52189/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/11/11.mp3",
         "download_date": "2024-11-11-12-28-36"
+    },
+    "2024-11-12": {
+        "title": "ニュースで学ぶ「現代英語」　デパート各社　来年の福袋発表",
+        "sub_title": "「現代英語」とは、世界で実際に使われている英語です。最新の英語ニュースを通して、生きた英語を身につけます。講師：伊藤サム　パートナー：クリスティ・ウェスト",
+        "onair_date": "2024年11月12日(火)午前9:30放送",
+        "closed_date": "2024年11月19日(火)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_b0731218c08d72a4224bcfd929ce18da/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/11/12.mp3",
+        "download_date": "2024-11-12-12-26-30"
     }
 }
