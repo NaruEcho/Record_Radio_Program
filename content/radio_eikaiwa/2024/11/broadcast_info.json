@@ -79,5 +79,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_4b92a4a5b8c843ee386ff6b9c38c4f11/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/radio_eikaiwa/2024/11/13.mp3",
         "download_date": "2024-11-13-12-55-04"
+    },
+    "2024-11-14": {
+        "title": "ラジオ英会話　ハートでつかめ！英語の極意（１４９）",
+        "sub_title": "【講師】東洋学園大学教授…大西泰斗，【出演】デイビット・エバンス，秋乃ろーざ",
+        "onair_date": "2024年11月14日(木)午前6:45放送",
+        "closed_date": "2024年11月21日(木)午前7:00配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/PMMJ59J6N2/s/stream_PMMJ59J6N2_0fc2036f548359a1302e74638e964b9c/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/radio_eikaiwa/2024/11/14.mp3",
+        "download_date": "2024-11-14-12-28-55"
     }
 }
