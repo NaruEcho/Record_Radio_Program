@@ -88,5 +88,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_4c9820d8b1904bb22c3a9e26b7a893c0/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/11/14.mp3",
         "download_date": "2024-11-14-12-28-59"
+    },
+    "2024-11-15": {
+        "title": "ニュースで学ぶ「現代英語」　イギリス連邦　奴隷貿易の賠償を協議へ",
+        "sub_title": "ニュースや研究の現場で活躍している専門家が、「実際に現場で使っている英語」をニュースの背景とともに解説します。ＭＣ：トラウデン直美　解説：前嶋和弘",
+        "onair_date": "2024年11月15日(金)午前9:30放送",
+        "closed_date": "2024年11月22日(金)午前9:45配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/77RQWQX1L6/s/stream_77RQWQX1L6_8075d28b7b44231553e836e4f186f234/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/news_de_manabu_gendai_eigo/2024/11/15.mp3",
+        "download_date": "2024-11-15-15-35-26"
     }
 }

@@ -88,5 +88,14 @@
         "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_905a391632234d4de9ff3c532bdc4bcb/index.m3u8",
         "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/11/14.mp3",
         "download_date": "2024-11-14-12-28-56"
+    },
+    "2024-11-15": {
+        "title": "エンジョイ・シンプル・イングリッシュ「ルパンの脱獄－第２話－」",
+        "sub_title": "【司会】森崎ウィン",
+        "onair_date": "2024年11月15日(金)午前9:10放送",
+        "closed_date": "2024年11月22日(金)午前9:15配信終了",
+        "streaming_url": "https://vod-stream.nhk.jp/radioondemand/r/BR8Z3NX7XM/s/stream_BR8Z3NX7XM_211faf9c7bfbd99a9aa8f68a65a6998a/index.m3u8",
+        "audio_path": "/home/runner/work/Record_Radio_Program/Record_Radio_Program/content/enjoy_simple_english/2024/11/15.mp3",
+        "download_date": "2024-11-15-15-35-23"
     }
 }
